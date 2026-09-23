@@ -25,7 +25,7 @@ function Home() {
 
                 <span className="h-2 w-2 rounded-full bg-green-600" />
 
-                Free Online Calculators & Tools
+              Tools
 
               </div>
 
