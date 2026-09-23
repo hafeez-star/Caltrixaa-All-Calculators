@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
+
 function AgeCalculator() {
   const [birthDate, setBirthDate] = useState("");
   const [age, setAge] = useState(null);
@@ -82,8 +83,10 @@ function AgeCalculator() {
     setAge(null);
     setError("");
   }
+  
 
   return (
+    
     <div className="min-h-screen bg-white text-slate-900">
       <Navbar />
 
