@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import SEO from "../components/SEO";
 
 
 function AgeCalculator() {
@@ -8,25 +9,7 @@ function AgeCalculator() {
   const [age, setAge] = useState(null);
   const [error, setError] = useState("");
 
-  useEffect(function () {
-    document.title = "Age Calculator - Calculate Your Exact Age | Caltrixaa";
-
-    const metaDescription = document.querySelector(
-      'meta[name="description"]'
-    );
-
-    const description =
-      "Use Caltrixaa's free age calculator to calculate your exact age in years, months and days from your date of birth.";
-
-    if (metaDescription) {
-      metaDescription.setAttribute("content", description);
-    } else {
-      const meta = document.createElement("meta");
-      meta.name = "description";
-      meta.content = description;
-      document.head.appendChild(meta);
-    }
-  }, []);
+  
 
   function calculateAge() {
     setError("");
@@ -86,8 +69,25 @@ function AgeCalculator() {
   
 
   return (
-    
     <div className="min-h-screen bg-white text-slate-900">
+      <SEO
+  title="Age Calculator Online - Calculate Your Exact Age | Caltrixaa"
+  description="Calculate your exact age online from your date of birth. Find your age in years, months and days with Caltrixaa's free age calculator."
+  keywords="age calculator online, age calculator, calculate age, exact age calculator, age calculator by date of birth"
+  schema={{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "Age Calculator",
+    url: "https://caltrixaa.vercel.app/age-calculator",
+    applicationCategory: "UtilitiesApplication",
+    operatingSystem: "All",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD"
+    }
+  }}
+/>
       <Navbar />
 
       {/* Hero */}
@@ -99,7 +99,7 @@ function AgeCalculator() {
             </span>
 
             <h1 className="mt-5 text-4xl font-bold tracking-tight text-slate-950 sm:text-5xl">
-              Age Calculator
+              Age Calculator Online
             </h1>
 
             <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
@@ -279,6 +279,34 @@ function AgeCalculator() {
               <li>Preparing for birthday celebrations</li>
               <li>Calculating age for general personal use</li>
             </ul>
+            <h2 className="mt-12 text-3xl font-bold tracking-tight text-slate-950">
+  Related Calculators
+</h2>
+
+<div className="mt-6 flex flex-wrap gap-3">
+
+  <a
+    href="/date-calculator"
+    className="rounded-xl bg-indigo-50 px-4 py-2 font-semibold text-indigo-700 hover:bg-indigo-100"
+  >
+    Date Calculator
+  </a>
+
+  <a
+    href="/days-between-dates"
+    className="rounded-xl bg-indigo-50 px-4 py-2 font-semibold text-indigo-700 hover:bg-indigo-100"
+  >
+    Days Between Dates
+  </a>
+
+  <a
+    href="/time-calculator"
+    className="rounded-xl bg-indigo-50 px-4 py-2 font-semibold text-indigo-700 hover:bg-indigo-100"
+  >
+    Time Calculator
+  </a>
+
+</div>
 
             {/* FAQ */}
             <h2 className="mt-12 text-3xl font-bold tracking-tight text-slate-950">

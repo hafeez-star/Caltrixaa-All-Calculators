@@ -1,9 +1,28 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import CalculatorCard from "../components/CalculatorCard";
+import SEO from "../components/SEO";
 
-function Home() {
+function Home() {<SEO
+  title="Free Online Calculators - Caltrixaa"
+  description="Use free online calculators for age, BMI, percentage, dates, discounts, tips, averages, weight, calories, time and more."
+  keywords="free online calculators, online calculator, age calculator, BMI calculator, percentage calculator, date calculator"
+  schema={{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "Caltrixaa",
+    url: "https://caltrixaa.vercel.app/",
+    applicationCategory: "UtilitiesApplication",
+    operatingSystem: "All",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+    },
+  }}
+/>
   return (
+    
     <div className="min-h-screen bg-white text-slate-900">
 
       <Navbar />
@@ -214,6 +233,41 @@ function Home() {
           </div>
 
         </section>
+        <section className="mx-auto mt-16 max-w-4xl rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+  <h2 className="text-2xl font-bold text-slate-900">
+    Free Online Calculators
+  </h2>
+
+  <p className="mt-4 leading-7 text-slate-600">
+    Caltrixaa provides simple and free online calculators for
+    everyday calculations. You can calculate your age, BMI,
+    percentage, discount, tip, average, date difference,
+    weight, calories and more without installing an app.
+  </p>
+
+  <h2 className="mt-8 text-2xl font-bold text-slate-900">
+    Calculators for Everyday Use
+  </h2>
+
+  <p className="mt-4 leading-7 text-slate-600">
+    Whether you need to calculate your exact age, find your BMI,
+    work out a percentage, calculate a discount, compare dates,
+    convert time or estimate daily calories, Caltrixaa provides
+    easy-to-use tools designed for quick results.
+  </p>
+
+  <h2 className="mt-8 text-2xl font-bold text-slate-900">
+    Why Use Caltrixaa?
+  </h2>
+
+  <ul className="mt-4 list-disc space-y-2 pl-6 leading-7 text-slate-600">
+    <li>Free online calculators</li>
+    <li>Easy-to-use calculator interfaces</li>
+    <li>Works on desktop, tablet and mobile</li>
+    <li>No software installation required</li>
+    <li>Useful explanations and calculation formulas</li>
+  </ul>
+</section>
 
 
         {/* ABOUT PREVIEW */}
