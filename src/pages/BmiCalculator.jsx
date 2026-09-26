@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import SEO from "../components/SEO";
 
 function BmiCalculator() {
   const [unit, setUnit] = useState("metric");
@@ -9,22 +10,7 @@ function BmiCalculator() {
   const [result, setResult] = useState(null);
   const [error, setError] = useState("");
 
-  useEffect(function () {
-    document.title = "BMI Calculator - Calculate Your BMI | Caltrixaa";
 
-    const description =
-      "Use Caltrixaa's free BMI calculator to calculate your Body Mass Index and understand your BMI category.";
-
-    let meta = document.querySelector('meta[name="description"]');
-
-    if (!meta) {
-      meta = document.createElement("meta");
-      meta.name = "description";
-      document.head.appendChild(meta);
-    }
-
-    meta.content = description;
-  }, []);
 
   function calculateBMI() {
     setError("");
@@ -87,7 +73,28 @@ function BmiCalculator() {
 
   return (
     <div className="min-h-screen bg-white text-slate-900">
+
+      <SEO
+        title="BMI Calculator Online - Calculate Your BMI | Caltrixaa"
+        description="Calculate your BMI online using your height and weight. Get your Body Mass Index and BMI category with Caltrixaa's free BMI calculator."
+        keywords="BMI calculator online, BMI calculator, calculate BMI, BMI calculator for adults, Body Mass Index calculator"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          name: "BMI Calculator",
+          url: "https://caltrixaa.vercel.app/bmi-calculator",
+          applicationCategory: "HealthApplication",
+          operatingSystem: "All",
+          offers: {
+            "@type": "Offer",
+            price: "0",
+            priceCurrency: "USD"
+          }
+        }}
+      />
+
       <Navbar />
+
 
       {/* Hero */}
       <section className="border-b border-slate-100 bg-gradient-to-b from-indigo-50/70 via-white to-white">
@@ -130,11 +137,10 @@ function BmiCalculator() {
                 onClick={function () {
                   changeUnit("metric");
                 }}
-                className={`rounded-2xl px-4 py-3 font-semibold transition ${
-                  unit === "metric"
+                className={`rounded-2xl px-4 py-3 font-semibold transition ${unit === "metric"
                     ? "bg-indigo-600 text-white shadow-lg shadow-indigo-200"
                     : "border border-slate-300 bg-white text-slate-700 hover:bg-slate-50"
-                }`}
+                  }`}
               >
                 Metric
               </button>
@@ -143,11 +149,10 @@ function BmiCalculator() {
                 onClick={function () {
                   changeUnit("imperial");
                 }}
-                className={`rounded-2xl px-4 py-3 font-semibold transition ${
-                  unit === "imperial"
+                className={`rounded-2xl px-4 py-3 font-semibold transition ${unit === "imperial"
                     ? "bg-indigo-600 text-white shadow-lg shadow-indigo-200"
                     : "border border-slate-300 bg-white text-slate-700 hover:bg-slate-50"
-                }`}
+                  }`}
               >
                 Imperial
               </button>
@@ -321,7 +326,7 @@ function BmiCalculator() {
           <h2 className="mt-12 text-3xl font-bold text-slate-950">
             Frequently Asked Questions
           </h2>
-
+          
           <div className="mt-6 space-y-4">
             <details className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
               <summary className="cursor-pointer font-semibold">
@@ -354,6 +359,47 @@ function BmiCalculator() {
                 and weight in pounds.
               </p>
             </details>
+          </div>
+          {/* Related Calculators */}
+          <h2 className="mt-12 text-3xl font-bold text-slate-950">
+            Related Calculators
+          </h2>
+
+          <div className="mt-6 flex flex-wrap gap-3">
+            <a
+              href="/age-calculator"
+              className="rounded-xl bg-indigo-50 px-4 py-2 font-semibold text-indigo-700 transition hover:bg-indigo-100"
+            >
+              Age Calculator
+            </a>
+
+            <a
+              href="/ideal-weight-calculator"
+              className="rounded-xl bg-indigo-50 px-4 py-2 font-semibold text-indigo-700 transition hover:bg-indigo-100"
+            >
+              Ideal Weight Calculator
+            </a>
+
+            <a
+              href="/bmr-calculator"
+              className="rounded-xl bg-indigo-50 px-4 py-2 font-semibold text-indigo-700 transition hover:bg-indigo-100"
+            >
+              BMR Calculator
+            </a>
+
+            <a
+              href="/calorie-calculator"
+              className="rounded-xl bg-indigo-50 px-4 py-2 font-semibold text-indigo-700 transition hover:bg-indigo-100"
+            >
+              Calorie Calculator
+            </a>
+
+            <a
+              href="/weight-calculator"
+              className="rounded-xl bg-indigo-50 px-4 py-2 font-semibold text-indigo-700 transition hover:bg-indigo-100"
+            >
+              Weight Calculator
+            </a>
           </div>
         </article>
       </main>
