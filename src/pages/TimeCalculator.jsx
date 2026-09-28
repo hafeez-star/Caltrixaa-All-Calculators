@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import SEO from "../components/SEO";
 
 function TimeCalculator() {
   const [hours1, setHours1] = useState("");
@@ -46,6 +47,24 @@ function TimeCalculator() {
 
   return (
     <>
+      <SEO
+        title="Time Calculator Online - Add and Subtract Time | Caltrixaa"
+        description="Calculate, add and subtract hours and minutes with Caltrixaa's free online time calculator. Get accurate time calculations quickly."
+        keywords="time calculator, time calculator online, hours calculator, calculate time, add time calculator"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          name: "Time Calculator",
+          url: "https://caltrixaa.vercel.app/time-calculator",
+          applicationCategory: "UtilitiesApplication",
+          operatingSystem: "All",
+          offers: {
+            "@type": "Offer",
+            price: "0",
+            priceCurrency: "USD"
+          }
+        }}
+      />
       <Navbar />
 
       <main className="min-h-screen bg-slate-50 px-4 py-12">
@@ -55,7 +74,7 @@ function TimeCalculator() {
               <div className="text-4xl">⏰</div>
 
               <h1 className="mt-3 text-3xl font-bold text-slate-900">
-                Time Calculator
+                Time Calculator online
               </h1>
 
               <p className="mt-3 text-slate-500">

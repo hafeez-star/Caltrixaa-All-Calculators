@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import SEO from "../components/SEO";
 
 function BmrCalculator() {
   const [gender, setGender] = useState("male");
@@ -40,6 +41,24 @@ function BmrCalculator() {
 
   return (
     <>
+    <SEO
+  title="BMR Calculator Online - Calculate Basal Metabolic Rate | Caltrixaa"
+  description="Calculate your Basal Metabolic Rate with Caltrixaa's free BMR calculator. Estimate how many calories your body needs at rest."
+  keywords="BMR calculator, BMR calculator online, basal metabolic rate calculator, calculate BMR, BMR formula"
+  schema={{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "BMR Calculator",
+    url: "https://caltrixaa.vercel.app/bmr-calculator",
+    applicationCategory: "HealthApplication",
+    operatingSystem: "All",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD"
+    }
+  }}
+/>
       <Navbar />
 
       <main className="min-h-screen bg-slate-50 px-4 py-12">
@@ -49,7 +68,7 @@ function BmrCalculator() {
               <div className="text-4xl">🔥</div>
 
               <h1 className="mt-3 text-3xl font-bold text-slate-900">
-                BMR Calculator
+                BMR Calculator Online
               </h1>
 
               <p className="mt-3 text-slate-500">

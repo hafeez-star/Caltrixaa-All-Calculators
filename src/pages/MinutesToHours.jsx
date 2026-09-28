@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import SEO from "../components/SEO";
 
 function MinutesToHours() {
   const [minutes, setMinutes] = useState("");
@@ -29,6 +30,24 @@ function MinutesToHours() {
 
   return (
     <>
+    <SEO
+  title="Minutes to Hours Converter - Convert Minutes to Hours | Caltrixaa"
+  description="Convert minutes to hours instantly with Caltrixaa's free minutes to hours converter. Get hours and remaining minutes from any value."
+  keywords="minutes to hours, minutes to hours converter, convert minutes to hours, minutes in hours"
+  schema={{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "Minutes to Hours Converter",
+    url: "https://caltrixaa.vercel.app/minutes-to-hours",
+    applicationCategory: "UtilitiesApplication",
+    operatingSystem: "All",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD"
+    }
+  }}
+/>
       <Navbar />
 
       <main className="min-h-screen bg-slate-50 px-4 py-12">
@@ -38,7 +57,7 @@ function MinutesToHours() {
               <div className="text-4xl">⌛</div>
 
               <h1 className="mt-3 text-3xl font-bold text-slate-900">
-                Minutes to Hours Converter
+                Minutes to Hours Converter Online
               </h1>
 
               <p className="mt-3 text-slate-500">

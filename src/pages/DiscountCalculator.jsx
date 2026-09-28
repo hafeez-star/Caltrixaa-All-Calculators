@@ -1,27 +1,14 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-
+import SEO from "../components/SEO";
 function DiscountCalculator() {
   const [price, setPrice] = useState("");
   const [discount, setDiscount] = useState("");
   const [result, setResult] = useState(null);
   const [error, setError] = useState("");
 
-  useEffect(function () {
-    document.title = "Discount Calculator - Calculate Sale Price | Caltrixaa";
-
-    let meta = document.querySelector('meta[name="description"]');
-
-    if (!meta) {
-      meta = document.createElement("meta");
-      meta.name = "description";
-      document.head.appendChild(meta);
-    }
-
-    meta.content =
-      "Calculate discounts, savings and final sale prices with Caltrixaa's free discount calculator.";
-  }, []);
+ 
 
   function calculate() {
     setError("");
@@ -62,6 +49,24 @@ function DiscountCalculator() {
 
   return (
     <div className="min-h-screen bg-white text-slate-900">
+   <SEO
+  title="Discount Calculator Online - Calculate Sale Price | Caltrixaa"
+  description="Use this free discount calculator to find your discount amount, savings, and final sale price quickly and easily."
+  keywords="discount calculator, discount calculator online, sale price calculator, calculate discount, discount percentage calculator"
+  schema={{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "Discount Calculator",
+    url: "https://caltrixaa.vercel.app/discount-calculator",
+    applicationCategory: "UtilitiesApplication",
+    operatingSystem: "All",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD"
+    }
+  }}
+/>
       <Navbar />
 
       <section className="bg-gradient-to-b from-indigo-50/70 via-white to-white">
@@ -71,7 +76,7 @@ function DiscountCalculator() {
           </span>
 
           <h1 className="mt-5 text-4xl font-bold sm:text-5xl">
-            Discount Calculator
+            Discount Calculator Online
           </h1>
 
           <p className="mx-auto mt-5 max-w-2xl leading-7 text-slate-600">

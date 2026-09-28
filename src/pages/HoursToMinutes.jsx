@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-
+import SEO from "../components/SEO";
 function HoursToMinutes() {
   const [hours, setHours] = useState("");
   const [result, setResult] = useState(null);
@@ -22,6 +22,24 @@ function HoursToMinutes() {
 
   return (
     <>
+    <SEO
+  title="Hours to Minutes Converter - Convert Hours to Minutes | Caltrixaa"
+  description="Convert hours to minutes quickly with Caltrixaa's free hours to minutes converter. Enter hours and get the equivalent number of minutes."
+  keywords="hours to minutes, hours to minutes converter, convert hours to minutes, hours in minutes"
+  schema={{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "Hours to Minutes Converter",
+    url: "https://caltrixaa.vercel.app/hours-to-minutes",
+    applicationCategory: "UtilitiesApplication",
+    operatingSystem: "All",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD"
+    }
+  }}
+/>
       <Navbar />
 
       <main className="min-h-screen bg-slate-50 px-4 py-12">
@@ -31,7 +49,7 @@ function HoursToMinutes() {
               <div className="text-4xl">⏱️</div>
 
               <h1 className="mt-3 text-3xl font-bold text-slate-900">
-                Hours to Minutes Converter
+                Hours to Minutes Converter Online
               </h1>
 
               <p className="mt-3 text-slate-500">

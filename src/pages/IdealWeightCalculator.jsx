@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import SEO from "../components/SEO";
 
 function IdealWeightCalculator() {
   const [height, setHeight] = useState("");
@@ -41,6 +42,24 @@ function IdealWeightCalculator() {
 
   return (
     <>
+    <SEO
+  title="Ideal Weight Calculator - Calculate Healthy Weight | Caltrixaa"
+  description="Estimate ideal weight based on height with Caltrixaa's free ideal weight calculator. Get a quick weight range estimate online."
+  keywords="ideal weight calculator, ideal weight by height, healthy weight calculator, ideal body weight calculator"
+  schema={{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "Ideal Weight Calculator",
+    url: "https://caltrixaa.vercel.app/ideal-weight-calculator",
+    applicationCategory: "HealthApplication",
+    operatingSystem: "All",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD"
+    }
+  }}
+/>
       <Navbar />
 
       <main className="min-h-screen bg-slate-50 px-4 py-12">
@@ -50,7 +69,7 @@ function IdealWeightCalculator() {
               <div className="text-4xl">⚖️</div>
 
               <h1 className="mt-3 text-3xl font-bold text-slate-900">
-                Ideal Weight Calculator
+                Ideal Weight Calculator Online
               </h1>
 
               <p className="mt-3 text-slate-500">

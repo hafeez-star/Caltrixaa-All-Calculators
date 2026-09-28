@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import SEO from "../components/SEO";
 
 function WeightCalculator() {
   const [kg, setKg] = useState("");
@@ -24,6 +25,24 @@ function WeightCalculator() {
 
   return (
     <>
+      <SEO
+        title="Weight Calculator Online - Convert Weight Units | Caltrixaa"
+        description="Convert weight and mass units with Caltrixaa's free weight calculator. Easily convert kilograms, pounds and other common weight units."
+        keywords="weight calculator, weight converter, weight conversion calculator, kg to lbs, pounds to kg"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          name: "Weight Calculator",
+          url: "https://caltrixaa.vercel.app/weight-calculator",
+          applicationCategory: "UtilitiesApplication",
+          operatingSystem: "All",
+          offers: {
+            "@type": "Offer",
+            price: "0",
+            priceCurrency: "USD"
+          }
+        }}
+      />
       <Navbar />
 
       <main className="min-h-screen bg-slate-50 px-4 py-12">
@@ -33,7 +52,7 @@ function WeightCalculator() {
               <div className="text-4xl">⚖️</div>
 
               <h1 className="mt-3 text-3xl font-bold text-slate-900">
-                Weight Calculator
+                Weight Calculator Online
               </h1>
 
               <p className="mt-3 text-slate-500">

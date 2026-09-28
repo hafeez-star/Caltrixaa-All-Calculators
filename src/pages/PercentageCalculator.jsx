@@ -1,28 +1,14 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-
+import SEO from "../components/SEO";
 function PercentageCalculator() {
   const [percentage, setPercentage] = useState("");
   const [number, setNumber] = useState("");
   const [result, setResult] = useState(null);
   const [error, setError] = useState("");
 
-  useEffect(function () {
-    document.title =
-      "Percentage Calculator - Calculate Percentages Online | Caltrixaa";
-
-    let meta = document.querySelector('meta[name="description"]');
-
-    if (!meta) {
-      meta = document.createElement("meta");
-      meta.name = "description";
-      document.head.appendChild(meta);
-    }
-
-    meta.content =
-      "Free percentage calculator to calculate percentages quickly and easily online.";
-  }, []);
+  
 
   function calculate() {
     setError("");
@@ -55,6 +41,24 @@ function PercentageCalculator() {
 
   return (
     <div className="min-h-screen bg-white text-slate-900">
+     <SEO
+  title="Percentage Calculator Online - Calculate Percentages | Caltrixaa"
+  description="Calculate percentages online with this free percentage calculator. Find a percentage of a number quickly and easily."
+  keywords="percentage calculator, percentage calculator online, calculate percentage, percentage of a number, percent calculator"
+  schema={{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "Percentage Calculator",
+    url: "https://caltrixaa.vercel.app/percentage-calculator",
+    applicationCategory: "UtilitiesApplication",
+    operatingSystem: "All",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD"
+    }
+  }}
+/>
       <Navbar />
 
       <section className="bg-gradient-to-b from-indigo-50/70 via-white to-white">
@@ -64,7 +68,7 @@ function PercentageCalculator() {
           </span>
 
           <h1 className="mt-5 text-4xl font-bold sm:text-5xl">
-            Percentage Calculator
+            Percentage Calculator Online
           </h1>
 
           <p className="mx-auto mt-5 max-w-2xl leading-7 text-slate-600">

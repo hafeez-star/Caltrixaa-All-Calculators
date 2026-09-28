@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import SEO from "../components/SEO";
 
 function DateCalculator() {
   const [startDate, setStartDate] = useState("");
@@ -8,23 +9,7 @@ function DateCalculator() {
   const [result, setResult] = useState(null);
   const [error, setError] = useState("");
 
-  useEffect(function () {
-    document.title =
-      "Date Calculator - Calculate Days Between Dates | Caltrixaa";
-
-    const description =
-      "Use Caltrixaa's free date calculator to calculate the difference between two dates in days, weeks, months and years.";
-
-    let meta = document.querySelector('meta[name="description"]');
-
-    if (!meta) {
-      meta = document.createElement("meta");
-      meta.name = "description";
-      document.head.appendChild(meta);
-    }
-
-    meta.content = description;
-  }, []);
+  
 
   function calculateDateDifference() {
     setError("");
@@ -92,6 +77,24 @@ function DateCalculator() {
 
   return (
     <div className="min-h-screen bg-white text-slate-900">
+      <SEO
+  title="Date Calculator Online - Calculate Days Between Dates | Caltrixaa"
+  description="Calculate the difference between two dates with Caltrixaa's free date calculator. Find days, months and years between dates online."
+  keywords="date calculator, date calculator online, days calculator, calculate days between dates, date difference calculator"
+  schema={{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "Date Calculator",
+    url: "https://caltrixaa.vercel.app/date-calculator",
+    applicationCategory: "UtilitiesApplication",
+    operatingSystem: "All",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD"
+    }
+  }}
+/>
       <Navbar />
 
       {/* Hero */}
@@ -103,7 +106,7 @@ function DateCalculator() {
             </span>
 
             <h1 className="mt-5 text-4xl font-bold tracking-tight text-slate-950 sm:text-5xl">
-              Date Calculator
+              Date Calculator Online
             </h1>
 
             <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import SEO from "../components/SEO";
 
 function DaysBetweenDates() {
   const [startDate, setStartDate] = useState("");
@@ -30,6 +31,24 @@ function DaysBetweenDates() {
 
   return (
     <>
+    <SEO
+  title="Days Between Dates Calculator - Calculate Date Difference | Caltrixaa"
+  description="Calculate the number of days between two dates with Caltrixaa's free days between dates calculator. Get an accurate date difference instantly."
+  keywords="days between dates, days between dates calculator, calculate days between dates, date difference calculator, days calculator"
+  schema={{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "Days Between Dates Calculator",
+    url: "https://caltrixaa.vercel.app/days-between-dates",
+    applicationCategory: "UtilitiesApplication",
+    operatingSystem: "All",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD"
+    }
+  }}
+/>
       <Navbar />
 
       <main className="min-h-screen bg-slate-50 px-4 py-12">
@@ -39,7 +58,7 @@ function DaysBetweenDates() {
               <div className="text-4xl">📆</div>
 
               <h1 className="mt-3 text-3xl font-bold text-slate-900">
-                Days Between Dates Calculator
+                Days Between Dates Calculator Online
               </h1>
 
               <p className="mx-auto mt-3 max-w-2xl text-slate-500">

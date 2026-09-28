@@ -1,27 +1,14 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import SEO from "../components/SEO";
 
 function AverageCalculator() {
   const [numbers, setNumbers] = useState("");
   const [result, setResult] = useState(null);
   const [error, setError] = useState("");
 
-  useEffect(function () {
-    document.title =
-      "Average Calculator - Calculate Mean Online | Caltrixaa";
-
-    let meta = document.querySelector('meta[name="description"]');
-
-    if (!meta) {
-      meta = document.createElement("meta");
-      meta.name = "description";
-      document.head.appendChild(meta);
-    }
-
-    meta.content =
-      "Use Caltrixaa's free average calculator to calculate the mean of multiple numbers quickly.";
-  }, []);
+ 
 
   function calculate() {
     setError("");
@@ -66,6 +53,24 @@ function AverageCalculator() {
 
   return (
     <div className="min-h-screen bg-white text-slate-900">
+    <SEO
+  title="Average Calculator Online - Calculate Average & Mean | Caltrixaa"
+  description="Calculate the average or mean of numbers with this free online average calculator. Enter your numbers and get the result instantly."
+  keywords="average calculator, average calculator online, calculate average, mean calculator, average of numbers"
+  schema={{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "Average Calculator",
+    url: "https://caltrixaa.vercel.app/average-calculator",
+    applicationCategory: "UtilitiesApplication",
+    operatingSystem: "All",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD"
+    }
+  }}
+/>
       <Navbar />
 
       <section className="bg-gradient-to-b from-indigo-50/70 via-white to-white">
@@ -75,7 +80,7 @@ function AverageCalculator() {
           </span>
 
           <h1 className="mt-5 text-4xl font-bold sm:text-5xl">
-            Average Calculator
+            Average Calculator Online
           </h1>
 
           <p className="mx-auto mt-5 max-w-2xl leading-7 text-slate-600">

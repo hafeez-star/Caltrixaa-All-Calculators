@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import SEO from "../components/SEO";
 
 function CalorieCalculator() {
   const [gender, setGender] = useState("male");
@@ -45,6 +46,24 @@ function CalorieCalculator() {
 
   return (
     <>
+    <SEO
+  title="Calorie Calculator Online - Calculate Daily Calories | Caltrixaa"
+  description="Estimate your daily calorie needs with Caltrixaa's free calorie calculator. Calculate estimated calories based on your personal information and activity level."
+  keywords="calorie calculator, calorie calculator online, daily calorie calculator, calories calculator, calculate daily calories"
+  schema={{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "Calorie Calculator",
+    url: "https://caltrixaa.vercel.app/calorie-calculator",
+    applicationCategory: "HealthApplication",
+    operatingSystem: "All",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD"
+    }
+  }}
+/>
       <Navbar />
 
       <main className="min-h-screen bg-slate-50 px-4 py-12">
@@ -54,7 +73,7 @@ function CalorieCalculator() {
               <div className="text-4xl">🍎</div>
 
               <h1 className="mt-3 text-3xl font-bold text-slate-900">
-                Calorie Calculator
+                Calorie Calculator Online & Ofline
               </h1>
 
               <p className="mt-3 text-slate-500">
