@@ -95,22 +95,10 @@ function Home() {
 
 
         {/* CALCULATOR CATEGORIES */}
-        <section
-          id="calculators"
-          className="border-t border-slate-100 bg-slate-50/70 py-20"
-        >
-
-          <div
-            id="categories"
-            className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"
-          >
-
-
-
+        <section id="calculators">
+          <div id="categories">
             <CalculatorCategories />
-
           </div>
-
         </section>
 
 

@@ -12,6 +12,8 @@ function Category() {
       title: "Math & Numbers Calculators",
       description:
         "Free online calculators for percentages, averages and everyday number calculations.",
+      keywords:
+        "math calculators, percentage calculator, average calculator, number calculators",
       calculators: [
         {
           icon: "％",
@@ -35,6 +37,8 @@ function Category() {
       title: "Money & Shopping Calculators",
       description:
         "Calculate discounts, savings, tips and useful shopping calculations.",
+      keywords:
+        "money calculators, discount calculator, tip calculator, shopping calculator",
       calculators: [
         {
           icon: "🏷️",
@@ -57,7 +61,9 @@ function Category() {
       icon: "📅",
       title: "Date & Time Calculators",
       description:
-        "Calculate age and find the difference between dates.",
+        "Calculate age, date differences, time and common time conversions.",
+      keywords:
+        "date calculators, time calculators, age calculator, days between dates",
       calculators: [
         {
           icon: "🎂",
@@ -70,8 +76,36 @@ function Category() {
           icon: "📅",
           title: "Date Calculator",
           description:
-            "Calculate days, weeks, months and years between dates.",
+            "Calculate dates, days, months and years between dates.",
           link: "/date-calculator",
+        },
+        {
+          icon: "🗓️",
+          title: "Days Between Dates",
+          description:
+            "Find the exact number of days between two dates.",
+          link: "/days-between-dates",
+        },
+        {
+          icon: "⏱️",
+          title: "Time Calculator",
+          description:
+            "Add and subtract hours and minutes quickly.",
+          link: "/time-calculator",
+        },
+        {
+          icon: "⏰",
+          title: "Hours to Minutes",
+          description:
+            "Convert hours into minutes instantly.",
+          link: "/hours-to-minutes",
+        },
+        {
+          icon: "⌛",
+          title: "Minutes to Hours",
+          description:
+            "Convert minutes into hours and remaining minutes.",
+          link: "/minutes-to-hours",
         },
       ],
     },
@@ -80,7 +114,9 @@ function Category() {
       icon: "❤️",
       title: "Health Calculators",
       description:
-        "Simple online health calculators for everyday calculations.",
+        "Simple online health and body-related calculators for everyday use.",
+      keywords:
+        "health calculators, BMI calculator, BMR calculator, calorie calculator, ideal weight calculator",
       calculators: [
         {
           icon: "⚖️",
@@ -93,14 +129,14 @@ function Category() {
           icon: "⚖️",
           title: "Weight Calculator",
           description:
-            "Convert and calculate common weight measurements.",
+            "Convert kilograms to pounds quickly and easily.",
           link: "/weight-calculator",
         },
         {
           icon: "📏",
           title: "Ideal Weight Calculator",
           description:
-            "Estimate an ideal weight range using your height.",
+            "Estimate ideal weight using your height.",
           link: "/ideal-weight-calculator",
         },
         {
@@ -114,24 +150,8 @@ function Category() {
           icon: "🍎",
           title: "Calorie Calculator",
           description:
-            "Estimate daily calorie needs based on your profile.",
+            "Estimate daily calorie needs based on your information.",
           link: "/calorie-calculator",
-        },
-      ],
-    },
-
-    "craft-diy": {
-      icon: "🛁",
-      title: "Craft & DIY Calculators",
-      description:
-        "Useful calculators for craft projects, DIY recipes, ratios and measurements.",
-      calculators: [
-        {
-          icon: "🛁",
-          title: "Bath Bomb Ratio Calculator",
-          description:
-            "Calculate baking soda and citric acid quantities for bath bombs.",
-          link: "/bath-bomb-ratio-calculator",
         },
       ],
     },
@@ -145,16 +165,24 @@ function Category() {
         <Navbar />
 
         <main className="mx-auto max-w-4xl px-4 py-20 text-center">
-          <h1 className="text-4xl font-bold text-slate-950">
+
+          <div className="text-6xl">🔎</div>
+
+          <h1 className="mt-6 text-4xl font-bold text-slate-950">
             Category Not Found
           </h1>
 
+          <p className="mt-4 text-slate-600">
+            The calculator category you are looking for does not exist.
+          </p>
+
           <Link
             to="/"
-            className="mt-6 inline-block rounded-2xl bg-indigo-600 px-6 py-3 font-semibold text-white"
+            className="mt-7 inline-flex rounded-2xl bg-indigo-600 px-6 py-3 font-semibold text-white shadow-lg transition hover:bg-indigo-700"
           >
             Back to Home
           </Link>
+
         </main>
 
         <Footer />
@@ -166,13 +194,24 @@ function Category() {
     <div className="min-h-screen bg-white text-slate-900">
 
       <SEO
-        title={`${data.title} | Caltrixaa`}
+        title={`${data.title} - Free Online Tools | Caltrixaa`}
         description={data.description}
+        keywords={data.keywords}
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: data.title,
+          url: `https://caltrixaa.vercel.app/category/${category}`,
+          description: data.description,
+        }}
       />
 
       <Navbar />
 
+
+      {/* HERO */}
       <section className="border-b border-slate-100 bg-gradient-to-b from-indigo-50/70 via-white to-white">
+
         <div className="mx-auto max-w-6xl px-4 py-14 text-center sm:px-6 lg:px-8">
 
           <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-3xl bg-white text-4xl shadow-lg">
@@ -188,13 +227,34 @@ function Category() {
           </p>
 
         </div>
+
       </section>
 
+
+      {/* CALCULATORS */}
       <main className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+
+        <div className="mb-8">
+
+          <p className="text-sm font-bold uppercase tracking-widest text-indigo-600">
+            Caltrixaa Tools
+          </p>
+
+          <h2 className="mt-2 text-3xl font-bold text-slate-950">
+            {data.calculators.length}{" "}
+            {data.calculators.length === 1
+              ? "Calculator"
+              : "Calculators"}{" "}
+            Available
+          </h2>
+
+        </div>
+
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
 
           {data.calculators.map(function (calculator) {
+
             return (
               <Link
                 key={calculator.link}
@@ -202,13 +262,13 @@ function Category() {
                 className="group rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-indigo-200 hover:shadow-xl"
               >
 
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-50 text-3xl transition group-hover:scale-110">
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-50 text-3xl transition group-hover:scale-110 group-hover:bg-indigo-100">
                   {calculator.icon}
                 </div>
 
-                <h2 className="mt-5 text-xl font-bold text-slate-950">
+                <h3 className="mt-5 text-xl font-bold text-slate-950">
                   {calculator.title}
-                </h2>
+                </h3>
 
                 <p className="mt-3 text-sm leading-6 text-slate-600">
                   {calculator.description}
@@ -216,6 +276,7 @@ function Category() {
 
                 <div className="mt-6 flex items-center font-semibold text-indigo-600">
                   Open Calculator
+
                   <span className="ml-2 transition group-hover:translate-x-1">
                     →
                   </span>
@@ -223,13 +284,37 @@ function Category() {
 
               </Link>
             );
+
           })}
 
         </div>
 
+
+        {/* SEO TEXT */}
+        <article className="mx-auto mt-16 max-w-4xl rounded-3xl border border-slate-200 bg-slate-50 p-6 sm:p-8">
+
+          <h2 className="text-2xl font-bold text-slate-950">
+            Free {data.title}
+          </h2>
+
+          <p className="mt-4 leading-8 text-slate-600">
+            Caltrixaa provides free online tools designed to make everyday
+            calculations easier. Choose a calculator above to enter your
+            information and get a quick result without installing software.
+          </p>
+
+          <p className="mt-4 leading-8 text-slate-600">
+            Our calculators are designed to work across phones, tablets,
+            laptops and desktop computers with simple interfaces and clear
+            results.
+          </p>
+
+        </article>
+
       </main>
 
       <Footer />
+
     </div>
   );
 }

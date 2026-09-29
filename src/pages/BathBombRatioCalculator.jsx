@@ -1,138 +1,483 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import SEO from "../components/SEO";
 
 function BathBombRatioCalculator() {
-  const [bombs, setBombs] = useState(4);
-  const [size, setSize] = useState(150);
-  const [oilPercent, setOilPercent] = useState(1.5);
+  const [batchWeight, setBatchWeight] = useState("");
+  const [fragranceOil, setFragranceOil] = useState("");
+  const [result, setResult] = useState(null);
+  const [error, setError] = useState("");
 
-  const totalWeight = bombs * size;
-  const dryBase = totalWeight * (1 - oilPercent / 100);
-  const bakingSoda = dryBase * 0.51;
-  const citricAcid = dryBase * 0.255;
-  const epsomSalt = dryBase * 0.10;
-  const cornStarch = dryBase * 0.10;
-  const coconutOil = dryBase * 0.025;
-  const witchHazel = dryBase * 0.01;
-  const essentialOil = totalWeight * (oilPercent / 100);
+  function calculateRatio() {
+    setError("");
+    setResult(null);
 
-  // SEO - Update Title
-  useEffect(() => {
-    document.title = "Bath Bomb Ratio Calculator UK & USA | Recipe in Grams | Caltrixaa";
-    const meta = document.querySelector('meta[name="description"]');
-    if(meta) meta.setAttribute("content", "Free bath bomb ratio calculator UK & USA. Calculate perfect 1:2 ratio, ingredients in grams, how much baking soda & citric acid. For 1, 4, 6 bombs.");
-  }, []);
+    if (!batchWeight) {
+      setError("Please enter your total batch weight.");
+      return;
+    }
+
+    const total = Number(batchWeight);
+    const fragrance = Number(fragranceOil || 0);
+
+    if (total <= 0) {
+      setError("Please enter a batch weight greater than 0.");
+      return;
+    }
+
+    if (fragrance < 0 || fragrance >= total) {
+      setError("Please enter a valid fragrance oil amount.");
+      return;
+    }
+
+    /*
+      1:2 ratio
+      Citric Acid = 1 part
+      Baking Soda = 2 parts
+      Total dry base = 3 parts
+    */
+
+    const baseWeight = total - fragrance;
+
+    const citricAcid = baseWeight / 3;
+    const bakingSoda = citricAcid * 2;
+
+    setResult({
+      citricAcid: citricAcid,
+      bakingSoda: bakingSoda,
+      fragranceOil: fragrance,
+      total: total,
+      citricOunces: citricAcid * 0.035274,
+      bakingOunces: bakingSoda * 0.035274,
+      fragranceOunces: fragrance * 0.035274,
+      totalOunces: total * 0.035274,
+    });
+  }
+
+  function resetCalculator() {
+    setBatchWeight("");
+    setFragranceOil("");
+    setResult(null);
+    setError("");
+  }
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* JSON-LD Schemas for Google */}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-        "@context":"https://schema.org",
-        "@type":"FAQPage",
-        "mainEntity":[
-          {"@type":"Question","name":"What is the 1:2 ratio for bath bombs?","acceptedAnswer":{"@type":"Answer","text":"The 1:2 ratio means 1 part citric acid to 2 parts baking soda. For UK/USA standard, use 150g baking soda and 75g citric acid per 3 bombs. Our bath bomb ratio calculator does this automatically."}},
-          {"@type":"Question","name":"How much baking soda for a bath bomb in grams UK?","acceptedAnswer":{"@type":"Answer","text":"For a medium 150g bath bomb in UK, you need 76.5g baking soda (51%). Use our bath bomb ingredients calculator for exact grams."}},
-          {"@type":"Question","name":"Bath bomb recipe calculator UK grams?","acceptedAnswer":{"@type":"Answer","text":"Yes, this tool is a bath bomb recipe calculator UK grams. It calculates baking soda, citric acid, epsom salt, cornstarch in grams and ounces."}}
-        ]
-      })}} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-        "@context":"https://schema.org",
-        "@type":"SoftwareApplication",
-        "name":"Bath Bomb Ratio Calculator",
-        "applicationCategory":"Calculator",
-        "operatingSystem":"Web",
-        "offers":{"@type":"Offer","price":"0"}
-      })}} />
+    <div className="min-h-screen bg-white text-slate-900">
+      <SEO
+        title="Bath Bomb Ratio Calculator - Perfect 1:2 Ratio in Grams | Caltrixaa"
+        description="Use this bath bomb ratio calculator to calculate a 1:2 citric acid to baking soda recipe in grams and ounces for your next DIY bath bomb batch."
+        keywords="bath bomb ratio calculator, bath bomb calculator grams, bath bomb ingredients calculator, bath bomb recipe calculator, 1:2 bath bomb ratio calculator, bath bomb batch calculator, diy bath bomb calculator, bath bomb recipe in grams calculator"
+        schema={{
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebApplication",
+              name: "Bath Bomb Ratio Calculator",
+              url: "https://caltrixaa.vercel.app/bath-bomb-ratio-calculator",
+              applicationCategory: "UtilitiesApplication",
+              operatingSystem: "All",
+              description:
+                "Calculate a 1:2 citric acid to baking soda bath bomb ratio in grams and ounces.",
+              offers: {
+                "@type": "Offer",
+                price: "0",
+                priceCurrency: "USD",
+              },
+            },
+            {
+              "@type": "FAQPage",
+              mainEntity: [
+                {
+                  "@type": "Question",
+                  name: "How much baking soda do I need for a bath bomb?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text:
+                      "For a simple 1:2 bath bomb ratio, use two parts baking soda for every one part citric acid. For example, 100 grams of citric acid uses 200 grams of baking soda.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "What is the 1:2 bath bomb ratio?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text:
+                      "The 1:2 ratio means one part citric acid is combined with two parts baking soda. The ratio is useful for scaling a basic bath bomb dry base.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "Can I calculate a bath bomb recipe in grams?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text:
+                      "Yes. Enter the total batch weight and the calculator works out the citric acid and baking soda amounts in grams and ounces.",
+                  },
+                },
+              ],
+            },
+          ],
+        }}
+      />
+
+      <Navbar />
+
+      {/* HERO */}
+      <section className="border-b border-slate-100 bg-gradient-to-b from-indigo-50 via-white to-white">
+        <div className="mx-auto max-w-6xl px-4 py-14 text-center sm:px-6 lg:px-8">
+          <span className="inline-flex rounded-full border border-indigo-100 bg-white px-4 py-2 text-sm font-semibold text-indigo-600 shadow-sm">
+            🛁 Craft & DIY Calculator
+          </span>
+
+          <h1 className="mt-5 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">
+            Bath Bomb Ratio Calculator
+          </h1>
+
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
+            Calculate a simple 1:2 citric acid to baking soda bath bomb ratio
+            in grams and ounces for your DIY bath bomb recipe.
+          </p>
+        </div>
+      </section>
 
       {/* CALCULATOR */}
-      <div className="bg-slate-50 py-10 px-4 border-b">
-        <div className="mx-auto max-w-5xl">
-          <div className="text-center mb-8">
-            <span className="inline-block rounded-full bg-indigo-100 px-4 py-1.5 text-sm font-semibold text-indigo-600">Craft & DIY Calculators</span>
-            <h1 className="mt-3 text-4xl font-bold tracking-tight">Bath Bomb Ratio Calculator - Perfect 1:2 Recipe in Grams (UK & USA)</h1>
-            <p className="mt-3 text-slate-600 max-w-3xl mx-auto">Free <strong>bath bomb ingredients calculator</strong> for UK & USA. Calculate <strong>bath bomb ratio</strong>, <strong>how much baking soda for bath bomb</strong>, citric acid, and fragrance oil in grams & ounces. Works for 1, 4, 6 bombs.</p>
-          </div>
+      <main className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-2xl">
+          <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-xl shadow-slate-200/50 sm:p-8">
+            <div className="mb-7">
+              <h2 className="text-2xl font-bold text-slate-950">
+                1:2 Bath Bomb Recipe Calculator
+              </h2>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="rounded-3xl bg-white p-6 shadow-sm border">
-              <h3 className="font-bold text-lg mb-5">Your Batch Settings</h3>
-              <label className="text-sm font-semibold">How Many Bath Bombs? ({bombs})</label>
-              <input type="range" min="1" max="50" value={bombs} onChange={e=>setBombs(+e.target.value)} className="w-full accent-indigo-600 my-3" />
-              <label className="text-sm font-semibold mt-4 block">Size Per Bomb</label>
-              <select value={size} onChange={e=>setSize(+e.target.value)} className="w-full mt-2 rounded-xl border p-3 bg-white">
-                <option value={100}>Small - 100g (UK Small)</option>
-                <option value={150}>Medium - 150g (Standard USA/UK)</option>
-                <option value={200}>Large - 200g</option>
-                <option value={250}>Extra Large - 250g</option>
-              </select>
-              <label className="text-sm font-semibold mt-6 block">Fragrance Strength ({oilPercent}%)</label>
-              <input type="range" min="0.5" max="5" step="0.5" value={oilPercent} onChange={e=>setOilPercent(+e.target.value)} className="w-full accent-pink-600 my-3" />
-              <div className="mt-6 rounded-2xl bg-slate-900 text-white p-5 text-center">
-                <p className="text-xs opacity-70 uppercase tracking-widest">Total Batch Weight</p>
-                <p className="text-3xl font-bold mt-1">{totalWeight} g / {(totalWeight/28.35).toFixed(1)} oz</p>
-                <p className="text-xs opacity-50 mt-1">{bombs} bombs × {size}g</p>
-              </div>
+              <p className="mt-2 text-sm leading-6 text-slate-500">
+                Enter your total batch weight. You can optionally include
+                fragrance oil in the batch.
+              </p>
             </div>
 
-            <div className="rounded-3xl bg-white p-6 shadow-sm border">
-              <h3 className="font-bold text-lg mb-5">Recipe Ingredients (Grams & Oz)</h3>
-              <div className="space-y-3">
-                <Row name="Baking Soda" sub="51% of recipe - UK/USA standard" val={bakingSoda} />
-                <Row name="Citric Acid" sub="25.5% - 1:2 ratio" val={citricAcid} />
-                <Row name="Epsom Salt" sub="10% - For skin" val={epsomSalt} />
-                <Row name="Cornstarch / Kaolin Clay" sub="10% - Binding" val={cornStarch} />
-                <Row name="Coconut Oil (Melted)" sub="2.5%" val={coconutOil} />
-                <Row name="Essential / Fragrance Oil" sub={`${oilPercent}% - Skin safe`} val={essentialOil} highlight />
-                <Row name="Witch Hazel / Water (Spray)" sub="1% binder" val={witchHazel} />
-              </div>
+            {/* Batch Weight */}
+            <div>
+              <label
+                htmlFor="batchWeight"
+                className="mb-2 block text-sm font-semibold text-slate-700"
+              >
+                Total Batch Weight (grams)
+              </label>
+
+              <input
+                id="batchWeight"
+                type="number"
+                min="1"
+                value={batchWeight}
+                onChange={function (event) {
+                  setBatchWeight(event.target.value);
+                }}
+                placeholder="Example: 300"
+                className="w-full rounded-2xl border border-slate-300 bg-white px-4 py-3.5 text-slate-800 outline-none transition focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100"
+              />
             </div>
+
+            {/* Fragrance */}
+            <div className="mt-5">
+              <label
+                htmlFor="fragranceOil"
+                className="mb-2 block text-sm font-semibold text-slate-700"
+              >
+                Fragrance Oil (grams) — Optional
+              </label>
+
+              <input
+                id="fragranceOil"
+                type="number"
+                min="0"
+                value={fragranceOil}
+                onChange={function (event) {
+                  setFragranceOil(event.target.value);
+                }}
+                placeholder="Example: 10"
+                className="w-full rounded-2xl border border-slate-300 bg-white px-4 py-3.5 text-slate-800 outline-none transition focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100"
+              />
+
+              <p className="mt-2 text-xs text-slate-500">
+                Leave this empty if you only want the basic 1:2 dry ingredient
+                ratio.
+              </p>
+            </div>
+
+            {error && (
+              <div className="mt-5 rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-600">
+                {error}
+              </div>
+            )}
+
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+              <button
+                onClick={calculateRatio}
+                className="flex-1 rounded-2xl bg-indigo-600 px-5 py-3.5 font-semibold text-white shadow-lg shadow-indigo-200 transition hover:bg-indigo-700 active:scale-[0.99]"
+              >
+                Calculate Bath Bomb Ratio
+              </button>
+
+              <button
+                onClick={resetCalculator}
+                className="rounded-2xl border border-slate-300 bg-white px-5 py-3.5 font-semibold text-slate-700 transition hover:bg-slate-50"
+              >
+                Reset
+              </button>
+            </div>
+
+            {/* RESULTS */}
+            {result && (
+              <div className="mt-8 rounded-3xl bg-gradient-to-br from-indigo-600 to-violet-600 p-6 text-white shadow-xl sm:p-7">
+                <div className="mb-5">
+                  <p className="text-sm font-medium text-indigo-100">
+                    Your bath bomb recipe
+                  </p>
+
+                  <h3 className="mt-1 text-2xl font-bold">
+                    1:2 Citric Acid to Baking Soda
+                  </h3>
+                </div>
+
+                <div className="grid gap-3 sm:grid-cols-2">
+                  <div className="rounded-2xl bg-white/10 p-5 backdrop-blur">
+                    <p className="text-sm text-indigo-100">
+                      Citric Acid
+                    </p>
+
+                    <p className="mt-1 text-3xl font-bold">
+                      {result.citricAcid.toFixed(2)} g
+                    </p>
+
+                    <p className="mt-1 text-sm text-indigo-100">
+                      {result.citricOunces.toFixed(2)} oz
+                    </p>
+                  </div>
+
+                  <div className="rounded-2xl bg-white/10 p-5 backdrop-blur">
+                    <p className="text-sm text-indigo-100">
+                      Baking Soda
+                    </p>
+
+                    <p className="mt-1 text-3xl font-bold">
+                      {result.bakingSoda.toFixed(2)} g
+                    </p>
+
+                    <p className="mt-1 text-sm text-indigo-100">
+                      {result.bakingOunces.toFixed(2)} oz
+                    </p>
+                  </div>
+
+                  <div className="rounded-2xl bg-white/10 p-5 backdrop-blur">
+                    <p className="text-sm text-indigo-100">
+                      Fragrance Oil
+                    </p>
+
+                    <p className="mt-1 text-2xl font-bold">
+                      {result.fragranceOil.toFixed(2)} g
+                    </p>
+
+                    <p className="mt-1 text-sm text-indigo-100">
+                      {result.fragranceOunces.toFixed(2)} oz
+                    </p>
+                  </div>
+
+                  <div className="rounded-2xl bg-white/10 p-5 backdrop-blur">
+                    <p className="text-sm text-indigo-100">
+                      Total Batch
+                    </p>
+
+                    <p className="mt-1 text-2xl font-bold">
+                      {result.total.toFixed(2)} g
+                    </p>
+
+                    <p className="mt-1 text-sm text-indigo-100">
+                      {result.totalOunces.toFixed(2)} oz
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mt-5 rounded-2xl bg-white/10 p-4 text-center">
+                  <p className="text-sm text-indigo-100">
+                    Basic ratio
+                  </p>
+
+                  <p className="mt-1 text-xl font-bold">
+                    1 part Citric Acid : 2 parts Baking Soda
+                  </p>
+                </div>
+              </div>
+            )}
           </div>
         </div>
-      </div>
 
-      {/* SEO CONTENT - UK USA KEYWORDS */}
-      <div className="mx-auto max-w-4xl px-4 py-12">
-        <h2 className="text-2xl font-bold">Bath Bomb Ratio Calculator UK - What is the Perfect 1:2 Ratio?</h2>
-        <p className="text-slate-600 leading-7 mt-3">Looking for a <strong>bath bomb recipe calculator UK grams</strong>? The perfect <strong>bath bomb ratio</strong> is <strong>2 parts baking soda to 1 part citric acid</strong>. This is called the 1:2 ratio. Our <strong>bath bomb ingredients calculator</strong> uses the professional formula trusted in USA and UK: 51% baking soda, 25.5% citric acid, 10% epsom salt, 10% cornstarch, and 3.5% oils. This ensures your bath bombs fizz perfectly and don't crumble.</p>
+        {/* SEO CONTENT */}
+        <article className="mx-auto mt-16 max-w-4xl">
+          <div className="leading-8 text-slate-600">
+            <h2 className="text-3xl font-bold tracking-tight text-slate-950">
+              What Is a Bath Bomb Ratio Calculator?
+            </h2>
 
-        <h3 className="text-xl font-bold mt-8">How Much Baking Soda For a Bath Bomb? (Grams Chart)</h3>
-        <p className="text-slate-600 leading-7 mt-3">Many people in UK search <strong>how much baking soda for bath bomb</strong>. Here is the answer: For 1 medium bomb (150g), you need 76.5g baking soda and 38.2g citric acid. For 4 bombs (600g total like your screenshot), you need 301.4g baking soda and 150.7g citric acid. Our <strong>bath bomb recipe calculator</strong> calculates this instantly in grams and ounces for both UK and USA users.</p>
+            <p className="mt-5">
+              A bath bomb ratio calculator helps you work out the amount of
+              citric acid and baking soda needed for a batch size. Instead of
+              calculating each ingredient by hand, you can enter the total
+              batch weight and get the ingredient amounts in grams and ounces.
+              This makes it easier to scale a DIY bath bomb recipe for a small
+              test batch or a larger project.
+            </p>
 
-        <div className="bg-slate-50 border rounded-xl p-4 mt-4 grid grid-cols-3 gap-4 text-sm text-center">
-          <div><b>1 Bomb (150g)</b><br/>76.5g Soda<br/>38.2g Acid</div>
-          <div><b>4 Bombs (600g)</b><br/>301.4g Soda<br/>150.7g Acid</div>
-          <div><b>6 Bombs (900g)</b><br/>452.1g Soda<br/>226.0g Acid</div>
-        </div>
+            <h2 className="mt-12 text-3xl font-bold tracking-tight text-slate-950">
+              1:2 Bath Bomb Ratio in Grams
+            </h2>
 
-        <h3 className="text-xl font-bold mt-8">How to Use This Bath Bomb Ingredients Calculator</h3>
-        <ol className="list-decimal pl-5 mt-3 text-slate-600 space-y-2">
-          <li><strong>Select Quantity:</strong> How many bath bombs you want to make - perfect for small UK batches.</li>
-          <li><strong>Select Size:</strong> 150g is standard in USA & UK. 100g for small gifts.</li>
-          <li><strong>Check Grams & Ounces:</strong> This calculator shows both for UK (grams) and USA (ounces).</li>
-        </ol>
+            <p className="mt-5">
+              This calculator uses a simple 1:2 ratio: one part citric acid
+              to two parts baking soda. Because the dry base contains three
+              total parts, one third of the base is citric acid and two thirds
+              is baking soda.
+            </p>
 
-        <div className="mt-12">
-          <h2 className="text-2xl font-bold">FAQs - Bath Bomb Calculator UK & USA</h2>
-          <div className="mt-6 space-y-4">
-            <Faq q="What is the best bath bomb ratio calculator UK?" a="The best bath bomb ratio calculator UK uses grams, not cups. Our calculator uses 51% baking soda, 25.5% citric acid (1:2 ratio) which is perfect for UK water hardness." />
-            <Faq q="How much citric acid and baking soda for bath bombs?" a="Use 2:1 - For every 100g citric acid, use 200g baking soda. For 600g batch (4 bombs), use 301.4g baking soda and 150.7g citric acid." />
-            <Faq q="Can I use this as a bath bomb recipe calculator in grams?" a="Yes, this is specifically a bath bomb recipe calculator in grams for UK users, but it also shows ounces for USA users. 100% accurate for Lush-style bombs." />
-            <Faq q="Why does my bath bomb crumble? UK recipe issue?" a="UK homes are more humid. If it crumbles, you used too little witch hazel. If it expands, you sprayed too fast. Mix should feel like wet sand." />
+            <div className="mt-6 rounded-3xl border border-indigo-100 bg-indigo-50 p-6 text-center">
+              <p className="text-lg font-bold text-indigo-700">
+                1 part Citric Acid : 2 parts Baking Soda
+              </p>
+
+              <p className="mt-2 text-sm text-indigo-600">
+                Example: 100 g citric acid + 200 g baking soda = 300 g dry base
+              </p>
+            </div>
+
+            <h2 className="mt-12 text-3xl font-bold tracking-tight text-slate-950">
+              How Much Baking Soda for a Bath Bomb?
+            </h2>
+
+            <p className="mt-5">
+              With a 1:2 ratio, use twice as much baking soda as citric acid.
+              For example, if your recipe contains 50 grams of citric acid,
+              the corresponding amount of baking soda is 100 grams. If you
+              want a 600 gram dry base, the calculator can scale the same
+              ratio without requiring manual calculations.
+            </p>
+
+            <h2 className="mt-12 text-3xl font-bold tracking-tight text-slate-950">
+              How to Calculate a Bath Bomb Recipe in Grams
+            </h2>
+
+            <p className="mt-5">
+              Start with the total batch weight you want to make. The dry
+              portion of a 1:2 recipe contains three equal parts in total.
+              Divide the dry base by three to find the citric acid amount,
+              then multiply that amount by two to find the baking soda amount.
+              Other ingredients such as fragrance oil, colorants, binders or
+              additives may be used separately depending on the recipe and
+              formulation.
+            </p>
+
+            <h3 className="mt-10 text-2xl font-bold text-slate-950">
+              Tips for Scaling a DIY Bath Bomb Recipe
+            </h3>
+
+            <ul className="mt-5 list-disc space-y-3 pl-6">
+              <li>
+                Weigh ingredients with a digital scale for more consistent
+                batches.
+              </li>
+
+              <li>
+                Keep your ingredient ratio consistent when changing batch
+                size.
+              </li>
+
+              <li>
+                Add fragrance and other optional ingredients according to the
+                formulation you are using.
+              </li>
+
+              <li>
+                Test a small batch before making a large quantity.
+              </li>
+
+              <li>
+                Store dry ingredients in a suitable dry environment and avoid
+                adding moisture too early.
+              </li>
+            </ul>
+
+            <h2 className="mt-12 text-3xl font-bold tracking-tight text-slate-950">
+              Frequently Asked Questions
+            </h2>
+
+            <div className="mt-6 space-y-4">
+              <details className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                <summary className="cursor-pointer font-semibold text-slate-900">
+                  How much baking soda do I need for a bath bomb?
+                </summary>
+
+                <p className="mt-3">
+                  With a 1:2 ratio, use two parts baking soda for every one
+                  part citric acid. For example, 100 grams of citric acid
+                  corresponds to 200 grams of baking soda.
+                </p>
+              </details>
+
+              <details className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                <summary className="cursor-pointer font-semibold text-slate-900">
+                  What is the 1:2 bath bomb ratio?
+                </summary>
+
+                <p className="mt-3">
+                  It means one part citric acid is combined with two parts
+                  baking soda. The ratio can be scaled up or down while
+                  maintaining the same proportions.
+                </p>
+              </details>
+
+              <details className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                <summary className="cursor-pointer font-semibold text-slate-900">
+                  Can I calculate a bath bomb recipe in grams?
+                </summary>
+
+                <p className="mt-3">
+                  Yes. Enter the desired total batch weight and the calculator
+                  will show the calculated ingredient amounts in grams and
+                  ounces.
+                </p>
+              </details>
+              <details className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                <summary className="cursor-pointer font-semibold text-slate-900">
+                  Does this calculator include epsom salt bath benefits?
+                </summary>
+
+                <p className="mt-3">
+                   Yes, you can add 10-20g epsom salt separately. While the core 1:2 ratio is for citric and baking soda, many users add epsom salt for extra epsom salt bath benefits.
+                </p>
+              </details>
+              <details className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                <summary className="cursor-pointer font-semibold text-slate-900">
+                  Can I use this as a bath bomb ingredients calculator?
+                </summary>
+
+                <p className="mt-3">
+                  Yes, this works as a bath bomb ingredients calculator, bath bomb ratio calculator uk, and bath bomb calculator grams — just enter your total batch weight.
+                </p>
+              </details>
+            </div>
+
+            <p className="mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-5 text-sm leading-7 text-slate-500">
+              Note: A 1:2 ratio is a simple starting ratio for the dry base.
+              Finished bath bomb formulations can contain additional
+              ingredients and may require testing and adjustment for the
+              specific recipe, ingredients and desired result.
+            </p>
           </div>
-        </div>
+        </article>
+      </main>
 
-        <p className="text-xs text-slate-400 mt-12">Keywords targeted: bath bomb ratio calculator, bath bomb recipe calculator uk grams, bath bomb ingredients calculator, how much baking soda for bath bomb calculator, 1:2 bath bomb ratio calculator, bath bomb recipe calculator uk, bath bomb calculator grams.</p>
-      </div>
+      <Footer />
     </div>
   );
 }
 
-function Row({name, sub, val, highlight}){
-  return (
-    <div className={`flex justify-between items-center rounded-xl px-4 py-3 border ${highlight? 'bg-pink-50 border-pink-200' : 'bg-slate-50 border-slate-200'}`}>
-      <div><p className={`text-sm font-semibold ${highlight? 'text-pink-700' : 'text-slate-700'}`}>{name}</p><p className="text-[11px] text-slate-500">{sub}</p></div>
-      <span className={`font-bold ${highlight? 'text-pink-600' : 'text-slate-900'}`}><span className="block text-right">{val.toFixed(1)} g</span><span className="block text-[11px] font-normal opacity-60 text-right">{(val/28.35).toFixed(2)} oz</span></span>
-    </div>
-  )
-}
-function Faq({q,a}){ return (<div className="rounded-2xl border p-5 bg-white"><h4 className="font-semibold">{q}</h4><p className="text-sm text-slate-600 mt-2 leading-6">{a}</p></div>) }
 export default BathBombRatioCalculator;
