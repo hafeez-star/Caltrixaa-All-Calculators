@@ -9,6 +9,9 @@ import DiscountCalculator from "./pages/DiscountCalculator";
 import TipCalculator from "./pages/TipCalculator";
 import AverageCalculator from "./pages/AverageCalculator";
 
+import CraftDiyCalculators from "./pages/CraftDiyCalculators";
+import BathBombRatioCalculator from "./pages/BathBombRatioCalculator";
+
 import DaysBetweenDates from "./pages/DaysBetweenDates";
 import TimeCalculator from "./pages/TimeCalculator";
 import HoursToMinutes from "./pages/HoursToMinutes";
@@ -31,55 +34,73 @@ function App() {
     <BrowserRouter>
       <Routes>
 
-  <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home />} />
 
-  <Route
-    path="/category/:category"
-    element={<Category />}
-  />
+        <Route
+          path="/category/:category"
+          element={<Category />}
+        />
+        <Route
+          path="/craft-diy-calculators"
+          element={<CraftDiyCalculators />}
+        />
 
-  <Route
-    path="/age-calculator"
-    element={<AgeCalculator />}
-  />
+        <Route
+          path="/bath-bomb-ratio-calculator"
+          element={<BathBombRatioCalculator />}
+        />
 
-  <Route
-    path="/bmi-calculator"
-    element={<BmiCalculator />}
-  />
+        <Route
+          path="/age-calculator"
+          element={<AgeCalculator />}
+        />
 
-  <Route
-    path="/date-calculator"
-    element={<DateCalculator />}
-  />
+        <Route
+          path="/bmi-calculator"
+          element={<BmiCalculator />}
+        />
 
-  <Route
-    path="/percentage-calculator"
-    element={<PercentageCalculator />}
-  />
+        <Route
+          path="/date-calculator"
+          element={<DateCalculator />}
+        />
 
-  <Route
-    path="/discount-calculator"
-    element={<DiscountCalculator />}
-  />
+        <Route
+          path="/percentage-calculator"
+          element={<PercentageCalculator />}
+        />
 
-  <Route
-    path="/tip-calculator"
-    element={<TipCalculator />}
-  />
+        <Route
+          path="/discount-calculator"
+          element={<DiscountCalculator />}
+        />
 
-  <Route
-    path="/average-calculator"
-    element={<AverageCalculator />}
-  />
+        <Route
+          path="/tip-calculator"
+          element={<TipCalculator />}
+        />
 
-  <Route path="/about" element={<About />} />
-  <Route path="/contact" element={<Contact />} />
-  <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-  <Route path="/terms" element={<Terms />} />
-  <Route path="/disclaimer" element={<Disclaimer />} />
+        <Route
+          path="/average-calculator"
+          element={<AverageCalculator />}
+        />
 
-</Routes>
+        <Route path="/days-between-dates" element={<DaysBetweenDates />} />
+        <Route path="/time-calculator" element={<TimeCalculator />} />
+        <Route path="/hours-to-minutes" element={<HoursToMinutes />} />
+        <Route path="/minutes-to-hours" element={<MinutesToHours />} />
+        <Route path="/weight-calculator" element={<WeightCalculator />} />
+        <Route path="/ideal-weight-calculator" element={<IdealWeightCalculator />} />
+        <Route path="/bmr-calculator" element={<BmrCalculator />} />
+        <Route path="/calorie-calculator" element={<CalorieCalculator />} />
+
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms" element={<Terms />} />
+        <Route path="/disclaimer" element={<Disclaimer />} />
+
+      </Routes>
     </BrowserRouter>
   );
 }

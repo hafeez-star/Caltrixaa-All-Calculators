@@ -26,6 +26,11 @@ function Navbar() {
       title: "Health",
       link: "/category/health",
     },
+    {
+      icon: "🛁",
+      title: "Craft & DIY",
+      link: "/category/craft-diy",
+    },
   ];
 
   return (

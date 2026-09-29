@@ -89,6 +89,50 @@ function Category() {
             "Calculate your Body Mass Index using height and weight.",
           link: "/bmi-calculator",
         },
+        {
+          icon: "⚖️",
+          title: "Weight Calculator",
+          description:
+            "Convert and calculate common weight measurements.",
+          link: "/weight-calculator",
+        },
+        {
+          icon: "📏",
+          title: "Ideal Weight Calculator",
+          description:
+            "Estimate an ideal weight range using your height.",
+          link: "/ideal-weight-calculator",
+        },
+        {
+          icon: "🔥",
+          title: "BMR Calculator",
+          description:
+            "Estimate your basal metabolic rate.",
+          link: "/bmr-calculator",
+        },
+        {
+          icon: "🍎",
+          title: "Calorie Calculator",
+          description:
+            "Estimate daily calorie needs based on your profile.",
+          link: "/calorie-calculator",
+        },
+      ],
+    },
+
+    "craft-diy": {
+      icon: "🛁",
+      title: "Craft & DIY Calculators",
+      description:
+        "Useful calculators for craft projects, DIY recipes, ratios and measurements.",
+      calculators: [
+        {
+          icon: "🛁",
+          title: "Bath Bomb Ratio Calculator",
+          description:
+            "Calculate baking soda and citric acid quantities for bath bombs.",
+          link: "/bath-bomb-ratio-calculator",
+        },
       ],
     },
   };
