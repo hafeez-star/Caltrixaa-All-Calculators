@@ -1,320 +1,250 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [calculatorOpen, setCalculatorOpen] = useState(false);
 
-  const location = useLocation();
-
-  const calculators = [
+  const categories = [
     {
-      name: "Age Calculator",
-      path: "/age-calculator",
+      icon: "🧮",
+      title: "Math & Numbers",
+      link: "/category/math",
     },
     {
-      name: "BMI Calculator",
-      path: "/bmi-calculator",
+      icon: "💰",
+      title: "Money & Shopping",
+      link: "/category/money",
     },
     {
-      name: "Date Calculator",
-      path: "/date-calculator",
+      icon: "📅",
+      title: "Date & Time",
+      link: "/category/date",
     },
     {
-      name: "Percentage Calculator",
-      path: "/percentage-calculator",
-    },
-    {
-      name: "Discount Calculator",
-      path: "/discount-calculator",
-    },
-    {
-      name: "Tip Calculator",
-      path: "/tip-calculator",
-    },
-    {
-      name: "Average Calculator",
-      path: "/average-calculator",
-    },
-    {
-      name: "Days Between Dates",
-      path: "/days-between-dates",
-    },
-    {
-      name: "Time Calculator",
-      path: "/time-calculator",
-    },
-    {
-      name: "Hours to Minutes",
-      path: "/hours-to-minutes",
-    },
-    {
-      name: "Minutes to Hours",
-      path: "/minutes-to-hours",
-    },
-    {
-      name: "Weight Calculator",
-      path: "/weight-calculator",
-    },
-    {
-      name: "Ideal Weight Calculator",
-      path: "/ideal-weight-calculator",
-    },
-    {
-      name: "BMR Calculator",
-      path: "/bmr-calculator",
-    },
-    {
-      name: "Calorie Calculator",
-      path: "/calorie-calculator",
+      icon: "❤️",
+      title: "Health",
+      link: "/category/health",
     },
   ];
 
-  function closeMobileMenu() {
-    setMobileOpen(false);
-    setCalculatorOpen(false);
-  }
-
-  function isCalculatorPage() {
-    return calculators.some(function (calculator) {
-      return location.pathname === calculator.path;
-    });
-  }
-
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
-      <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
+    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 shadow-sm backdrop-blur-xl">
 
-          {/* Logo */}
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+
+        {/* Logo */}
+        <Link
+          to="/"
+          onClick={function () {
+            setMobileOpen(false);
+          }}
+          className="group flex items-center gap-2"
+        >
+          <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-600 to-violet-600 text-lg font-bold text-white shadow-lg shadow-indigo-200 transition group-hover:scale-105">
+            C
+          </div>
+
+          <span className="text-xl font-extrabold tracking-tight text-slate-950">
+            Cal<span className="text-indigo-600">trixaa</span>
+          </span>
+        </Link>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden items-center gap-2 md:flex">
+
           <Link
             to="/"
-            onClick={closeMobileMenu}
-            className="text-2xl font-extrabold tracking-tight text-indigo-600"
+            className="rounded-xl px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-indigo-50 hover:text-indigo-600"
           >
-            Caltrixaa
+            Home
           </Link>
 
-          {/* Desktop Menu */}
-          <div className="hidden items-center gap-8 md:flex">
+          {/* Calculators Dropdown */}
+          <div className="relative">
 
-            <Link
-              to="/"
-              className={`font-medium transition ${
-                location.pathname === "/"
-                  ? "text-indigo-600"
-                  : "text-slate-700 hover:text-indigo-600"
-              }`}
+            <button
+              type="button"
+              onClick={function () {
+                setCalculatorOpen(!calculatorOpen);
+              }}
+              className="flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-indigo-50 hover:text-indigo-600"
             >
-              Home
-            </Link>
+              Calculators
 
-            {/* Desktop Calculators Dropdown */}
-            <div className="group relative">
-              <button
-                type="button"
-                className={`flex items-center gap-1 font-medium transition ${
-                  isCalculatorPage()
-                    ? "text-indigo-600"
-                    : "text-slate-700 hover:text-indigo-600"
+              <span
+                className={`text-xs transition ${
+                  calculatorOpen ? "rotate-180" : ""
                 }`}
               >
-                Calculators
-                <span className="text-xs transition group-hover:rotate-180">
-                  ▼
-                </span>
-              </button>
+                ▼
+              </span>
+            </button>
 
-              {/* Dropdown */}
-              <div className="invisible absolute left-1/2 top-full mt-2 w-72 -translate-x-1/2 rounded-2xl border border-slate-200 bg-white p-2 opacity-0 shadow-xl transition-all duration-200 group-hover:visible group-hover:opacity-100">
+            {calculatorOpen && (
+              <div className="absolute left-0 top-full mt-3 w-80 overflow-hidden rounded-3xl border border-slate-200 bg-white p-3 shadow-2xl">
 
-                <div className="max-h-[70vh] overflow-y-auto">
+                <div className="px-3 pb-3 pt-2">
+                  <p className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                    Browse Categories
+                  </p>
+                </div>
 
-                  {calculators.map(function (calculator) {
+                <div className="grid gap-1">
+
+                  {categories.map(function (category) {
                     return (
                       <Link
-                        key={calculator.path}
-                        to={calculator.path}
-                        className={`block rounded-xl px-4 py-3 text-sm font-medium transition ${
-                          location.pathname === calculator.path
-                            ? "bg-indigo-50 text-indigo-600"
-                            : "text-slate-700 hover:bg-slate-50 hover:text-indigo-600"
-                        }`}
+                        key={category.link}
+                        to={category.link}
+                        onClick={function () {
+                          setCalculatorOpen(false);
+                        }}
+                        className="group flex items-center gap-3 rounded-2xl p-3 transition hover:bg-indigo-50"
                       >
-                        {calculator.name}
+
+                        <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-slate-100 text-xl transition group-hover:bg-white group-hover:shadow-sm">
+                          {category.icon}
+                        </div>
+
+                        <div>
+                          <p className="font-semibold text-slate-900">
+                            {category.title}
+                          </p>
+
+                          <p className="text-xs text-slate-500">
+                            Explore calculators
+                          </p>
+                        </div>
+
+                        <span className="ml-auto text-indigo-500 opacity-0 transition group-hover:translate-x-1 group-hover:opacity-100">
+                          →
+                        </span>
+
                       </Link>
                     );
                   })}
 
                 </div>
+
               </div>
-            </div>
+            )}
 
-            <Link
-              to="/about"
-              className={`font-medium transition ${
-                location.pathname === "/about"
-                  ? "text-indigo-600"
-                  : "text-slate-700 hover:text-indigo-600"
-              }`}
-            >
-              About
-            </Link>
-
-            <Link
-              to="/contact"
-              className={`font-medium transition ${
-                location.pathname === "/contact"
-                  ? "text-indigo-600"
-                  : "text-slate-700 hover:text-indigo-600"
-              }`}
-            >
-              Contact
-            </Link>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            type="button"
-            onClick={function () {
-              setMobileOpen(!mobileOpen);
-            }}
-            className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-50 md:hidden"
-            aria-label="Toggle menu"
-            aria-expanded={mobileOpen}
+          <Link
+            to="/about"
+            className="rounded-xl px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-indigo-50 hover:text-indigo-600"
           >
-            {mobileOpen ? (
-              <span className="text-2xl">✕</span>
-            ) : (
-              <span className="text-2xl">☰</span>
-            )}
-          </button>
-        </div>
+            About
+          </Link>
 
-        {/* Mobile Menu */}
-        {mobileOpen && (
-          <div className="border-t border-slate-100 py-4 md:hidden">
+          <Link
+            to="/contact"
+            className="rounded-xl px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-indigo-50 hover:text-indigo-600"
+          >
+            Contact
+          </Link>
 
-            {/* Home */}
+        </nav>
+
+        {/* Mobile Button */}
+        <button
+          type="button"
+          onClick={function () {
+            setMobileOpen(!mobileOpen);
+          }}
+          className="flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-white text-xl text-slate-700 md:hidden"
+        >
+          {mobileOpen ? "✕" : "☰"}
+        </button>
+
+      </div>
+
+      {/* Mobile Menu */}
+      {mobileOpen && (
+        <div className="border-t border-slate-100 bg-white px-4 pb-5 pt-3 md:hidden">
+
+          <div className="grid gap-1">
+
             <Link
               to="/"
-              onClick={closeMobileMenu}
-              className={`block rounded-xl px-4 py-3 font-medium ${
-                location.pathname === "/"
-                  ? "bg-indigo-50 text-indigo-600"
-                  : "text-slate-700 hover:bg-slate-50"
-              }`}
+              onClick={function () {
+                setMobileOpen(false);
+              }}
+              className="rounded-2xl px-4 py-3 font-semibold text-slate-700 hover:bg-indigo-50"
             >
-              Home
+              🏠 Home
             </Link>
 
-            {/* Mobile Calculators */}
-            <div className="mt-1">
+            <button
+              type="button"
+              onClick={function () {
+                setCalculatorOpen(!calculatorOpen);
+              }}
+              className="flex w-full items-center justify-between rounded-2xl px-4 py-3 text-left font-semibold text-slate-700 hover:bg-indigo-50"
+            >
+              <span>🧮 Calculators</span>
 
-              <button
-                type="button"
-                onClick={function () {
-                  setCalculatorOpen(!calculatorOpen);
-                }}
-                className={`flex w-full items-center justify-between rounded-xl px-4 py-3 font-medium ${
-                  isCalculatorPage()
-                    ? "bg-indigo-50 text-indigo-600"
-                    : "text-slate-700 hover:bg-slate-50"
+              <span
+                className={`transition ${
+                  calculatorOpen ? "rotate-180" : ""
                 }`}
               >
-                <span>Calculators</span>
+                ▼
+              </span>
+            </button>
 
-                <span
-                  className={`text-xs transition ${
-                    calculatorOpen ? "rotate-180" : ""
-                  }`}
-                >
-                  ▼
-                </span>
-              </button>
+            {calculatorOpen && (
+              <div className="ml-3 grid gap-1 border-l-2 border-indigo-100 pl-3">
 
-              {/* Mobile Calculator List */}
-              {calculatorOpen && (
-                <div className="mt-1 ml-3 max-h-80 overflow-y-auto rounded-xl border border-slate-100 bg-slate-50 p-2">
+                {categories.map(function (category) {
+                  return (
+                    <Link
+                      key={category.link}
+                      to={category.link}
+                      onClick={function () {
+                        setMobileOpen(false);
+                        setCalculatorOpen(false);
+                      }}
+                      className="flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-indigo-50"
+                    >
+                      <span className="text-xl">
+                        {category.icon}
+                      </span>
 
-                  {calculators.map(function (calculator) {
-                    return (
-                      <Link
-                        key={calculator.path}
-                        to={calculator.path}
-                        onClick={closeMobileMenu}
-                        className={`block rounded-lg px-4 py-3 text-sm font-medium ${
-                          location.pathname === calculator.path
-                            ? "bg-indigo-100 text-indigo-600"
-                            : "text-slate-700 hover:bg-white hover:text-indigo-600"
-                        }`}
-                      >
-                        {calculator.name}
-                      </Link>
-                    );
-                  })}
+                      {category.title}
+                    </Link>
+                  );
+                })}
 
-                </div>
-              )}
-            </div>
+              </div>
+            )}
 
-            {/* About */}
             <Link
               to="/about"
-              onClick={closeMobileMenu}
-              className={`mt-1 block rounded-xl px-4 py-3 font-medium ${
-                location.pathname === "/about"
-                  ? "bg-indigo-50 text-indigo-600"
-                  : "text-slate-700 hover:bg-slate-50"
-              }`}
+              onClick={function () {
+                setMobileOpen(false);
+              }}
+              className="rounded-2xl px-4 py-3 font-semibold text-slate-700 hover:bg-indigo-50"
             >
-              About
+              ℹ️ About
             </Link>
 
-            {/* Contact */}
             <Link
               to="/contact"
-              onClick={closeMobileMenu}
-              className={`mt-1 block rounded-xl px-4 py-3 font-medium ${
-                location.pathname === "/contact"
-                  ? "bg-indigo-50 text-indigo-600"
-                  : "text-slate-700 hover:bg-slate-50"
-              }`}
+              onClick={function () {
+                setMobileOpen(false);
+              }}
+              className="rounded-2xl px-4 py-3 font-semibold text-slate-700 hover:bg-indigo-50"
             >
-              Contact
+              ✉️ Contact
             </Link>
 
-            {/* Legal Links */}
-            <div className="mt-3 border-t border-slate-100 pt-3">
-
-              <Link
-                to="/privacy-policy"
-                onClick={closeMobileMenu}
-                className="block rounded-xl px-4 py-2.5 text-sm text-slate-500 hover:bg-slate-50 hover:text-indigo-600"
-              >
-                Privacy Policy
-              </Link>
-
-              <Link
-                to="/terms"
-                onClick={closeMobileMenu}
-                className="block rounded-xl px-4 py-2.5 text-sm text-slate-500 hover:bg-slate-50 hover:text-indigo-600"
-              >
-                Terms & Conditions
-              </Link>
-
-              <Link
-                to="/disclaimer"
-                onClick={closeMobileMenu}
-                className="block rounded-xl px-4 py-2.5 text-sm text-slate-500 hover:bg-slate-50 hover:text-indigo-600"
-              >
-                Disclaimer
-              </Link>
-
-            </div>
           </div>
-        )}
-      </nav>
+        </div>
+      )}
+
     </header>
   );
 }

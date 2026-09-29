@@ -2,6 +2,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import CalculatorCard from "../components/CalculatorCard";
 import SEO from "../components/SEO";
+import CalculatorCategories from "../components/CalculatorCategories";
 
 function Home() {<SEO
   title="Free Online Calculators - Caltrixaa"
@@ -118,117 +119,7 @@ function Home() {<SEO
             </div>
 
 
-            <div className="clac grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-
-              {/* Existing */}
-              <CalculatorCard
-                icon="🎂"
-                title="Age Calculator"
-                description="Calculate your exact age from your date of birth."
-                link="/age-calculator"
-              />
-
-              <CalculatorCard
-                icon="⚖️"
-                title="BMI Calculator"
-                description="Calculate your Body Mass Index quickly and easily."
-                link="/bmi-calculator"
-              />
-
-              <CalculatorCard
-                icon="📅"
-                title="Date Calculator"
-                description="Calculate dates, days and time differences."
-                link="/date-calculator"
-              />
-
-              <CalculatorCard
-                icon="%"
-                title="Percentage Calculator"
-                description="Calculate percentages quickly and easily."
-                link="/percentage-calculator"
-              />
-
-              <CalculatorCard
-                icon="🏷️"
-                title="Discount Calculator"
-                description="Calculate discounts, savings and final prices."
-                link="/discount-calculator"
-              />
-
-              <CalculatorCard
-                icon="💰"
-                title="Tip Calculator"
-                description="Calculate tips and split the bill between people."
-                link="/tip-calculator"
-              />
-
-              <CalculatorCard
-                icon="📊"
-                title="Average Calculator"
-                description="Calculate the average or mean of numbers."
-                link="/average-calculator"
-              />
-
-              {/* Batch 3 */}
-              <CalculatorCard
-                icon="📆"
-                title="Days Between Dates"
-                description="Find the exact number of days between two dates."
-                link="/days-between-dates"
-              />
-
-              <CalculatorCard
-                icon="⏰"
-                title="Time Calculator"
-                description="Add or subtract hours and minutes."
-                link="/time-calculator"
-              />
-
-              <CalculatorCard
-                icon="⏱️"
-                title="Hours to Minutes"
-                description="Convert hours into minutes instantly."
-                link="/hours-to-minutes"
-              />
-
-              <CalculatorCard
-                icon="⌛"
-                title="Minutes to Hours"
-                description="Convert minutes into hours and remaining minutes."
-                link="/minutes-to-hours"
-              />
-
-              {/* Batch 4 */}
-              <CalculatorCard
-                icon="⚖️"
-                title="Weight Calculator"
-                description="Convert kilograms to pounds quickly."
-                link="/weight-calculator"
-              />
-
-              <CalculatorCard
-                icon="📏"
-                title="Ideal Weight Calculator"
-                description="Estimate ideal weight based on height."
-                link="/ideal-weight-calculator"
-              />
-
-              <CalculatorCard
-                icon="🔥"
-                title="BMR Calculator"
-                description="Estimate your Basal Metabolic Rate."
-                link="/bmr-calculator"
-              />
-
-              <CalculatorCard
-                icon="🍎"
-                title="Calorie Calculator"
-                description="Estimate your daily calorie requirements."
-                link="/calorie-calculator"
-              />
-
-            </div>
+            <CalculatorCategories />
 
           </div>
 

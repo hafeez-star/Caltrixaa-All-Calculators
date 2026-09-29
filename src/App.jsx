@@ -18,6 +18,7 @@ import WeightCalculator from "./pages/WeightCalculator";
 import IdealWeightCalculator from "./pages/IdealWeightCalculator";
 import BmrCalculator from "./pages/BmrCalculator";
 import CalorieCalculator from "./pages/CalorieCalculator";
+import Category from "./pages/Category";
 
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -29,73 +30,56 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Home */}
-        <Route path="/" element={<Home />} />
 
-        {/* Existing Calculators */}
-        <Route path="/age-calculator" element={<AgeCalculator />} />
-        <Route path="/bmi-calculator" element={<BmiCalculator />} />
-        <Route path="/date-calculator" element={<DateCalculator />} />
-        <Route
-          path="/percentage-calculator"
-          element={<PercentageCalculator />}
-        />
-        <Route
-          path="/discount-calculator"
-          element={<DiscountCalculator />}
-        />
-        <Route path="/tip-calculator" element={<TipCalculator />} />
-        <Route path="/average-calculator" element={<AverageCalculator />} />
+  <Route path="/" element={<Home />} />
 
-        {/* Batch 3 */}
-        <Route
-          path="/days-between-dates"
-          element={<DaysBetweenDates />}
-        />
+  <Route
+    path="/category/:category"
+    element={<Category />}
+  />
 
-        <Route
-          path="/time-calculator"
-          element={<TimeCalculator />}
-        />
+  <Route
+    path="/age-calculator"
+    element={<AgeCalculator />}
+  />
 
-        <Route
-          path="/hours-to-minutes"
-          element={<HoursToMinutes />}
-        />
+  <Route
+    path="/bmi-calculator"
+    element={<BmiCalculator />}
+  />
 
-        <Route
-          path="/minutes-to-hours"
-          element={<MinutesToHours />}
-        />
+  <Route
+    path="/date-calculator"
+    element={<DateCalculator />}
+  />
 
-        {/* Batch 4 */}
-        <Route
-          path="/weight-calculator"
-          element={<WeightCalculator />}
-        />
+  <Route
+    path="/percentage-calculator"
+    element={<PercentageCalculator />}
+  />
 
-        <Route
-          path="/ideal-weight-calculator"
-          element={<IdealWeightCalculator />}
-        />
+  <Route
+    path="/discount-calculator"
+    element={<DiscountCalculator />}
+  />
 
-        <Route
-          path="/bmr-calculator"
-          element={<BmrCalculator />}
-        />
+  <Route
+    path="/tip-calculator"
+    element={<TipCalculator />}
+  />
 
-        <Route
-          path="/calorie-calculator"
-          element={<CalorieCalculator />}
-        />
+  <Route
+    path="/average-calculator"
+    element={<AverageCalculator />}
+  />
 
-        {/* Legal / Information Pages */}
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="/terms" element={<Terms />} />
-        <Route path="/disclaimer" element={<Disclaimer />} />
-      </Routes>
+  <Route path="/about" element={<About />} />
+  <Route path="/contact" element={<Contact />} />
+  <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+  <Route path="/terms" element={<Terms />} />
+  <Route path="/disclaimer" element={<Disclaimer />} />
+
+</Routes>
     </BrowserRouter>
   );
 }
