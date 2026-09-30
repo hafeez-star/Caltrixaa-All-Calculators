@@ -58,13 +58,15 @@ function CalculatorCategories() {
     },
 
     {
-      icon: "🛁",
+      icon: "🧼",
       title: "Craft & DIY",
       description:
-        "Useful calculators for craft projects, DIY recipes, ratios and measurements.",
+        "Calculate recipes, ratios, fragrance loads and ingredient amounts for candles, bath bombs and other DIY projects.",
       link: "/craft-diy-calculators",
       calculators: [
         "Bath Bomb Ratio Calculator",
+        "Fragrance Load Calculator",
+        "Candle Wax Calculator",
       ],
     },
   ];

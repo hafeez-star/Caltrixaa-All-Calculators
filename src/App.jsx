@@ -23,6 +23,8 @@ import CalorieCalculator from "./pages/CalorieCalculator";
 import Category from "./pages/Category";
 import CraftDiyCalculators from "./pages/CraftDiyCalculators";
 import BathBombRatioCalculator from "./pages/BathBombRatioCalculator";
+import FragranceLoadCalculator from "./pages/FragranceLoadCalculator";
+import CandleWaxCalculator from "./pages/CandleWaxCalculator";
 
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -60,6 +62,15 @@ function App() {
         <Route
           path="/bath-bomb-ratio-calculator"
           element={<BathBombRatioCalculator />}
+        />
+        <Route
+          path="/fragrance-load-calculator"
+          element={<FragranceLoadCalculator />}
+        />
+
+        <Route
+          path="/candle-wax-calculator"
+          element={<CandleWaxCalculator />}
         />
 
         {/* DATE & TIME */}
