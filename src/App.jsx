@@ -20,6 +20,14 @@ import IdealWeightCalculator from "./pages/IdealWeightCalculator";
 import BmrCalculator from "./pages/BmrCalculator";
 import CalorieCalculator from "./pages/CalorieCalculator";
 
+import WickSizeCalculator from "./pages/WickSizeCalculator";
+import SoyWaxCalculator from "./pages/SoyWaxCalculator";
+import CandleWickCalculator from "./pages/CandleWickCalculator";
+import WoodenWickCalculator from "./pages/WoodenWickCalculator";
+import CandleWaxWeightCalculator from "./pages/CandleWaxWeightCalculator";
+import CandleMakingCalculator from "./pages/CandleMakingCalculator";
+
+
 import Category from "./pages/Category";
 import CraftDiyCalculators from "./pages/CraftDiyCalculators";
 import BathBombRatioCalculator from "./pages/BathBombRatioCalculator";
@@ -66,6 +74,51 @@ function App() {
         <Route
           path="/fragrance-load-calculator"
           element={<FragranceLoadCalculator />}
+        />
+
+        <Route
+          path="/craft-diy-calculators"
+          element={<CraftDiyCalculators />}
+        />
+
+        <Route
+          path="/wick-size-calculator"
+          element={<WickSizeCalculator />}
+        />
+
+        <Route
+          path="/soy-wax-calculator"
+          element={<SoyWaxCalculator />}
+        />
+
+        <Route
+          path="/candle-wax-calculator"
+          element={<CandleWaxCalculator />}
+        />
+
+        <Route
+          path="/fragrance-load-calculator"
+          element={<FragranceLoadCalculator />}
+        />
+
+        <Route
+          path="/candle-wick-calculator"
+          element={<CandleWickCalculator />}
+        />
+
+        <Route
+          path="/wooden-wick-calculator"
+          element={<WoodenWickCalculator />}
+        />
+
+        <Route
+          path="/candle-wax-weight-calculator"
+          element={<CandleWaxWeightCalculator />}
+        />
+
+        <Route
+          path="/candle-making-calculator"
+          element={<CandleMakingCalculator />}
         />
 
         <Route

@@ -58,26 +58,30 @@ function CalculatorCategories() {
     },
 
     {
-      icon: "🧼",
+      icon: "🛠️",
       title: "Craft & DIY",
       description:
-        "Calculate recipes, ratios, fragrance loads and ingredient amounts for candles, bath bombs and other DIY projects.",
+        "Calculate candle recipes, wax, fragrance loads, wick sizes, bath bombs and DIY measurements.",
       link: "/craft-diy-calculators",
       calculators: [
         "Bath Bomb Ratio Calculator",
-        "Fragrance Load Calculator",
+        "Wick Size Calculator",
+        "Soy Wax Calculator",
         "Candle Wax Calculator",
+        "Fragrance Load Calculator",
+        "Candle Wick Calculator",
+        "Wooden Wick Calculator",
+        "Candle Wax Weight Calculator",
+        "Candle Making Calculator",
       ],
     },
   ];
 
   return (
     <section className="py-16">
-
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         <div className="mx-auto max-w-2xl text-center">
-
           <span className="inline-flex rounded-full border border-indigo-100 bg-white px-4 py-1.5 text-sm font-semibold text-indigo-600 shadow-sm">
             Explore Calculator Categories
           </span>
@@ -90,20 +94,16 @@ function CalculatorCategories() {
             Choose a category to quickly find the calculator you need.
             All Caltrixaa calculators are free and easy to use.
           </p>
-
         </div>
 
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-
           {categories.map(function (category) {
-
             return (
               <Link
                 key={category.title}
                 to={category.link}
                 className="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-indigo-200 hover:shadow-xl"
               >
-
                 <div className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full bg-indigo-100 opacity-0 blur-3xl transition duration-300 group-hover:opacity-100" />
 
                 <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-50 text-3xl transition duration-300 group-hover:scale-110 group-hover:bg-indigo-100">
@@ -119,7 +119,6 @@ function CalculatorCategories() {
                 </p>
 
                 <div className="relative mt-5 flex items-center justify-between">
-
                   <span className="rounded-full bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-600">
                     {category.calculators.length}{" "}
                     {category.calculators.length === 1
@@ -130,11 +129,9 @@ function CalculatorCategories() {
                   <span className="text-lg font-bold text-indigo-600 transition duration-300 group-hover:translate-x-1">
                     →
                   </span>
-
                 </div>
 
                 <div className="relative mt-5 border-t border-slate-100 pt-4">
-
                   <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">
                     Includes
                   </p>
@@ -142,18 +139,12 @@ function CalculatorCategories() {
                   <p className="mt-2 text-xs leading-5 text-slate-500">
                     {category.calculators.join(" • ")}
                   </p>
-
                 </div>
-
               </Link>
             );
-
           })}
-
         </div>
-
       </div>
-
     </section>
   );
 }
