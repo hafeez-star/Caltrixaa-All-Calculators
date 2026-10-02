@@ -68,6 +68,13 @@ const tools = [
       "Calculate candle wax, fragrance oil and total batch weight.",
     path: "/candle-making-calculator",
   },
+  {
+  icon: "🧼",
+  name: "Soap Cost & Profit Calculator",
+  description:
+    "Calculate soap costs, selling price and profit including oils, lye, fragrance, packaging and labor.",
+  path: "/soap-cost-profit-calculator",
+},
 ];
 
 function CraftDiyCalculators() {

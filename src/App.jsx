@@ -26,6 +26,7 @@ import CandleWickCalculator from "./pages/CandleWickCalculator";
 import WoodenWickCalculator from "./pages/WoodenWickCalculator";
 import CandleWaxWeightCalculator from "./pages/CandleWaxWeightCalculator";
 import CandleMakingCalculator from "./pages/CandleMakingCalculator";
+import SoapCostProfitCalculator from "./pages/SoapCostProfitCalculator";
 
 
 import Category from "./pages/Category";
@@ -120,12 +121,23 @@ function App() {
           path="/candle-making-calculator"
           element={<CandleMakingCalculator />}
         />
+<Route
+  path="/candle-making-calculator"
+  element={<CandleMakingCalculator />}
+/>
 
+<Route
+  path="/soap-cost-profit-calculator"
+  element={<SoapCostProfitCalculator />}
+/>
         <Route
           path="/candle-wax-calculator"
           element={<CandleWaxCalculator />}
         />
-
+        <Route
+          path="/soap-cost-profit-calculator"
+          element={<SoapCostProfitCalculator />}
+        />
         {/* DATE & TIME */}
         <Route
           path="/age-calculator"

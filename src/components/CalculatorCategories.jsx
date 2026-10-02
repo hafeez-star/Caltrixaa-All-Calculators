@@ -63,17 +63,18 @@ function CalculatorCategories() {
       description:
         "Calculate candle recipes, wax, fragrance loads, wick sizes, bath bombs and DIY measurements.",
       link: "/craft-diy-calculators",
-      calculators: [
-        "Bath Bomb Ratio Calculator",
-        "Wick Size Calculator",
-        "Soy Wax Calculator",
-        "Candle Wax Calculator",
-        "Fragrance Load Calculator",
-        "Candle Wick Calculator",
-        "Wooden Wick Calculator",
-        "Candle Wax Weight Calculator",
-        "Candle Making Calculator",
-      ],
+     calculators: [
+  "Bath Bomb Ratio Calculator",
+  "Wick Size Calculator",
+  "Soy Wax Calculator",
+  "Candle Wax Calculator",
+  "Fragrance Load Calculator",
+  "Candle Wick Calculator",
+  "Wooden Wick Calculator",
+  "Candle Wax Weight Calculator",
+  "Candle Making Calculator",
+  "Soap Cost & Profit Calculator",
+],
     },
   ];
 
