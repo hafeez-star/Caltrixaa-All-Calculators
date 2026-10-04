@@ -1,4 +1,5 @@
 import CraftCalculatorPage from "./CraftCalculatorPage";
+import RelatedCraftTools from "../components/RelatedCraftTools";
 
 const config = {
   name: "Wick Size Calculator",

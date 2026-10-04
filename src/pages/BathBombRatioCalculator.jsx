@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import SEO from "../components/SEO";
 import { Link } from "react-router-dom";
+import RelatedCraftTools from "../components/RelatedCraftTools";
 
 function BathBombRatioCalculator() {
   const [batchWeight, setBatchWeight] = useState("");
@@ -473,63 +474,12 @@ function BathBombRatioCalculator() {
               specific recipe, ingredients and desired result.
             </p>
           </div>
-          <section className="mt-12 rounded-3xl border border-slate-200 bg-slate-50 p-6 sm:p-8">
-            <h2 className="text-2xl font-bold text-slate-950">
-              More Craft & DIY Calculators
-            </h2>
-
-            <p className="mt-3 leading-7 text-slate-600">
-              Making candles, wax melts or other DIY products? Try these related
-              calculators to make your measurements easier.
-            </p>
-
-            <div className="mt-6 grid gap-4 sm:grid-cols-2">
-
-              <Link
-                to="/fragrance-load-calculator"
-                className="rounded-2xl border border-slate-200 bg-white p-5 transition hover:-translate-y-1 hover:border-indigo-300 hover:shadow-lg"
-              >
-                <div className="text-3xl">🕯️</div>
-
-                <h3 className="mt-3 font-bold text-slate-900">
-                  Fragrance Load Calculator
-                </h3>
-
-                <p className="mt-2 text-sm leading-6 text-slate-600">
-                  Calculate fragrance oil amounts for candles, wax melts and different
-                  types of wax.
-                </p>
-
-                <span className="mt-4 inline-block text-sm font-semibold text-indigo-600">
-                  Calculate fragrance load →
-                </span>
-              </Link>
-
-              <Link
-                to="/candle-wax-calculator"
-                className="rounded-2xl border border-slate-200 bg-white p-5 transition hover:-translate-y-1 hover:border-indigo-300 hover:shadow-lg"
-              >
-                <div className="text-3xl">🕯️</div>
-
-                <h3 className="mt-3 font-bold text-slate-900">
-                  Candle Wax Calculator
-                </h3>
-
-                <p className="mt-2 text-sm leading-6 text-slate-600">
-                  Calculate how much candle wax you need for a jar or container size.
-                </p>
-
-                <span className="mt-4 inline-block text-sm font-semibold text-indigo-600">
-                  Calculate candle wax →
-                </span>
-              </Link>
-
-            </div>
-          </section>
+          
         </article>
 
       </main>
 
+<RelatedCraftTools />
       <Footer />
     </div>
   );

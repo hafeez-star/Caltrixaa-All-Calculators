@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import SEO from "../components/SEO";
 import { Link } from "react-router-dom";
-
+import RelatedCraftTools from "../components/RelatedCraftTools";
 
 
 
@@ -357,62 +357,11 @@ function CandleWaxCalculator() {
             </details>
 
           </div>
-<section className="mt-12 rounded-3xl border border-slate-200 bg-slate-50 p-6 sm:p-8">
-  <h2 className="text-2xl font-bold text-slate-950">
-    More Craft & DIY Calculators
-  </h2>
 
-  <p className="mt-3 leading-7 text-slate-600">
-    Use these related calculators for bath bombs, candles, wax melts and
-    other DIY projects.
-  </p>
-
-  <div className="mt-6 grid gap-4 sm:grid-cols-2">
-
-    <Link
-      to="/fragrance-load-calculator"
-      className="rounded-2xl border border-slate-200 bg-white p-5 transition hover:-translate-y-1 hover:border-indigo-300 hover:shadow-lg"
-    >
-      <div className="text-3xl">🕯️</div>
-
-      <h3 className="mt-3 font-bold text-slate-900">
-        Fragrance Load Calculator
-      </h3>
-
-      <p className="mt-2 text-sm leading-6 text-slate-600">
-        Calculate fragrance oil amounts for candles and wax melts.
-      </p>
-
-      <span className="mt-4 inline-block text-sm font-semibold text-indigo-600">
-        Calculate fragrance load →
-      </span>
-    </Link>
-
-    <Link
-      to="/bath-bomb-ratio-calculator"
-      className="rounded-2xl border border-slate-200 bg-white p-5 transition hover:-translate-y-1 hover:border-indigo-300 hover:shadow-lg"
-    >
-      <div className="text-3xl">🛁</div>
-
-      <h3 className="mt-3 font-bold text-slate-900">
-        Bath Bomb Ratio Calculator
-      </h3>
-
-      <p className="mt-2 text-sm leading-6 text-slate-600">
-        Calculate bath bomb ingredients using a simple 1:2 ratio.
-      </p>
-
-      <span className="mt-4 inline-block text-sm font-semibold text-indigo-600">
-        Calculate bath bomb ratio →
-      </span>
-    </Link>
-
-  </div>
-</section>
         </article>
 
       </main>
-
+<RelatedCraftTools />
       <Footer />
 
     </div>

@@ -1,4 +1,6 @@
 import CraftCalculatorPage from "./CraftCalculatorPage";
+import RelatedCraftTools from "../components/RelatedCraftTools";
+
 
 const config = {
   name: "Soy Wax Calculator",

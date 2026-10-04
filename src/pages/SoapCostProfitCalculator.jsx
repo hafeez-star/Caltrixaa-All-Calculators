@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import SEO from "../components/SEO";
+import RelatedCraftTools from "../components/RelatedCraftTools";
 
 function SoapCostProfitCalculator() {
   const [oilCost, setOilCost] = useState("");
@@ -691,7 +692,7 @@ function SoapCostProfitCalculator() {
           </div>
         </section>
       </main>
-
+<RelatedCraftTools />
       <Footer />
     </div>
   );
