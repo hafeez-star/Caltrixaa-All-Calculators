@@ -41,6 +41,15 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Terms from "./pages/Terms";
 import Disclaimer from "./pages/Disclaimer";
 
+import Blog from "./pages/Blog";
+import HowToCalculateBathBombIngredients from "./pages/blog/HowToCalculateBathBombIngredients";
+import CandleWaxCalculatorGuide from "./pages/blog/CandleWaxCalculatorGuide";
+import FragranceLoadCalculatorGuide from "./pages/blog/FragranceLoadCalculatorGuide";
+import HowToCalculateSoapCostAndProfit from "./pages/blog/how-to-calculate-soap-cost-and-profit";
+import CandleWaxFragranceCalculation from "./pages/blog/CandleWaxFragranceCalculation";
+
+
+
 function App() {
   return (
     <BrowserRouter>
@@ -121,15 +130,15 @@ function App() {
           path="/candle-making-calculator"
           element={<CandleMakingCalculator />}
         />
-<Route
-  path="/candle-making-calculator"
-  element={<CandleMakingCalculator />}
-/>
+        <Route
+          path="/candle-making-calculator"
+          element={<CandleMakingCalculator />}
+        />
 
-<Route
-  path="/soap-cost-profit-calculator"
-  element={<SoapCostProfitCalculator />}
-/>
+        <Route
+          path="/soap-cost-profit-calculator"
+          element={<SoapCostProfitCalculator />}
+        />
         <Route
           path="/candle-wax-calculator"
           element={<CandleWaxCalculator />}
@@ -138,6 +147,11 @@ function App() {
           path="/soap-cost-profit-calculator"
           element={<SoapCostProfitCalculator />}
         />
+<Route
+  path="/blog/candle-wax-fragrance-calculation"
+  element={<CandleWaxFragranceCalculation />}
+/>
+
         {/* DATE & TIME */}
         <Route
           path="/age-calculator"
@@ -167,6 +181,29 @@ function App() {
         <Route
           path="/minutes-to-hours"
           element={<MinutesToHours />}
+        />
+        {/* Blogs */}
+        <Route
+          path="/blog"
+          element={<Blog />}
+        />
+        <Route
+          path="/blog/how-to-calculate-bath-bomb-ingredients"
+          element={<HowToCalculateBathBombIngredients />}
+        />
+        <Route
+          path="/blog/how-much-wax-for-candle-jar"
+          element={<CandleWaxCalculatorGuide />}
+        />
+
+        <Route
+          path="/blog/what-is-fragrance-load"
+          element={<FragranceLoadCalculatorGuide />}
+        />
+
+        <Route
+          path="/blog/how-to-calculate-soap-cost-and-profit"
+          element={<HowToCalculateSoapCostAndProfit />}
         />
 
         {/* MATH */}

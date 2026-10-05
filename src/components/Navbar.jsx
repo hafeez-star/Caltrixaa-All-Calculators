@@ -54,7 +54,6 @@ function Navbar() {
           onClick={closeMenus}
           className="group flex items-center gap-2"
         >
-
           <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-600 to-violet-600 text-lg font-bold text-white shadow-lg shadow-indigo-200 transition group-hover:scale-105">
             C
           </div>
@@ -62,7 +61,6 @@ function Navbar() {
           <span className="text-xl font-extrabold tracking-tight text-slate-950">
             Cal<span className="text-indigo-600">trixaa</span>
           </span>
-
         </Link>
 
 
@@ -77,7 +75,7 @@ function Navbar() {
           </Link>
 
 
-          {/* CALCULATORS */}
+          {/* CALCULATORS DROPDOWN */}
           <div className="relative">
 
             <button
@@ -96,16 +94,13 @@ function Navbar() {
               >
                 ▼
               </span>
-
             </button>
 
 
             {calculatorOpen && (
-
               <div className="absolute left-1/2 top-full mt-3 w-[360px] -translate-x-1/2 overflow-hidden rounded-3xl border border-slate-200 bg-white p-3 shadow-2xl">
 
                 <div className="px-3 pb-3 pt-2">
-
                   <p className="text-xs font-bold uppercase tracking-wider text-indigo-500">
                     Browse Categories
                   </p>
@@ -113,14 +108,12 @@ function Navbar() {
                   <p className="mt-1 text-xs text-slate-400">
                     Choose a calculator category
                   </p>
-
                 </div>
 
 
                 <div className="grid gap-1">
 
                   {categories.map(function (category) {
-
                     return (
                       <Link
                         key={category.link}
@@ -136,7 +129,6 @@ function Navbar() {
                         </div>
 
                         <div className="min-w-0">
-
                           <p className="font-semibold text-slate-900">
                             {category.title}
                           </p>
@@ -144,7 +136,6 @@ function Navbar() {
                           <p className="text-xs text-slate-500">
                             {category.description}
                           </p>
-
                         </div>
 
                         <span className="ml-auto text-indigo-500 opacity-0 transition group-hover:translate-x-1 group-hover:opacity-100">
@@ -153,7 +144,6 @@ function Navbar() {
 
                       </Link>
                     );
-
                   })}
 
                 </div>
@@ -174,12 +164,21 @@ function Navbar() {
                 </div>
 
               </div>
-
             )}
 
           </div>
 
 
+          {/* BLOG */}
+          <Link
+            to="/blog"
+            className="rounded-xl px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-indigo-50 hover:text-indigo-600"
+          >
+            Blog
+          </Link>
+
+
+          {/* ABOUT */}
           <Link
             to="/about"
             className="rounded-xl px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-indigo-50 hover:text-indigo-600"
@@ -188,6 +187,7 @@ function Navbar() {
           </Link>
 
 
+          {/* CONTACT */}
           <Link
             to="/contact"
             className="rounded-xl px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-indigo-50 hover:text-indigo-600"
@@ -260,7 +260,6 @@ function Navbar() {
               <div className="ml-3 grid gap-1 border-l-2 border-indigo-100 pl-3">
 
                 {categories.map(function (category) {
-
                   return (
                     <Link
                       key={category.link}
@@ -279,12 +278,21 @@ function Navbar() {
 
                     </Link>
                   );
-
                 })}
 
               </div>
 
             )}
+
+
+            {/* MOBILE BLOG */}
+            <Link
+              to="/blog"
+              onClick={closeMenus}
+              className="rounded-2xl px-4 py-3 font-semibold text-slate-700 hover:bg-indigo-50"
+            >
+              📝 Blog
+            </Link>
 
 
             <Link

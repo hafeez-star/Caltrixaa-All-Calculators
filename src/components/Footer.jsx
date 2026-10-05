@@ -145,6 +145,13 @@ function Footer() {
                 className="text-slate-500 transition hover:text-indigo-600"
               >
                 Disclaimer
+              </Link> 
+              
+              <Link
+                to="/blog"
+                className="text-slate-500 transition hover:text-indigo-600"
+              >
+                Blog
               </Link>
 
             </div>
