@@ -2,51 +2,60 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 
+// Date & Time
 import AgeCalculator from "./pages/AgeCalculator";
-import BmiCalculator from "./pages/BmiCalculator";
 import DateCalculator from "./pages/DateCalculator";
-import PercentageCalculator from "./pages/PercentageCalculator";
-import DiscountCalculator from "./pages/DiscountCalculator";
-import TipCalculator from "./pages/TipCalculator";
-import AverageCalculator from "./pages/AverageCalculator";
-
 import DaysBetweenDates from "./pages/DaysBetweenDates";
 import TimeCalculator from "./pages/TimeCalculator";
 import HoursToMinutes from "./pages/HoursToMinutes";
 import MinutesToHours from "./pages/MinutesToHours";
 
+// Math
+import PercentageCalculator from "./pages/PercentageCalculator";
+import AverageCalculator from "./pages/AverageCalculator";
+
+// Money
+import DiscountCalculator from "./pages/DiscountCalculator";
+import TipCalculator from "./pages/TipCalculator";
+
+// Health
+import BmiCalculator from "./pages/BmiCalculator";
 import WeightCalculator from "./pages/WeightCalculator";
 import IdealWeightCalculator from "./pages/IdealWeightCalculator";
 import BmrCalculator from "./pages/BmrCalculator";
 import CalorieCalculator from "./pages/CalorieCalculator";
 
+// Craft & DIY
+import BathBombRatioCalculator from "./pages/BathBombRatioCalculator";
+import FragranceLoadCalculator from "./pages/FragranceLoadCalculator";
 import WickSizeCalculator from "./pages/WickSizeCalculator";
 import SoyWaxCalculator from "./pages/SoyWaxCalculator";
+import CandleWaxCalculator from "./pages/CandleWaxCalculator";
 import CandleWickCalculator from "./pages/CandleWickCalculator";
 import WoodenWickCalculator from "./pages/WoodenWickCalculator";
 import CandleWaxWeightCalculator from "./pages/CandleWaxWeightCalculator";
 import CandleMakingCalculator from "./pages/CandleMakingCalculator";
 import SoapCostProfitCalculator from "./pages/SoapCostProfitCalculator";
 
-
+// Categories
 import Category from "./pages/Category";
 import CraftDiyCalculators from "./pages/CraftDiyCalculators";
-import BathBombRatioCalculator from "./pages/BathBombRatioCalculator";
-import FragranceLoadCalculator from "./pages/FragranceLoadCalculator";
-import CandleWaxCalculator from "./pages/CandleWaxCalculator";
 
+// Information
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Terms from "./pages/Terms";
 import Disclaimer from "./pages/Disclaimer";
 
+// Blog
 import Blog from "./pages/Blog";
 import HowToCalculateBathBombIngredients from "./pages/blog/HowToCalculateBathBombIngredients";
 import CandleWaxCalculatorGuide from "./pages/blog/CandleWaxCalculatorGuide";
 import FragranceLoadCalculatorGuide from "./pages/blog/FragranceLoadCalculatorGuide";
 import HowToCalculateSoapCostAndProfit from "./pages/blog/how-to-calculate-soap-cost-and-profit";
 import CandleWaxFragranceCalculation from "./pages/blog/CandleWaxFragranceCalculation";
+
 import HowToChooseCandleWickSize from "./pages/blog/HowToChooseCandleWickSize";
 import HowToCalculateSoyWaxForCandles from "./pages/blog/HowToCalculateSoyWaxForCandles";
 import HowToCalculateCandleWickSize from "./pages/blog/HowToCalculateCandleWickSize";
@@ -54,6 +63,14 @@ import HowToChooseWoodenWickSize from "./pages/blog/HowToChooseWoodenWickSize";
 import HowToCalculateCandleWaxWeight from "./pages/blog/HowToCalculateCandleWaxWeight";
 import CandleMakingCalculationsGuide from "./pages/blog/CandleMakingCalculationsGuide";
 
+
+import HowToCalculateExactAge from "./pages/blog/HowToCalculateExactAge";
+import HowToCalculateDaysBetweenDates from "./pages/blog/HowToCalculateDaysBetweenDates";
+import HowToCalculateDateDifference from "./pages/blog/HowToCalculateDateDifference";
+import HowToCalculateTimeDuration from "./pages/blog/HowToCalculateTimeDuration";
+import HoursToMinutesConversion from "./pages/blog/HoursToMinutesConversion";
+// 404
+import NotFound from "./pages/NotFound";
 
 
 function App() {
@@ -64,37 +81,36 @@ function App() {
         {/* HOME */}
         <Route path="/" element={<Home />} />
 
+
         {/* CATEGORY PAGES */}
         <Route
           path="/category/:category"
           element={<Category />}
         />
 
-        {/* Craft & DIY - dedicated page */}
-        <Route
-          path="/craft-diy-calculators"
-          element={<CraftDiyCalculators />}
-        />
-
-        {/* Craft & DIY compatibility URL */}
         <Route
           path="/category/craft-diy"
           element={<CraftDiyCalculators />}
         />
 
-        {/* CRAFT & DIY */}
+        <Route
+          path="/craft-diy-calculators"
+          element={<CraftDiyCalculators />}
+        />
+
+
+        {/* =========================
+            CRAFT & DIY CALCULATORS
+        ========================= */}
+
         <Route
           path="/bath-bomb-ratio-calculator"
           element={<BathBombRatioCalculator />}
         />
+
         <Route
           path="/fragrance-load-calculator"
           element={<FragranceLoadCalculator />}
-        />
-
-        <Route
-          path="/craft-diy-calculators"
-          element={<CraftDiyCalculators />}
         />
 
         <Route
@@ -110,11 +126,6 @@ function App() {
         <Route
           path="/candle-wax-calculator"
           element={<CandleWaxCalculator />}
-        />
-
-        <Route
-          path="/fragrance-load-calculator"
-          element={<FragranceLoadCalculator />}
         />
 
         <Route
@@ -136,29 +147,17 @@ function App() {
           path="/candle-making-calculator"
           element={<CandleMakingCalculator />}
         />
-        <Route
-          path="/candle-making-calculator"
-          element={<CandleMakingCalculator />}
-        />
 
         <Route
           path="/soap-cost-profit-calculator"
           element={<SoapCostProfitCalculator />}
         />
-        <Route
-          path="/candle-wax-calculator"
-          element={<CandleWaxCalculator />}
-        />
-        <Route
-          path="/soap-cost-profit-calculator"
-          element={<SoapCostProfitCalculator />}
-        />
-        <Route
-          path="/blog/candle-wax-fragrance-calculation"
-          element={<CandleWaxFragranceCalculation />}
-        />
 
-        {/* DATE & TIME */}
+
+        {/* =========================
+            DATE & TIME
+        ========================= */}
+
         <Route
           path="/age-calculator"
           element={<AgeCalculator />}
@@ -188,18 +187,92 @@ function App() {
           path="/minutes-to-hours"
           element={<MinutesToHours />}
         />
-        {/* Blogs */}
+
+
+        {/* =========================
+            MATH
+        ========================= */}
+
+        <Route
+          path="/percentage-calculator"
+          element={<PercentageCalculator />}
+        />
+
+        <Route
+          path="/average-calculator"
+          element={<AverageCalculator />}
+        />
+
+
+        {/* =========================
+            MONEY
+        ========================= */}
+
+        <Route
+          path="/discount-calculator"
+          element={<DiscountCalculator />}
+        />
+
+        <Route
+          path="/tip-calculator"
+          element={<TipCalculator />}
+        />
+
+
+        {/* =========================
+            HEALTH
+        ========================= */}
+
+        <Route
+          path="/bmi-calculator"
+          element={<BmiCalculator />}
+        />
+
+        <Route
+          path="/weight-calculator"
+          element={<WeightCalculator />}
+        />
+
+        <Route
+          path="/ideal-weight-calculator"
+          element={<IdealWeightCalculator />}
+        />
+
+        <Route
+          path="/bmr-calculator"
+          element={<BmrCalculator />}
+        />
+
+        <Route
+          path="/calorie-calculator"
+          element={<CalorieCalculator />}
+        />
+
+
+        {/* =========================
+            BLOG
+        ========================= */}
+
         <Route
           path="/blog"
           element={<Blog />}
         />
+
         <Route
           path="/blog/how-to-calculate-bath-bomb-ingredients"
           element={<HowToCalculateBathBombIngredients />}
         />
+
+        {/* Existing Candle Wax Guide */}
         <Route
           path="/blog/how-much-wax-for-candle-jar"
           element={<CandleWaxCalculatorGuide />}
+        />
+
+        {/* Main Candle Wax + Fragrance Article */}
+        <Route
+          path="/blog/candle-wax-fragrance-calculation"
+          element={<CandleWaxFragranceCalculation />}
         />
 
         <Route
@@ -211,6 +284,7 @@ function App() {
           path="/blog/how-to-calculate-soap-cost-and-profit"
           element={<HowToCalculateSoapCostAndProfit />}
         />
+
         <Route
           path="/blog/how-to-choose-candle-wick-size"
           element={<HowToChooseCandleWickSize />}
@@ -241,55 +315,35 @@ function App() {
           element={<CandleMakingCalculationsGuide />}
         />
 
-        {/* MATH */}
-        <Route
-          path="/percentage-calculator"
-          element={<PercentageCalculator />}
-        />
+<Route
+  path="/blog/how-to-calculate-exact-age"
+  element={<HowToCalculateExactAge />}
+/>
 
-        <Route
-          path="/average-calculator"
-          element={<AverageCalculator />}
-        />
+<Route
+  path="/blog/how-to-calculate-days-between-dates"
+  element={<HowToCalculateDaysBetweenDates />}
+/>
 
-        {/* MONEY */}
-        <Route
-          path="/discount-calculator"
-          element={<DiscountCalculator />}
-        />
+<Route
+  path="/blog/how-to-calculate-date-difference"
+  element={<HowToCalculateDateDifference />}
+/>
 
-        <Route
-          path="/tip-calculator"
-          element={<TipCalculator />}
-        />
+<Route
+  path="/blog/how-to-calculate-time-duration"
+  element={<HowToCalculateTimeDuration />}
+/>
 
-        {/* HEALTH */}
-        <Route
-          path="/bmi-calculator"
-          element={<BmiCalculator />}
-        />
+<Route
+  path="/blog/hours-to-minutes-conversion"
+  element={<HoursToMinutesConversion />}
+/>
 
-        <Route
-          path="/weight-calculator"
-          element={<WeightCalculator />}
-        />
+        {/* =========================
+            INFORMATION PAGES
+        ========================= */}
 
-        <Route
-          path="/ideal-weight-calculator"
-          element={<IdealWeightCalculator />}
-        />
-
-        <Route
-          path="/bmr-calculator"
-          element={<BmrCalculator />}
-        />
-
-        <Route
-          path="/calorie-calculator"
-          element={<CalorieCalculator />}
-        />
-
-        {/* INFORMATION */}
         <Route
           path="/about"
           element={<About />}
@@ -313,6 +367,16 @@ function App() {
         <Route
           path="/disclaimer"
           element={<Disclaimer />}
+        />
+
+
+        {/* =========================
+            404
+        ========================= */}
+
+        <Route
+          path="*"
+          element={<NotFound />}
         />
 
       </Routes>

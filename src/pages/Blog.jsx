@@ -93,6 +93,58 @@ const articles = [
     path: "/blog/candle-making-calculations-guide",
     readTime: "8 min read",
   },
+
+  // DATE & TIME BLOGS
+
+  {
+    category: "Date & Time",
+    icon: "🎂",
+    title: "How to Calculate Your Exact Age",
+    description:
+      "Learn how to calculate your exact age in years, months and days from your date of birth.",
+    path: "/blog/how-to-calculate-exact-age",
+    readTime: "6 min read",
+  },
+
+  {
+    category: "Date & Time",
+    icon: "📅",
+    title: "How to Calculate Days Between Two Dates",
+    description:
+      "Learn how to calculate the number of days between two dates and understand calendar date differences.",
+    path: "/blog/how-to-calculate-days-between-dates",
+    readTime: "6 min read",
+  },
+
+  {
+    category: "Date & Time",
+    icon: "🗓️",
+    title: "How to Calculate Date Difference",
+    description:
+      "Learn how to calculate the time between two calendar dates for schedules, deadlines and everyday planning.",
+    path: "/blog/how-to-calculate-date-difference",
+    readTime: "6 min read",
+  },
+
+  {
+    category: "Date & Time",
+    icon: "⏱️",
+    title: "How to Calculate Time Duration Between Two Times",
+    description:
+      "Learn how to calculate time duration using hours and minutes, including calculations that cross midnight.",
+    path: "/blog/how-to-calculate-time-duration",
+    readTime: "6 min read",
+  },
+
+  {
+    category: "Date & Time",
+    icon: "⏰",
+    title: "How to Convert Hours to Minutes",
+    description:
+      "Learn the hours-to-minutes formula with simple examples and a useful conversion table.",
+    path: "/blog/hours-to-minutes-conversion",
+    readTime: "5 min read",
+  },
 ];
 
 function Blog() {
@@ -100,8 +152,8 @@ function Blog() {
     <div className="min-h-screen bg-white text-slate-900">
       <SEO
         title="Caltrixaa Blog - Calculator Guides, DIY Tips & Tutorials"
-        description="Read practical calculator guides, DIY tutorials, candle making tips, bath bomb recipes, fragrance calculations and useful calculation guides."
-        keywords="calculator blog, craft diy calculator guides, candle making calculator guide, bath bomb calculator guide, fragrance load calculator guide"
+        description="Read practical calculator guides, DIY tutorials, candle making tips, bath bomb recipes, date and time calculations, and useful everyday calculation guides."
+        keywords="calculator blog, calculator guides, date calculator guide, age calculator guide, candle making calculator guide, bath bomb calculator guide"
         schema={{
           "@context": "https://schema.org",
           "@type": "Blog",
@@ -135,14 +187,14 @@ function Blog() {
               <h1 className="mt-6 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
                 Calculator Guides &{" "}
                 <span className="bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">
-                  DIY Tips
+                  Helpful Tips
                 </span>
               </h1>
 
               <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
                 Practical guides that explain calculations in simple language,
-                from candle making and bath bombs to everyday calculators and
-                useful DIY projects.
+                from date and time calculations to candle making, bath bombs
+                and useful DIY projects.
               </p>
             </div>
           </div>
@@ -217,8 +269,9 @@ function Blog() {
               </h2>
 
               <p className="mt-4 leading-7 text-slate-600">
-                Simple explanations for makers, DIY creators and anyone who
-                wants to understand the numbers behind a recipe or project.
+                Simple explanations for everyday calculations, makers, DIY
+                creators and anyone who wants to understand the numbers behind
+                a project.
               </p>
             </div>
 
@@ -229,10 +282,11 @@ function Blog() {
                     key={article.path}
                     className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl"
                   >
+                    {/* ICON */}
                     <div className="flex h-44 items-center justify-center bg-gradient-to-br from-indigo-50 to-violet-50">
-                      <span className="text-7xl transition duration-300 group-hover:scale-110">
+                      <div className="flex h-24 w-24 items-center justify-center rounded-3xl bg-white text-6xl shadow-lg transition duration-300 group-hover:scale-110 group-hover:rotate-2">
                         {article.icon}
-                      </span>
+                      </div>
                     </div>
 
                     <div className="p-6">
@@ -265,6 +319,29 @@ function Blog() {
                 );
               })}
             </div>
+          </div>
+        </section>
+
+        {/* DATE & TIME CTA */}
+        <section className="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
+          <div className="rounded-3xl border border-indigo-100 bg-indigo-50 p-8 text-center sm:p-10">
+            <div className="text-5xl">📅</div>
+
+            <h2 className="mt-4 text-2xl font-black text-slate-950 sm:text-3xl">
+              Need a Date & Time Calculation?
+            </h2>
+
+            <p className="mx-auto mt-3 max-w-2xl leading-7 text-slate-600">
+              Use Caltrixaa date and time calculators to calculate age, date
+              differences, days between dates and time durations.
+            </p>
+
+            <Link
+              to="/category/date-time"
+              className="mt-6 inline-flex rounded-xl bg-indigo-600 px-6 py-3 font-bold text-white transition hover:bg-indigo-700"
+            >
+              Explore Date & Time Calculators →
+            </Link>
           </div>
         </section>
 
