@@ -1,445 +1,405 @@
-import { Link } from "react-router-dom";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
 import SEO from "../../components/SEO";
+import { Link } from "react-router-dom";
 
 function CandleWaxFragranceCalculation() {
   const schema = {
     "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    headline: "How to Calculate Candle Wax and Fragrance Oil",
-    description:
-      "Learn how to calculate candle wax and fragrance oil in grams using simple percentage calculations for candle making.",
-    url: "https://caltrixaa.vercel.app/blog/candle-wax-fragrance-calculation",
-    datePublished: "2026-10-05",
-    dateModified: "2026-10-05",
-    author: {
-      "@type": "Organization",
-      name: "Caltrixaa",
-      url: "https://caltrixaa.vercel.app/",
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "Caltrixaa",
-      url: "https://caltrixaa.vercel.app/",
-    },
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        headline: "How to Calculate Candle Wax and Fragrance Oil",
+        description:
+          "Learn how to calculate candle wax and fragrance oil by container size, wax weight and fragrance load with practical examples.",
+        url:
+          "https://caltrixaa.vercel.app/blog/candle-wax-fragrance-calculation",
+        datePublished: "2026-10-05",
+        dateModified: "2026-10-06",
+        author: {
+          "@type": "Organization",
+          name: "Caltrixaa",
+        },
+        publisher: {
+          "@type": "Organization",
+          name: "Caltrixaa",
+          url: "https://caltrixaa.vercel.app/",
+        },
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: "How do you calculate candle wax?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text:
+                "Estimate the finished candle fill weight for the container, then account for the fragrance and wax relationship used by your formula.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "How do you calculate fragrance oil for candles?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text:
+                "Multiply the appropriate fragrance-load percentage by the wax weight when your chosen formulation defines fragrance load relative to wax.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "How much fragrance oil do I need for 500 g of wax?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text:
+                "At a 6% fragrance load calculated against wax weight, 500 g of wax would require 30 g of fragrance oil.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "What is fragrance load in candle making?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text:
+                "Fragrance load is the percentage of fragrance used in a candle formula. The exact safe amount depends on the wax, fragrance oil and supplier guidance.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Can I calculate candle wax for a jar?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text:
+                "Yes. A candle wax calculator can help estimate the required wax and fragrance amounts for a jar or container based on its target fill weight and formula.",
+            },
+          },
+        ],
+      },
+    ],
   };
 
   return (
     <>
       <SEO
-        title="How to Calculate Candle Wax and Fragrance Oil | Caltrixaa"
-        description="Learn how to calculate candle wax and fragrance oil in grams using simple candle-making calculations and fragrance load percentages."
-        keywords="candle wax calculator, candle fragrance calculator, candle wax and fragrance calculator, fragrance oil calculator, candle making calculator"
+        title="How to Calculate Candle Wax and Fragrance Oil"
+        description="Learn how to calculate candle wax and fragrance oil for jars and containers using wax weight, fragrance load and practical gram examples."
+        keywords="candle wax calculator, candle wax calculator jar, candle fragrance calculator, candle wax and fragrance calculator, fragrance oil calculator"
         schema={schema}
       />
 
-      <main className="min-h-screen bg-slate-50 px-4 py-10">
-        <article className="mx-auto max-w-4xl">
+      <Navbar />
 
-          {/* Breadcrumb */}
+      <main className="bg-slate-50">
+        <article className="mx-auto max-w-4xl px-4 py-10 sm:px-6 lg:px-8">
           <nav className="mb-6 text-sm text-slate-500">
-            <Link
-              to="/"
-              className="transition hover:text-indigo-600"
-            >
+            <Link to="/" className="hover:text-indigo-600">
               Home
             </Link>
-
             <span className="mx-2">/</span>
-
-            <Link
-              to="/blog"
-              className="transition hover:text-indigo-600"
-            >
+            <Link to="/blog" className="hover:text-indigo-600">
               Blog
             </Link>
-
             <span className="mx-2">/</span>
-
             <span>Candle Wax & Fragrance</span>
           </nav>
 
-          {/* Header */}
-          <header className="rounded-3xl bg-white p-6 shadow-sm md:p-10">
-
-            <span className="inline-block rounded-full bg-orange-100 px-4 py-2 text-sm font-semibold text-orange-700">
+          <header className="mb-10">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-amber-600">
               Candle Making Guide
-            </span>
+            </p>
 
-            <h1 className="mt-5 text-3xl font-bold leading-tight text-slate-900 md:text-5xl">
+            <h1 className="text-3xl font-bold leading-tight text-slate-900 sm:text-5xl">
               How to Calculate Candle Wax and Fragrance Oil
             </h1>
 
             <p className="mt-5 text-lg leading-8 text-slate-600">
-              Learn how to calculate the amount of candle wax and fragrance
-              oil you need for a candle batch. This guide explains the basic
-              calculations in grams and shows how wax weight and fragrance
-              load work together.
+              Learn how to estimate candle wax and fragrance oil for jars,
+              containers and small candle batches using simple weight-based
+              calculations.
             </p>
-
-            <div className="mt-6 text-sm text-slate-500">
-              Published October 5, 2026 · Caltrixaa
-            </div>
-
           </header>
 
-          {/* Main Calculator CTA */}
-          <section className="mt-8 rounded-3xl bg-gradient-to-r from-orange-50 to-amber-50 p-6 md:p-8">
+          <div className="rounded-2xl border border-amber-100 bg-amber-50 p-6">
+            <h2 className="text-xl font-bold text-slate-900">Quick Answer</h2>
 
-            <h2 className="text-2xl font-bold text-slate-900">
-              Calculate Candle Wax and Fragrance
-            </h2>
-
-            <p className="mt-3 leading-7 text-slate-600">
-              If you already know your container size or target candle
-              weight, use our free calculator to make the calculation faster.
+            <p className="mt-3 leading-7 text-slate-700">
+              To calculate candle fragrance, first determine the wax weight
+              required for your candle. Then apply your chosen fragrance-load
+              percentage. For example, at a 6% fragrance load, 500 g of wax
+              would require 30 g of fragrance oil when the load is calculated
+              against wax weight.
             </p>
+          </div>
 
-            <div className="mt-5 flex flex-wrap gap-3">
+          <section className="mt-10 space-y-8 text-slate-700">
+            <div>
+              <h2 className="text-2xl font-bold text-slate-900">
+                Why Is Candle Wax Calculation Important?
+              </h2>
 
-              <Link
-                to="/candle-wax-calculator"
-                className="rounded-xl bg-orange-600 px-6 py-3 font-semibold text-white transition hover:bg-orange-700"
-              >
-                Candle Wax Calculator
-              </Link>
+              <p className="mt-3 leading-7">
+                The amount of wax needed depends on the container, target fill
+                weight and the way the candle formula is designed. Guessing can
+                result in wasted wax, inconsistent candle sizes or an incorrect
+                fragrance amount.
+              </p>
 
-              <Link
-                to="/fragrance-load-calculator"
-                className="rounded-xl border border-orange-200 bg-white px-6 py-3 font-semibold text-orange-700 transition hover:bg-orange-50"
-              >
-                Fragrance Load Calculator
-              </Link>
-
+              <p className="mt-3 leading-7">
+                Weight-based calculations make candle making more repeatable,
+                especially when producing multiple jars.
+              </p>
             </div>
 
-          </section>
-
-          {/* Article Content */}
-          <div className="mt-8 space-y-8">
-
-            {/* Section 1 */}
-            <section className="rounded-3xl bg-white p-6 shadow-sm md:p-8">
-
+            <div>
               <h2 className="text-2xl font-bold text-slate-900">
-                Why Calculate Candle Wax and Fragrance Oil?
+                How Do You Calculate Candle Wax?
               </h2>
 
-              <p className="mt-4 leading-8 text-slate-700">
-                When making candles, guessing the amount of wax or fragrance
-                oil can make it difficult to produce consistent batches.
-                Measuring everything by weight makes your candle-making
-                process easier to repeat.
+              <p className="mt-3 leading-7">
+                Start by determining the target finished fill weight of the
+                container. A practical way to do this is to weigh the amount of
+                finished candle material your container is intended to hold.
               </p>
 
-              <p className="mt-4 leading-8 text-slate-700">
-                A proper calculation can also help reduce wasted materials.
-                This is especially useful when making several candles using
-                the same container size.
+              <p className="mt-3 leading-7">
+                Once you know the target fill weight, your wax and fragrance
+                quantities can be calculated according to your formula.
               </p>
+            </div>
 
-            </section>
-
-            {/* Section 2 */}
-            <section className="rounded-3xl bg-white p-6 shadow-sm md:p-8">
-
+            <div>
               <h2 className="text-2xl font-bold text-slate-900">
-                How to Calculate Candle Wax
+                How Do You Calculate Fragrance Oil for Candles?
               </h2>
 
-              <p className="mt-4 leading-8 text-slate-700">
-                The first step is to determine how much finished candle
-                material your container should hold. Container volume and
-                finished weight are not exactly the same thing because
-                different waxes have different densities.
+              <p className="mt-3 leading-7">
+                When fragrance load is expressed as a percentage of wax weight,
+                use:
               </p>
 
-              <p className="mt-4 leading-8 text-slate-700">
-                If you already know the approximate finished weight of your
-                candle, you can use that value as the starting point for
-                calculating your wax and fragrance amounts.
-              </p>
-
-              <div className="mt-6 rounded-2xl bg-slate-100 p-5">
-
-                <p className="font-semibold text-slate-900">
-                  Basic candle calculation:
-                </p>
-
-                <p className="mt-2 leading-7 text-slate-700">
-                  Finished candle weight = wax + fragrance oil
-                </p>
-
+              <div className="my-5 rounded-xl bg-slate-900 p-5 text-center text-lg font-semibold text-white">
+                Fragrance Oil = Wax Weight × Fragrance Load
               </div>
 
-              <p className="mt-4 leading-8 text-slate-700">
-                The exact wax amount depends on how you define your fragrance
-                percentage and the formulation you are using.
+              <p className="leading-7">
+                Example:
               </p>
 
-            </section>
-
-            {/* Section 3 */}
-            <section className="rounded-3xl bg-white p-6 shadow-sm md:p-8">
-
-              <h2 className="text-2xl font-bold text-slate-900">
-                How to Calculate Fragrance Oil for Candles
-              </h2>
-
-              <p className="mt-4 leading-8 text-slate-700">
-                Fragrance oil is normally calculated as a percentage in
-                relation to the wax amount or according to the specific
-                formulation method being used.
-              </p>
-
-              <p className="mt-4 leading-8 text-slate-700">
-                A simple percentage calculation can be written as:
-              </p>
-
-              <div className="mt-6 rounded-2xl bg-indigo-50 p-5">
-
-                <p className="font-semibold text-slate-900">
-                  Fragrance calculation:
-                </p>
-
-                <p className="mt-2 leading-7 text-slate-700">
-                  Fragrance oil = wax weight × fragrance percentage
-                </p>
-
+              <div className="my-5 rounded-xl border bg-white p-5">
+                <p className="font-semibold">500 g × 6% = 30 g fragrance oil</p>
               </div>
 
-              <p className="mt-4 leading-8 text-slate-700">
-                For example, if your wax weight is 500 grams and your selected
-                fragrance percentage is 6%, convert 6% to 0.06 before doing
-                the multiplication.
+              <p className="leading-7">
+                Always check the wax manufacturer's and fragrance supplier's
+                recommended usage limits before making a candle.
               </p>
+            </div>
 
-              <div className="mt-5 rounded-2xl bg-slate-100 p-5">
-
-                <p className="font-semibold text-slate-900">
-                  Example:
-                </p>
-
-                <p className="mt-2 text-slate-700">
-                  500 × 0.06 = 30 grams
-                </p>
-
-              </div>
-
-              <p className="mt-4 leading-8 text-slate-700">
-                So, under this calculation method, 500 grams of wax at a 6%
-                fragrance load would correspond to 30 grams of fragrance oil.
-              </p>
-
-            </section>
-
-            {/* Section 4 */}
-            <section className="rounded-3xl bg-white p-6 shadow-sm md:p-8">
-
+            <div>
               <h2 className="text-2xl font-bold text-slate-900">
                 What Is Fragrance Load?
               </h2>
 
-              <p className="mt-4 leading-8 text-slate-700">
-                Fragrance load describes the amount of fragrance oil used in
-                relation to wax. It is commonly expressed as a percentage.
+              <p className="mt-3 leading-7">
+                Fragrance load describes the amount of fragrance used in a
+                candle formula. It is commonly expressed as a percentage.
               </p>
 
-              <p className="mt-4 leading-8 text-slate-700">
-                The suitable percentage is not automatically the same for
-                every candle. Different waxes and fragrance oils can have
-                different recommended usage limits.
-              </p>
-
-              <p className="mt-4 leading-8 text-slate-700">
-                Always check the technical information and recommended usage
-                range provided by your wax and fragrance suppliers.
+              <p className="mt-3 leading-7">
+                Importantly, different waxes and fragrance oils can have
+                different recommended maximum loads. A higher percentage is not
+                automatically better.
               </p>
 
               <Link
                 to="/fragrance-load-calculator"
-                className="mt-5 inline-block font-semibold text-indigo-600 transition hover:text-indigo-800"
+                className="mt-4 inline-block font-semibold text-indigo-600 hover:underline"
               >
-                Calculate Fragrance Load →
+                Try the Fragrance Load Calculator →
               </Link>
+            </div>
 
-            </section>
-
-            {/* Section 5 */}
-            <section className="rounded-3xl bg-white p-6 shadow-sm md:p-8">
-
+            <div>
               <h2 className="text-2xl font-bold text-slate-900">
-                How to Calculate Candle Wax and Fragrance Together
+                How Do You Calculate Wax and Fragrance Together?
               </h2>
 
-              <p className="mt-4 leading-8 text-slate-700">
-                When you know the desired finished candle weight, you need to
-                account for both wax and fragrance oil. This is where the
-                calculation method becomes important.
+              <p className="mt-3 leading-7">
+                This depends on how your formula defines the fragrance load.
+                If the fragrance percentage is based on wax weight, calculate
+                fragrance from the wax amount.
               </p>
 
-              <p className="mt-4 leading-8 text-slate-700">
-                For example, suppose your target finished candle weight is
-                530 grams and your formulation uses 30 grams of fragrance oil.
-                The remaining weight would be approximately 500 grams of wax.
+              <p className="mt-3 leading-7">
+                For example, with 500 g of wax and a 6% load:
               </p>
 
-              <div className="mt-6 overflow-hidden rounded-2xl border border-slate-200">
+              <ul className="mt-4 list-disc space-y-2 pl-6">
+                <li>Wax = 500 g</li>
+                <li>Fragrance = 30 g</li>
+                <li>Total mixture = 530 g</li>
+              </ul>
 
-                <div className="grid grid-cols-2 bg-slate-100 p-4 font-semibold text-slate-900">
-                  <span>Material</span>
-                  <span>Weight</span>
-                </div>
+              <p className="mt-3 leading-7">
+                This distinction matters because some candle makers use the
+                term fragrance load differently. Always follow the calculation
+                method specified by the formulation or supplier.
+              </p>
+            </div>
 
-                <div className="grid grid-cols-2 border-t border-slate-200 p-4 text-slate-700">
-                  <span>Wax</span>
-                  <span>500 g</span>
-                </div>
-
-                <div className="grid grid-cols-2 border-t border-slate-200 p-4 text-slate-700">
-                  <span>Fragrance oil</span>
-                  <span>30 g</span>
-                </div>
-
-                <div className="grid grid-cols-2 border-t border-slate-200 p-4 font-semibold text-slate-900">
-                  <span>Total</span>
-                  <span>530 g</span>
-                </div>
-
-              </div>
-
-            </section>
-
-            {/* Section 6 */}
-            <section className="rounded-3xl bg-white p-6 shadow-sm md:p-8">
-
+            <div>
               <h2 className="text-2xl font-bold text-slate-900">
-                Candle Wax Calculator for Jar and Container Candles
+                How Much Wax Do I Need for a Candle Jar?
               </h2>
 
-              <p className="mt-4 leading-8 text-slate-700">
-                Container candles come in many different sizes, so manually
-                calculating the required wax for every jar can become
-                inconvenient.
+              <p className="mt-3 leading-7">
+                The answer depends on the jar's intended fill weight rather
+                than simply its external dimensions. Different containers can
+                have different internal volumes and fill levels.
               </p>
 
-              <p className="mt-4 leading-8 text-slate-700">
-                A candle wax calculator can help you estimate the amount of
-                wax required based on your chosen measurements. You can then
-                use the result with your fragrance calculation.
+              <p className="mt-3 leading-7">
+                Use the{" "}
+                <Link
+                  to="/candle-wax-calculator"
+                  className="font-semibold text-indigo-600 hover:underline"
+                >
+                  Candle Wax Calculator
+                </Link>{" "}
+                to simplify the calculation for container candles.
               </p>
+            </div>
 
-              <Link
-                to="/candle-wax-calculator"
-                className="mt-5 inline-block rounded-xl bg-orange-600 px-6 py-3 font-semibold text-white transition hover:bg-orange-700"
-              >
-                Open Candle Wax Calculator
-              </Link>
-
-            </section>
-
-            {/* Section 7 */}
-            <section className="rounded-3xl bg-white p-6 shadow-sm md:p-8">
-
+            <div>
               <h2 className="text-2xl font-bold text-slate-900">
                 Common Candle Calculation Mistakes
               </h2>
 
-              <ul className="mt-5 space-y-3 leading-7 text-slate-700">
-                <li>
-                  • Assuming container volume is exactly the same as wax
-                  weight.
-                </li>
-
-                <li>
-                  • Forgetting that fragrance oil contributes to the finished
-                  candle weight.
-                </li>
-
-                <li>
-                  • Using the same fragrance percentage for every wax and
-                  fragrance combination.
-                </li>
-
-                <li>
-                  • Ignoring the manufacturer's recommended fragrance limits.
-                </li>
-
-                <li>
-                  • Changing measurement methods between different batches.
-                </li>
+              <ul className="mt-4 list-disc space-y-3 pl-6">
+                <li>Confusing container volume with finished candle weight.</li>
+                <li>Using fragrance percentage without checking its basis.</li>
+                <li>Ignoring supplier recommendations.</li>
+                <li>Assuming every wax has the same fragrance capacity.</li>
+                <li>Rounding measurements too aggressively.</li>
               </ul>
+            </div>
 
-            </section>
-
-            {/* Section 8 */}
-            <section className="rounded-3xl bg-white p-6 shadow-sm md:p-8">
-
+            <div>
               <h2 className="text-2xl font-bold text-slate-900">
                 Tips for More Consistent Candle Batches
               </h2>
 
-              <ul className="mt-5 space-y-3 leading-7 text-slate-700">
-                <li>
-                  • Measure materials by weight using a suitable digital
-                  scale.
-                </li>
-
-                <li>
-                  • Keep a written record of each candle formula.
-                </li>
-
-                <li>
-                  • Use the same calculation method throughout a batch.
-                </li>
-
-                <li>
-                  • Test new wax and fragrance combinations before producing
-                  large quantities.
-                </li>
-
-                <li>
-                  • Follow supplier instructions for wax and fragrance
-                  products.
-                </li>
+              <ul className="mt-4 list-disc space-y-3 pl-6">
+                <li>Use a digital scale rather than relying on volume.</li>
+                <li>Record wax, fragrance and container weights.</li>
+                <li>Keep the same formula when comparing test burns.</li>
+                <li>Record the wax and fragrance batch information.</li>
+                <li>Follow supplier recommendations for fragrance usage.</li>
               </ul>
+            </div>
 
-            </section>
-
-            {/* Final CTA */}
-            <section className="rounded-3xl bg-slate-900 p-6 text-white md:p-8">
-
-              <h2 className="text-2xl font-bold">
-                Ready to Calculate Your Candle Formula?
+            <div className="rounded-2xl border bg-white p-6">
+              <h2 className="text-2xl font-bold text-slate-900">
+                Key Takeaways
               </h2>
 
-              <p className="mt-3 leading-7 text-slate-300">
-                Use the Caltrixaa calculators to estimate your candle wax and
-                fragrance amounts without doing the calculations manually.
+              <ul className="mt-4 list-disc space-y-3 pl-6">
+                <li>Determine the target candle fill weight first.</li>
+                <li>Calculate fragrance according to your chosen load method.</li>
+                <li>A 6% load on 500 g wax equals 30 g fragrance.</li>
+                <li>Different waxes can have different recommended fragrance limits.</li>
+                <li>Use weight-based measurements for repeatable batches.</li>
+              </ul>
+            </div>
+
+            <div>
+              <h2 className="text-2xl font-bold text-slate-900">
+                Frequently Asked Questions
+              </h2>
+
+              <div className="mt-5 space-y-5">
+                <div>
+                  <h3 className="font-bold text-slate-900">
+                    How do you calculate candle wax?
+                  </h3>
+                  <p className="mt-2 leading-7">
+                    Determine the target fill weight of the container and then
+                    calculate the wax and fragrance according to your formula.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="font-bold text-slate-900">
+                    How do you calculate fragrance oil for candles?
+                  </h3>
+                  <p className="mt-2 leading-7">
+                    When the load is based on wax weight, multiply wax weight
+                    by the fragrance-load percentage.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="font-bold text-slate-900">
+                    How much fragrance oil do I need for 500 g wax?
+                  </h3>
+                  <p className="mt-2 leading-7">
+                    At 6%, the calculation is 500 g × 0.06 = 30 g.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="font-bold text-slate-900">
+                    What is fragrance load?
+                  </h3>
+                  <p className="mt-2 leading-7">
+                    It is the percentage of fragrance used in a candle formula.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="font-bold text-slate-900">
+                    Can I calculate candle wax for a jar?
+                  </h3>
+                  <p className="mt-2 leading-7">
+                    Yes. Use the target fill weight and your formula to estimate
+                    the required wax and fragrance.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="rounded-2xl bg-amber-500 p-7 text-white">
+              <h2 className="text-2xl font-bold">
+                Calculate Your Candle Wax and Fragrance
+              </h2>
+
+              <p className="mt-3 leading-7 text-amber-50">
+                Use Caltrixaa's candle tools to calculate wax, fragrance load
+                and other candle-making quantities more easily.
               </p>
 
-              <div className="mt-6 flex flex-wrap gap-3">
-
+              <div className="mt-5 flex flex-wrap gap-3">
                 <Link
                   to="/candle-wax-calculator"
-                  className="rounded-xl bg-white px-6 py-3 font-semibold text-slate-900 transition hover:bg-slate-100"
+                  className="rounded-xl bg-white px-5 py-3 font-semibold text-amber-700 hover:bg-amber-50"
                 >
                   Candle Wax Calculator
                 </Link>
 
                 <Link
                   to="/fragrance-load-calculator"
-                  className="rounded-xl bg-orange-500 px-6 py-3 font-semibold text-white transition hover:bg-orange-600"
+                  className="rounded-xl border border-white px-5 py-3 font-semibold text-white hover:bg-white/10"
                 >
                   Fragrance Load Calculator
                 </Link>
-
               </div>
-
-            </section>
-
-          </div>
+            </div>
+          </section>
         </article>
       </main>
+
+      <Footer />
     </>
   );
 }

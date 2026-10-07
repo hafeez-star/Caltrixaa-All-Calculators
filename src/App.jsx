@@ -47,6 +47,12 @@ import CandleWaxCalculatorGuide from "./pages/blog/CandleWaxCalculatorGuide";
 import FragranceLoadCalculatorGuide from "./pages/blog/FragranceLoadCalculatorGuide";
 import HowToCalculateSoapCostAndProfit from "./pages/blog/how-to-calculate-soap-cost-and-profit";
 import CandleWaxFragranceCalculation from "./pages/blog/CandleWaxFragranceCalculation";
+import HowToChooseCandleWickSize from "./pages/blog/HowToChooseCandleWickSize";
+import HowToCalculateSoyWaxForCandles from "./pages/blog/HowToCalculateSoyWaxForCandles";
+import HowToCalculateCandleWickSize from "./pages/blog/HowToCalculateCandleWickSize";
+import HowToChooseWoodenWickSize from "./pages/blog/HowToChooseWoodenWickSize";
+import HowToCalculateCandleWaxWeight from "./pages/blog/HowToCalculateCandleWaxWeight";
+import CandleMakingCalculationsGuide from "./pages/blog/CandleMakingCalculationsGuide";
 
 
 
@@ -147,10 +153,10 @@ function App() {
           path="/soap-cost-profit-calculator"
           element={<SoapCostProfitCalculator />}
         />
-<Route
-  path="/blog/candle-wax-fragrance-calculation"
-  element={<CandleWaxFragranceCalculation />}
-/>
+        <Route
+          path="/blog/candle-wax-fragrance-calculation"
+          element={<CandleWaxFragranceCalculation />}
+        />
 
         {/* DATE & TIME */}
         <Route
@@ -204,6 +210,35 @@ function App() {
         <Route
           path="/blog/how-to-calculate-soap-cost-and-profit"
           element={<HowToCalculateSoapCostAndProfit />}
+        />
+        <Route
+          path="/blog/how-to-choose-candle-wick-size"
+          element={<HowToChooseCandleWickSize />}
+        />
+
+        <Route
+          path="/blog/how-to-calculate-soy-wax-for-candles"
+          element={<HowToCalculateSoyWaxForCandles />}
+        />
+
+        <Route
+          path="/blog/how-to-calculate-candle-wick-size"
+          element={<HowToCalculateCandleWickSize />}
+        />
+
+        <Route
+          path="/blog/how-to-choose-wooden-wick-size"
+          element={<HowToChooseWoodenWickSize />}
+        />
+
+        <Route
+          path="/blog/how-to-calculate-candle-wax-weight"
+          element={<HowToCalculateCandleWaxWeight />}
+        />
+
+        <Route
+          path="/blog/candle-making-calculations-guide"
+          element={<CandleMakingCalculationsGuide />}
         />
 
         {/* MATH */}

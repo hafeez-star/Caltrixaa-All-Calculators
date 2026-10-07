@@ -1,4 +1,3 @@
-
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import SEO from "../components/SEO";
@@ -14,6 +13,7 @@ const articles = [
     path: "/blog/how-to-calculate-bath-bomb-ingredients",
     readTime: "6 min read",
   },
+
   {
     category: "Candle Making",
     icon: "🕯️",
@@ -23,6 +23,7 @@ const articles = [
     path: "/blog/candle-wax-fragrance-calculation",
     readTime: "7 min read",
   },
+
   {
     category: "Fragrance",
     icon: "🌸",
@@ -32,6 +33,66 @@ const articles = [
     path: "/blog/what-is-fragrance-load",
     readTime: "6 min read",
   },
+
+  {
+    category: "Candle Making",
+    icon: "🕯️",
+    title: "How to Choose the Right Candle Wick Size",
+    description:
+      "Learn how to choose candle wick size using container diameter, wax type and fragrance load, plus practical testing tips.",
+    path: "/blog/how-to-choose-candle-wick-size",
+    readTime: "6 min read",
+  },
+
+  {
+    category: "Soy Wax",
+    icon: "🌿",
+    title: "How to Calculate Soy Wax for Candles",
+    description:
+      "Learn how to calculate soy wax for candles, jars and batches using fill weight and fragrance load.",
+    path: "/blog/how-to-calculate-soy-wax-for-candles",
+    readTime: "6 min read",
+  },
+
+  {
+    category: "Candle Making",
+    icon: "📏",
+    title: "How to Calculate Candle Wick Size",
+    description:
+      "Learn how to estimate candle wick size from container diameter, wax type and fragrance load, then verify it with burn testing.",
+    path: "/blog/how-to-calculate-candle-wick-size",
+    readTime: "6 min read",
+  },
+
+  {
+    category: "Wooden Wicks",
+    icon: "🪵",
+    title: "How to Choose the Right Wooden Wick Size",
+    description:
+      "Learn how to choose wooden wick size for candles using container width, wax type and fragrance load.",
+    path: "/blog/how-to-choose-wooden-wick-size",
+    readTime: "6 min read",
+  },
+
+  {
+    category: "Candle Wax",
+    icon: "⚖️",
+    title: "How to Calculate Candle Wax Weight",
+    description:
+      "Learn how to calculate candle wax weight for jars, containers and batches using simple weight-based calculations.",
+    path: "/blog/how-to-calculate-candle-wax-weight",
+    readTime: "6 min read",
+  },
+
+  {
+    category: "Candle Making",
+    icon: "🧮",
+    title: "Candle Making Calculations: Wax, Fragrance & Wick",
+    description:
+      "Learn the key candle making calculations for wax weight, fragrance load, candle containers and wick selection.",
+    path: "/blog/candle-making-calculations-guide",
+    readTime: "8 min read",
+  },
 ];
 
 function Blog() {
@@ -39,7 +100,7 @@ function Blog() {
     <div className="min-h-screen bg-white text-slate-900">
       <SEO
         title="Caltrixaa Blog - Calculator Guides, DIY Tips & Tutorials"
-        description="Read practical calculator guides, craft and DIY tutorials, candle making tips, bath bomb recipes, fragrance calculations and useful calculation guides."
+        description="Read practical calculator guides, DIY tutorials, candle making tips, bath bomb recipes, fragrance calculations and useful calculation guides."
         keywords="calculator blog, craft diy calculator guides, candle making calculator guide, bath bomb calculator guide, fragrance load calculator guide"
         schema={{
           "@context": "https://schema.org",
@@ -59,16 +120,14 @@ function Blog() {
       <Navbar />
 
       <main>
-
         {/* HERO */}
         <section className="relative overflow-hidden bg-gradient-to-br from-indigo-50 via-white to-violet-50">
           <div className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-indigo-200/40 blur-3xl" />
+
           <div className="pointer-events-none absolute -right-24 top-20 h-80 w-80 rounded-full bg-violet-200/40 blur-3xl" />
 
           <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-
             <div className="mx-auto max-w-3xl text-center">
-
               <span className="inline-flex items-center rounded-full border border-indigo-100 bg-white px-4 py-2 text-sm font-bold text-indigo-600 shadow-sm">
                 📝 Caltrixaa Guides & Articles
               </span>
@@ -85,51 +144,35 @@ function Blog() {
                 from candle making and bath bombs to everyday calculators and
                 useful DIY projects.
               </p>
-
             </div>
           </div>
         </section>
 
-
         {/* FEATURED */}
         <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+          <div className="mb-8">
+            <p className="text-sm font-bold uppercase tracking-widest text-indigo-600">
+              Featured Guide
+            </p>
 
-          <div className="mb-8 flex items-end justify-between gap-4">
-
-            <div>
-              <p className="text-sm font-bold uppercase tracking-widest text-indigo-600">
-                Featured Guide
-              </p>
-
-              <h2 className="mt-2 text-3xl font-black text-slate-950">
-                Start with a practical calculation guide
-              </h2>
-            </div>
-
+            <h2 className="mt-2 text-3xl font-black text-slate-950">
+              Start with a practical calculation guide
+            </h2>
           </div>
 
-
           <article className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-xl">
-
             <div className="grid lg:grid-cols-2">
-
               <div className="flex min-h-[320px] items-center justify-center bg-gradient-to-br from-indigo-100 via-white to-violet-100 p-10">
-
                 <div className="text-center">
-
                   <div className="text-8xl">🛁</div>
 
                   <div className="mt-5 inline-flex rounded-full bg-white px-4 py-2 text-sm font-bold text-indigo-600 shadow-sm">
                     Bath Bomb Guide
                   </div>
-
                 </div>
-
               </div>
 
-
               <div className="flex flex-col justify-center p-8 sm:p-10">
-
                 <span className="text-sm font-bold text-indigo-600">
                   Craft & DIY
                 </span>
@@ -156,23 +199,15 @@ function Blog() {
                 >
                   Read Guide →
                 </Link>
-
               </div>
-
             </div>
-
           </article>
-
         </section>
-
 
         {/* ARTICLES */}
         <section className="bg-slate-50 py-16">
-
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-
             <div className="mx-auto max-w-2xl text-center">
-
               <span className="text-sm font-bold uppercase tracking-widest text-indigo-600">
                 Latest Guides
               </span>
@@ -185,31 +220,22 @@ function Blog() {
                 Simple explanations for makers, DIY creators and anyone who
                 wants to understand the numbers behind a recipe or project.
               </p>
-
             </div>
 
-
             <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-
               {articles.map(function (article) {
-
                 return (
                   <article
                     key={article.path}
                     className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl"
                   >
-
                     <div className="flex h-44 items-center justify-center bg-gradient-to-br from-indigo-50 to-violet-50">
-
                       <span className="text-7xl transition duration-300 group-hover:scale-110">
                         {article.icon}
                       </span>
-
                     </div>
 
-
                     <div className="p-6">
-
                       <span className="rounded-full bg-indigo-50 px-3 py-1 text-xs font-bold text-indigo-600">
                         {article.category}
                       </span>
@@ -223,7 +249,6 @@ function Blog() {
                       </p>
 
                       <div className="mt-5 flex items-center justify-between">
-
                         <span className="text-xs font-semibold text-slate-400">
                           {article.readTime}
                         </span>
@@ -232,30 +257,20 @@ function Blog() {
                           to={article.path}
                           className="font-bold text-indigo-600 transition group-hover:translate-x-1"
                         >
-                          Read → 
+                          Read →
                         </Link>
-
                       </div>
-
                     </div>
-
                   </article>
                 );
-
               })}
-
             </div>
-
           </div>
-
         </section>
-
 
         {/* CALCULATOR CTA */}
         <section className="mx-auto max-w-5xl px-4 py-20 sm:px-6 lg:px-8">
-
           <div className="rounded-3xl bg-slate-950 p-8 text-center text-white shadow-2xl sm:p-12">
-
             <span className="text-4xl">🧮</span>
 
             <h2 className="mt-5 text-3xl font-black sm:text-4xl">
@@ -273,11 +288,8 @@ function Blog() {
             >
               Explore Craft & DIY Calculators →
             </Link>
-
           </div>
-
         </section>
-
       </main>
 
       <Footer />
