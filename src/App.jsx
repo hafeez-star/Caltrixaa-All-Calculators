@@ -64,6 +64,20 @@ import HowToCalculateCandleWaxWeight from "./pages/blog/HowToCalculateCandleWaxW
 import CandleMakingCalculationsGuide from "./pages/blog/CandleMakingCalculationsGuide";
 
 
+import HowToCalculateBmiFromHeightAndWeight from "./pages/blog/HowToCalculateBmiFromHeightAndWeight";
+import HowToCalculateBmrForAdults from "./pages/blog/HowToCalculateBmrForAdults";
+import HowToCalculateDailyCalorieNeeds from "./pages/blog/HowToCalculateDailyCalorieNeeds";
+import HowToCalculateIdealWeightForHeight from "./pages/blog/HowToCalculateIdealWeightForHeight";
+import HowToCalculateWeightFromBmiAndHeight from "./pages/blog/HowToCalculateWeightFromBmiAndHeight";
+
+import HowToCalculateAPercentage from "./pages/blog/HowToCalculateAPercentage";
+import HowToCalculatePercentageIncreaseDecrease from "./pages/blog/HowToCalculatePercentageIncreaseDecrease";
+import HowToCalculateAnAverage from "./pages/blog/HowToCalculateAnAverage";
+import HowToCalculateAverageOfNumbers from "./pages/blog/HowToCalculateAverageOfNumbers";
+
+import HowToCalculateADiscount from "./pages/blog/HowToCalculateADiscount";
+import HowToCalculateATip from "./pages/blog/HowToCalculateATip";
+
 import HowToCalculateExactAge from "./pages/blog/HowToCalculateExactAge";
 import HowToCalculateDaysBetweenDates from "./pages/blog/HowToCalculateDaysBetweenDates";
 import HowToCalculateDateDifference from "./pages/blog/HowToCalculateDateDifference";
@@ -315,31 +329,85 @@ function App() {
           element={<CandleMakingCalculationsGuide />}
         />
 
+        <Route
+          path="/blog/how-to-calculate-exact-age"
+          element={<HowToCalculateExactAge />}
+        />
+
+        <Route
+          path="/blog/how-to-calculate-days-between-dates"
+          element={<HowToCalculateDaysBetweenDates />}
+        />
+
+        <Route
+          path="/blog/how-to-calculate-date-difference"
+          element={<HowToCalculateDateDifference />}
+        />
+
+        <Route
+          path="/blog/how-to-calculate-time-duration"
+          element={<HowToCalculateTimeDuration />}
+        />
+
+        <Route
+          path="/blog/hours-to-minutes-conversion"
+          element={<HoursToMinutesConversion />}
+        />
+
+        <Route
+          path="/blog/how-to-calculate-bmi-from-height-and-weight"
+          element={<HowToCalculateBmiFromHeightAndWeight />}
+        />
+
+        <Route
+          path="/blog/how-to-calculate-bmr-for-adults"
+          element={<HowToCalculateBmrForAdults />}
+        />
+
+        <Route
+          path="/blog/how-to-calculate-daily-calorie-needs"
+          element={<HowToCalculateDailyCalorieNeeds />}
+        />
+
+        <Route
+          path="/blog/how-to-calculate-ideal-weight-for-height"
+          element={<HowToCalculateIdealWeightForHeight />}
+        />
+
+        <Route
+          path="/blog/how-to-calculate-weight-from-bmi-and-height"
+          element={<HowToCalculateWeightFromBmiAndHeight />}
+        />
+
+        <Route
+          path="/blog/how-to-calculate-a-percentage"
+          element={<HowToCalculateAPercentage />}
+        />
+
+        <Route
+          path="/blog/how-to-calculate-percentage-increase-decrease"
+          element={<HowToCalculatePercentageIncreaseDecrease />}
+        />
+
+        <Route
+          path="/blog/how-to-calculate-an-average"
+          element={<HowToCalculateAnAverage />}
+        />
+
+        <Route
+          path="/blog/how-to-calculate-average-of-numbers"
+          element={<HowToCalculateAverageOfNumbers />}
+        />
+
 <Route
-  path="/blog/how-to-calculate-exact-age"
-  element={<HowToCalculateExactAge />}
+  path="/blog/how-to-calculate-a-discount"
+  element={<HowToCalculateADiscount />}
 />
 
 <Route
-  path="/blog/how-to-calculate-days-between-dates"
-  element={<HowToCalculateDaysBetweenDates />}
+  path="/blog/how-to-calculate-a-tip"
+  element={<HowToCalculateATip />}
 />
-
-<Route
-  path="/blog/how-to-calculate-date-difference"
-  element={<HowToCalculateDateDifference />}
-/>
-
-<Route
-  path="/blog/how-to-calculate-time-duration"
-  element={<HowToCalculateTimeDuration />}
-/>
-
-<Route
-  path="/blog/hours-to-minutes-conversion"
-  element={<HoursToMinutesConversion />}
-/>
-
         {/* =========================
             INFORMATION PAGES
         ========================= */}

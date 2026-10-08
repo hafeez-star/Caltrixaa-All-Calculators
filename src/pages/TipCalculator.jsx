@@ -2,6 +2,7 @@ import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import SEO from "../components/SEO";
+import { Link } from "react-router-dom";
 
 function TipCalculator() {
   const [bill, setBill] = useState("");
@@ -199,6 +200,24 @@ function TipCalculator() {
             )}
           </div>
         </div>
+
+        <div className="mt-8 rounded-2xl border border-indigo-100 bg-indigo-50 p-6">
+  <h2 className="text-xl font-bold text-slate-900">
+    Learn More About Tip Calculations
+  </h2>
+
+  <p className="mt-2 leading-7 text-slate-600">
+    Learn how to calculate a tip from your bill, compare different tip
+    percentages, and split a restaurant bill between multiple people.
+  </p>
+
+  <Link
+    to="/blog/how-to-calculate-a-tip"
+    className="mt-4 inline-flex rounded-xl bg-indigo-600 px-5 py-3 font-semibold text-white transition hover:bg-indigo-700"
+  >
+    How to Calculate a Tip →
+  </Link>
+</div>
 
         <article className="mx-auto mt-16 max-w-4xl">
           <h2 className="text-3xl font-bold">

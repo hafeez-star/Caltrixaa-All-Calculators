@@ -475,6 +475,23 @@ function BathBombRatioCalculator() {
             </p>
           </div>
           
+          <div className="mt-8 rounded-2xl border border-indigo-100 bg-indigo-50 p-6">
+  <h2 className="text-xl font-bold text-slate-900">
+    How Do You Calculate Bath Bomb Ingredients?
+  </h2>
+
+  <p className="mt-2 leading-7 text-slate-600">
+    Learn how to calculate bath bomb ingredients, ratios, and batch
+    quantities with practical examples.
+  </p>
+
+  <Link
+    to="/blog/how-to-calculate-bath-bomb-ingredients"
+    className="mt-4 inline-flex rounded-xl bg-indigo-600 px-5 py-3 font-semibold text-white transition hover:bg-indigo-700"
+  >
+    Read the Bath Bomb Calculation Guide →
+  </Link>
+</div>
         </article>
 
       </main>

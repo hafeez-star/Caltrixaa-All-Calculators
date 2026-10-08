@@ -321,9 +321,25 @@ function FragranceLoadCalculator() {
                 usage limits.
               </p>
             </details>
+<div className="mt-8 rounded-2xl border border-indigo-100 bg-indigo-50 p-6">
+  <h2 className="text-xl font-bold text-slate-900">
+    What Is Fragrance Load?
+  </h2>
 
+  <p className="mt-2 leading-7 text-slate-600">
+    Learn what fragrance load means, how to calculate fragrance oil,
+    and how it affects candle and wax projects.
+  </p>
+
+  <Link
+    to="/blog/what-is-fragrance-load"
+    className="mt-4 inline-flex rounded-xl bg-indigo-600 px-5 py-3 font-semibold text-white transition hover:bg-indigo-700"
+  >
+    Read the Fragrance Load Guide →
+  </Link>
+</div>
           </div>
-<RelatedCraftTools />
+          <RelatedCraftTools />
         </article>
 
       </main>

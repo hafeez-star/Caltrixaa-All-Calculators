@@ -3,15 +3,15 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import SEO from "../../components/SEO";
 
-function HowToCalculateAPercentage() {
+function HowToCalculateAverageOfNumbers() {
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "BlogPosting",
-        headline: "How to Calculate a Percentage",
+        headline: "How to Calculate the Average of Numbers",
         description:
-          "Learn how to calculate a percentage using simple formulas, examples and practical everyday calculations.",
+          "Learn how to find the average of numbers using a simple step-by-step method with practical examples.",
         author: {
           "@type": "Organization",
           name: "Caltrixaa",
@@ -23,7 +23,7 @@ function HowToCalculateAPercentage() {
         mainEntityOfPage: {
           "@type": "WebPage",
           "@id":
-            "https://caltrixaa.vercel.app/blog/how-to-calculate-a-percentage",
+            "https://caltrixaa.vercel.app/blog/how-to-calculate-average-of-numbers",
         },
         datePublished: "2026-10-08",
         dateModified: "2026-10-08",
@@ -46,9 +46,9 @@ function HowToCalculateAPercentage() {
           {
             "@type": "ListItem",
             position: 3,
-            name: "How to Calculate a Percentage",
+            name: "Average of Numbers",
             item:
-              "https://caltrixaa.vercel.app/blog/how-to-calculate-a-percentage",
+              "https://caltrixaa.vercel.app/blog/how-to-calculate-average-of-numbers",
           },
         ],
       },
@@ -58,9 +58,9 @@ function HowToCalculateAPercentage() {
   return (
     <>
       <SEO
-        title="How to Calculate a Percentage | Caltrixaa"
-        description="Learn how to calculate a percentage with simple formulas, step-by-step examples and practical everyday uses."
-        keywords="how to calculate a percentage, percentage formula, percentage calculation, calculate percentage"
+        title="How to Calculate the Average of Numbers | Caltrixaa"
+        description="Learn how to calculate the average of numbers step by step using the arithmetic mean formula and practical examples."
+        keywords="average of numbers calculator, how to calculate average of numbers, average numbers, average formula"
         schema={schema}
       />
 
@@ -79,7 +79,7 @@ function HowToCalculateAPercentage() {
             </Link>
             <span className="mx-2">/</span>
 
-            <span>How to Calculate a Percentage</span>
+            <span>Average of Numbers</span>
           </nav>
 
           <header>
@@ -88,13 +88,12 @@ function HowToCalculateAPercentage() {
             </p>
 
             <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
-              How to Calculate a Percentage
+              How to Calculate the Average of Numbers
             </h1>
 
             <p className="mt-4 text-lg leading-8 text-slate-600">
-              Learn how to calculate a percentage using a simple formula,
-              understand what each number means, and work through practical
-              examples.
+              Learn how to find the average of a group of numbers by adding
+              the values and dividing the total by the number of values.
             </p>
           </header>
 
@@ -104,115 +103,119 @@ function HowToCalculateAPercentage() {
             </h2>
 
             <p className="mt-3 leading-7 text-slate-700">
-              To calculate a percentage, divide the part by the whole and
-              multiply the result by 100. For example, if you scored 45 out
-              of 60, calculate 45 ÷ 60 × 100 = 75%. Therefore, 45 is 75% of
-              60.
+              To find the average of numbers, add every number in the list
+              and divide the total by how many numbers are in the list. For
+              example, the average of 4, 8, 12 and 16 is 40 ÷ 4 = 10.
             </p>
           </section>
 
           <section className="mt-10">
             <h2 className="text-2xl font-bold text-slate-900">
-              What Is a Percentage?
+              How Do You Find the Average of Numbers?
             </h2>
 
             <p className="mt-4 leading-8 text-slate-700">
-              A percentage describes a number as a portion of 100. The word
-              percent means "per hundred," so 25% means 25 out of every 100.
+              Finding an average is a simple three-step process.
             </p>
 
-            <p className="mt-4 leading-8 text-slate-700">
-              Percentages are commonly used for test scores, discounts,
-              statistics, business calculations, prices, taxes and many
-              everyday comparisons.
-            </p>
+            <ol className="mt-5 list-decimal space-y-4 pl-6 leading-7 text-slate-700">
+              <li>Add all the numbers together.</li>
+              <li>Count how many numbers there are.</li>
+              <li>Divide the total by the number of values.</li>
+            </ol>
           </section>
 
           <section className="mt-10">
             <h2 className="text-2xl font-bold text-slate-900">
-              How Do You Calculate a Percentage?
+              Average of Four Numbers Example
             </h2>
 
             <p className="mt-4 leading-8 text-slate-700">
-              The basic percentage formula is:
-            </p>
-
-            <div className="my-5 rounded-xl bg-slate-900 p-5 text-center text-lg font-semibold text-white">
-              Percentage = (Part ÷ Whole) × 100
-            </div>
-
-            <p className="leading-8 text-slate-700">
-              The <strong>part</strong> is the amount you are comparing, while
-              the <strong>whole</strong> is the total amount.
-            </p>
-          </section>
-
-          <section className="mt-10">
-            <h2 className="text-2xl font-bold text-slate-900">
-              Example: Calculate a Test Score Percentage
-            </h2>
-
-            <p className="mt-4 leading-8 text-slate-700">
-              Suppose a student gets 42 marks out of 50.
+              Suppose you want to find the average of 4, 8, 12 and 16.
             </p>
 
             <div className="my-5 rounded-xl border border-slate-200 bg-slate-50 p-5">
               <p className="font-semibold text-slate-900">
-                Part = 42
+                Step 1: 4 + 8 + 12 + 16 = 40
               </p>
+
               <p className="mt-2 font-semibold text-slate-900">
-                Whole = 50
+                Step 2: There are 4 numbers.
               </p>
+
               <p className="mt-2 font-semibold text-slate-900">
-                Percentage = (42 ÷ 50) × 100 = 84%
+                Step 3: 40 ÷ 4 = 10
               </p>
             </div>
 
             <p className="leading-8 text-slate-700">
-              The student's score is therefore 84%.
+              The average of the four numbers is 10.
             </p>
           </section>
 
           <section className="mt-10">
             <h2 className="text-2xl font-bold text-slate-900">
-              How Do You Calculate What Percentage One Number Is of Another?
+              Average of Numbers With Decimals
             </h2>
 
             <p className="mt-4 leading-8 text-slate-700">
-              Use the same part-to-whole formula. If you want to know what
-              percentage 30 is of 120, divide 30 by 120 and multiply by 100.
+              The same method works when the numbers contain decimals.
+              Suppose the values are 2.5, 3.5 and 6.
             </p>
 
-            <div className="my-5 rounded-xl border border-slate-200 bg-slate-50 p-5 text-center font-semibold text-slate-900">
-              (30 ÷ 120) × 100 = 25%
+            <div className="my-5 rounded-xl border border-slate-200 bg-slate-50 p-5">
+              <p className="font-semibold text-slate-900">
+                Sum = 2.5 + 3.5 + 6 = 12
+              </p>
+
+              <p className="mt-2 font-semibold text-slate-900">
+                Average = 12 ÷ 3 = 4
+              </p>
             </div>
           </section>
 
           <section className="mt-10">
             <h2 className="text-2xl font-bold text-slate-900">
-              Common Percentage Uses
+              What Happens When One Number Is Much Larger?
+            </h2>
+
+            <p className="mt-4 leading-8 text-slate-700">
+              A very large or very small value can affect the arithmetic
+              mean significantly. This is one reason why averages should be
+              interpreted alongside the underlying data.
+            </p>
+
+            <p className="mt-4 leading-8 text-slate-700">
+              For some datasets, the median may provide a different and
+              useful description of the center.
+            </p>
+          </section>
+
+          <section className="mt-10">
+            <h2 className="text-2xl font-bold text-slate-900">
+              Common Uses for an Average
             </h2>
 
             <ul className="mt-4 list-disc space-y-3 pl-6 leading-7 text-slate-700">
-              <li>Calculating exam and test scores</li>
-              <li>Finding discounts on products</li>
-              <li>Comparing business figures</li>
-              <li>Understanding statistics</li>
-              <li>Calculating taxes and fees</li>
-              <li>Comparing parts of a total</li>
+              <li>Calculating average grades</li>
+              <li>Finding average prices</li>
+              <li>Comparing sports statistics</li>
+              <li>Analyzing daily measurements</li>
+              <li>Summarizing business data</li>
+              <li>Working with numerical datasets</li>
             </ul>
           </section>
 
           <section className="mt-10">
             <h2 className="text-2xl font-bold text-slate-900">
-              Common Percentage Calculation Mistakes
+              Common Mistakes
             </h2>
 
             <ul className="mt-4 list-disc space-y-3 pl-6 leading-7 text-slate-700">
-              <li>Using the wrong number as the whole.</li>
-              <li>Forgetting to multiply the decimal result by 100.</li>
-              <li>Confusing percentage with percentage points.</li>
-              <li>Rounding too early in a multi-step calculation.</li>
+              <li>Dividing by the wrong number of values.</li>
+              <li>Leaving one value out of the total.</li>
+              <li>Making an addition error.</li>
+              <li>Rounding before finishing the calculation.</li>
             </ul>
           </section>
 
@@ -222,12 +225,10 @@ function HowToCalculateAPercentage() {
             </h2>
 
             <ul className="mt-4 list-disc space-y-3 pl-6 leading-7 text-slate-700">
-              <li>A percentage expresses a value out of 100.</li>
-              <li>
-                Divide the part by the whole to find the decimal proportion.
-              </li>
-              <li>Multiply that result by 100 to get the percentage.</li>
-              <li>Always identify the correct whole before calculating.</li>
+              <li>Add every number in the dataset.</li>
+              <li>Count the total number of values.</li>
+              <li>Divide the sum by the count.</li>
+              <li>The result is the arithmetic average.</li>
             </ul>
           </section>
 
@@ -239,32 +240,33 @@ function HowToCalculateAPercentage() {
             <div className="mt-6 space-y-6">
               <div>
                 <h3 className="text-lg font-bold text-slate-900">
-                  How do you calculate a percentage quickly?
+                  What is the formula for the average of numbers?
                 </h3>
+
                 <p className="mt-2 leading-7 text-slate-700">
-                  Divide the part by the whole and multiply the answer by
-                  100.
+                  Add all the numbers together and divide their sum by the
+                  number of values.
                 </p>
               </div>
 
               <div>
                 <h3 className="text-lg font-bold text-slate-900">
-                  What is 20 out of 80 as a percentage?
+                  How do you calculate the average of 5 numbers?
                 </h3>
+
                 <p className="mt-2 leading-7 text-slate-700">
-                  20 divided by 80 equals 0.25. Multiplying by 100 gives
-                  25%.
+                  Add the five numbers and divide their total by 5.
                 </p>
               </div>
 
               <div>
                 <h3 className="text-lg font-bold text-slate-900">
-                  Can I calculate percentages without doing the formula
-                  manually?
+                  Can an average be a decimal?
                 </h3>
+
                 <p className="mt-2 leading-7 text-slate-700">
-                  Yes. You can use the free Percentage Calculator on
-                  Caltrixaa to perform common percentage calculations.
+                  Yes. The arithmetic average can be a whole number or a
+                  decimal depending on the values.
                 </p>
               </div>
             </div>
@@ -272,19 +274,19 @@ function HowToCalculateAPercentage() {
 
           <section className="mt-10 rounded-2xl bg-slate-50 p-6">
             <h2 className="text-xl font-bold text-slate-900">
-              Calculate a Percentage Online
+              Find the Average of Numbers Online
             </h2>
 
             <p className="mt-2 leading-7 text-slate-600">
-              Use the Caltrixaa Percentage Calculator for quick percentage
-              calculations.
+              Enter your numbers into the Caltrixaa Average Calculator and
+              quickly find their average.
             </p>
 
             <Link
-              to="/percentage-calculator"
+              to="/average-calculator"
               className="mt-4 inline-flex rounded-xl bg-indigo-600 px-5 py-3 font-semibold text-white transition hover:bg-indigo-700"
             >
-              Open Percentage Calculator →
+              Open Average Calculator →
             </Link>
           </section>
         </article>
@@ -295,4 +297,4 @@ function HowToCalculateAPercentage() {
   );
 }
 
-export default HowToCalculateAPercentage;
+export default HowToCalculateAverageOfNumbers;

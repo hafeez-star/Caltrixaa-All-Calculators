@@ -2,6 +2,8 @@ import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import SEO from "../components/SEO";
+import { Link } from "react-router-dom";
+
 
 function CalorieCalculator() {
   const [gender, setGender] = useState("male");
@@ -46,24 +48,24 @@ function CalorieCalculator() {
 
   return (
     <>
-    <SEO
-  title="Calorie Calculator Online - Calculate Daily Calories | Caltrixaa"
-  description="Estimate your daily calorie needs with Caltrixaa's free calorie calculator. Calculate estimated calories based on your personal information and activity level."
-  keywords="calorie calculator, calorie calculator online, daily calorie calculator, calories calculator, calculate daily calories"
-  schema={{
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    name: "Calorie Calculator",
-    url: "https://caltrixaa.vercel.app/calorie-calculator",
-    applicationCategory: "HealthApplication",
-    operatingSystem: "All",
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "USD"
-    }
-  }}
-/>
+      <SEO
+        title="Calorie Calculator Online - Calculate Daily Calories | Caltrixaa"
+        description="Estimate your daily calorie needs with Caltrixaa's free calorie calculator. Calculate estimated calories based on your personal information and activity level."
+        keywords="calorie calculator, calorie calculator online, daily calorie calculator, calories calculator, calculate daily calories"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          name: "Calorie Calculator",
+          url: "https://caltrixaa.vercel.app/calorie-calculator",
+          applicationCategory: "HealthApplication",
+          operatingSystem: "All",
+          offers: {
+            "@type": "Offer",
+            price: "0",
+            priceCurrency: "USD"
+          }
+        }}
+      />
       <Navbar />
 
       <main className="min-h-screen bg-slate-50 px-4 py-12">
@@ -226,7 +228,13 @@ function CalorieCalculator() {
               The result is intended for general informational purposes and
               should not be treated as medical advice.
             </p>
+
           </section>
+          <div className="mt-4 leading-7 text-slate-600 flex-1 rounded-xl bg-indigo-600 px-5 py-3 font-semibold text-white hover:bg-indigo-700" >
+            <Link to="/blog/how-to-calculate-daily-calorie-needs">
+            Learn How Daily Calorie Needs Are Calculated →
+          </Link>
+          </div>
         </div>
       </main>
 

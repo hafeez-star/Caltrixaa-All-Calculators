@@ -145,6 +145,115 @@ const articles = [
     path: "/blog/hours-to-minutes-conversion",
     readTime: "5 min read",
   },
+  {
+  category: "Health",
+  icon: "⚖️",
+  title: "How to Calculate BMI from Height and Weight",
+  description:
+    "Learn how BMI is calculated from height and weight, understand the BMI formula, and see how adult BMI categories are interpreted.",
+  path: "/blog/how-to-calculate-bmi-from-height-and-weight",
+  readTime: "7 min read",
+},
+
+{
+  category: "Health",
+  icon: "🔥",
+  title: "How to Calculate BMR for Adults",
+  description:
+    "Learn what basal metabolic rate means, how BMR is estimated, and how age, height, weight and sex affect the calculation.",
+  path: "/blog/how-to-calculate-bmr-for-adults",
+  readTime: "7 min read",
+},
+
+{
+  category: "Health",
+  icon: "🍎",
+  title: "How to Calculate Daily Calorie Needs",
+  description:
+    "Learn how daily calorie needs are estimated from BMR and activity level, with a simple explanation of the calculation.",
+  path: "/blog/how-to-calculate-daily-calorie-needs",
+  readTime: "8 min read",
+},
+
+{
+  category: "Health",
+  icon: "📏",
+  title: "How to Calculate Ideal Weight for Height",
+  description:
+    "Learn how height-based ideal weight formulas work, why different formulas give different results, and how to interpret them carefully.",
+  path: "/blog/how-to-calculate-ideal-weight-for-height",
+  readTime: "7 min read",
+},
+
+{
+  category: "Health",
+  icon: "⚖️",
+  title: "How to Calculate Weight from BMI and Height",
+  description:
+    "Learn how to estimate body weight from a selected BMI and height using a simple mathematical formula.",
+  path: "/blog/how-to-calculate-weight-from-bmi-and-height",
+  readTime: "6 min read",
+},
+{
+  id: 15,
+  category: "Math & Numbers",
+  icon: "％",
+  title: "How to Calculate a Percentage",
+  description:
+    "Learn how to calculate percentages with simple formulas, examples and practical everyday calculations.",
+  path: "/blog/how-to-calculate-a-percentage",
+  readTime: "6 min read",
+},
+{
+  id: 16,
+  category: "Math & Numbers",
+  icon: "📈",
+  title: "How to Calculate Percentage Increase and Decrease",
+  description:
+    "Learn how to calculate percentage increase and decrease between an original value and a new value with simple examples.",
+  path: "/blog/how-to-calculate-percentage-increase-decrease",
+  readTime: "7 min read",
+},
+{
+  id: 17,
+  category: "Math & Numbers",
+  icon: "➗",
+  title: "How to Calculate an Average",
+  description:
+    "Learn how to calculate an average using the mean formula, with simple examples for a list of numbers.",
+  path: "/blog/how-to-calculate-an-average",
+  readTime: "5 min read",
+},
+{
+  id: 18,
+  category: "Math & Numbers",
+  icon: "🔢",
+  title: "How to Calculate the Average of Numbers",
+  description:
+    "Learn how to find the average of numbers by adding values together and dividing by the number of values.",
+  path: "/blog/how-to-calculate-average-of-numbers",
+  readTime: "5 min read",
+},
+{
+  id: 26,
+  category: "Money & Shopping",
+  icon: "💸",
+  title: "How to Calculate a Discount",
+  description:
+    "Learn how to calculate discounts, sale prices and savings using simple percentage formulas and practical examples.",
+  path: "/blog/how-to-calculate-a-discount",
+  readTime: "6 min read",
+},
+{
+  id: 27,
+  category: "Money & Shopping",
+  icon: "💰",
+  title: "How to Calculate a Tip",
+  description:
+    "Learn how to calculate a tip from a bill amount, choose a tip percentage and split the total between people.",
+  path: "/blog/how-to-calculate-a-tip",
+  readTime: "6 min read",
+},
 ];
 
 function Blog() {
@@ -322,29 +431,7 @@ function Blog() {
           </div>
         </section>
 
-        {/* DATE & TIME CTA */}
-        <section className="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
-          <div className="rounded-3xl border border-indigo-100 bg-indigo-50 p-8 text-center sm:p-10">
-            <div className="text-5xl">📅</div>
-
-            <h2 className="mt-4 text-2xl font-black text-slate-950 sm:text-3xl">
-              Need a Date & Time Calculation?
-            </h2>
-
-            <p className="mx-auto mt-3 max-w-2xl leading-7 text-slate-600">
-              Use Caltrixaa date and time calculators to calculate age, date
-              differences, days between dates and time durations.
-            </p>
-
-            <Link
-              to="/category/date-time"
-              className="mt-6 inline-flex rounded-xl bg-indigo-600 px-6 py-3 font-bold text-white transition hover:bg-indigo-700"
-            >
-              Explore Date & Time Calculators →
-            </Link>
-          </div>
-        </section>
-
+        
         {/* CALCULATOR CTA */}
         <section className="mx-auto max-w-5xl px-4 py-20 sm:px-6 lg:px-8">
           <div className="rounded-3xl bg-slate-950 p-8 text-center text-white shadow-2xl sm:p-12">

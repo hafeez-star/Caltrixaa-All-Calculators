@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import SEO from "../components/SEO";
+import SEO from "../components/SEO"; 
+import { Link } from "react-router-dom";
 
 function WeightCalculator() {
   const [kg, setKg] = useState("");
@@ -113,6 +114,11 @@ function WeightCalculator() {
               your weight in kilograms to get the equivalent weight in pounds.
             </p>
           </section>
+          <div className="mt-4 leading-7 text-slate-600 flex-1 rounded-xl bg-indigo-600 px-5 py-3 font-semibold text-white hover:bg-indigo-700">
+            <Link to="/blog/how-to-calculate-weight-from-bmi-and-height">
+  Learn How Weight Can Be Calculated from BMI and Height →
+</Link>
+          </div>
         </div>
       </main>
 

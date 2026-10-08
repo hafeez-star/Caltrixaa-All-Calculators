@@ -2,6 +2,9 @@ import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import SEO from "../components/SEO";
+import { Link } from "react-router-dom";
+
+
 
 function AverageCalculator() {
   const [numbers, setNumbers] = useState("");
@@ -166,6 +169,33 @@ function AverageCalculator() {
             )}
           </div>
         </div>
+
+<div className="mt-8 rounded-2xl border border-indigo-100 bg-indigo-50 p-6">
+  <h2 className="text-xl font-bold text-slate-900">
+    Learn More About Averages
+  </h2>
+
+  <p className="mt-2 leading-7 text-slate-600">
+    Learn how to calculate an average and how to find the average of
+    multiple numbers using a simple mathematical formula.
+  </p>
+
+  <div className="mt-4 flex flex-wrap gap-3">
+    <Link
+      to="/blog/how-to-calculate-an-average"
+      className="inline-flex rounded-xl bg-indigo-600 px-5 py-3 font-semibold text-white transition hover:bg-indigo-700"
+    >
+      How to Calculate an Average →
+    </Link>
+
+    <Link
+      to="/blog/how-to-calculate-average-of-numbers"
+      className="inline-flex rounded-xl bg-indigo-600 px-5 py-3 font-semibold text-white transition hover:bg-indigo-700"
+    >
+      Average of Numbers Guide →
+    </Link>
+  </div>
+</div>
 
         <article className="mx-auto mt-16 max-w-4xl">
           <h2 className="text-3xl font-bold">

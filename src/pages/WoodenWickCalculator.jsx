@@ -138,6 +138,7 @@ const config = {
   ],
 };
 
+
 function WoodenWickCalculator() {
   return <CraftCalculatorPage config={config} />;
 }

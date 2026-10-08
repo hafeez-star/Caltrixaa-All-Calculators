@@ -2,6 +2,9 @@ import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import SEO from "../components/SEO";
+import { Link } from "react-router-dom";
+
+
 function PercentageCalculator() {
   const [percentage, setPercentage] = useState("");
   const [number, setNumber] = useState("");
@@ -160,7 +163,32 @@ function PercentageCalculator() {
             )}
           </div>
         </div>
+<div className="mt-8 rounded-2xl border border-indigo-100 bg-indigo-50 p-6">
+  <h2 className="text-xl font-bold text-slate-900">
+    Learn More About Percentage Calculations
+  </h2>
 
+  <p className="mt-2 leading-7 text-slate-600">
+    Learn how percentages work, how to calculate a percentage, and how
+    percentage increase and decrease are calculated with simple examples.
+  </p>
+
+  <div className="mt-4 flex flex-wrap gap-3">
+    <Link
+      to="/blog/how-to-calculate-a-percentage"
+      className="inline-flex rounded-xl bg-indigo-600 px-5 py-3 font-semibold text-white transition hover:bg-indigo-700"
+    >
+      How to Calculate a Percentage →
+    </Link>
+
+    <Link
+      to="/blog/how-to-calculate-percentage-increase-decrease"
+      className="inline-flex rounded-xl bg-indigo-600 px-5 py-3 font-semibold text-white transition hover:bg-indigo-700"
+    >
+      Percentage Increase & Decrease →
+    </Link>
+  </div>
+</div>
         <article className="mx-auto mt-16 max-w-4xl">
           <h2 className="text-3xl font-bold">
             What Is a Percentage Calculator?

@@ -2,6 +2,7 @@ import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import SEO from "../components/SEO";
+import { Link } from "react-router-dom";
 
 function BmrCalculator() {
   const [gender, setGender] = useState("male");
@@ -190,6 +191,11 @@ function BmrCalculator() {
               estimate rather than a medical measurement.
             </p>
           </section>
+          <div className="mt-4 leading-7 text-slate-600 flex-1 rounded-xl bg-indigo-600 px-5 py-3 font-semibold text-white hover:bg-indigo-700">
+            <Link to="/blog/how-to-calculate-bmr-for-adults">
+  Learn How BMR Is Calculated →
+</Link>
+          </div>
         </div>
       </main>
 

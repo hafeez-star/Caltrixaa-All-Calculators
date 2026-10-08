@@ -2,6 +2,9 @@ import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import SEO from "../components/SEO";
+import{ Link } from "react-router-dom";
+
+
 function DiscountCalculator() {
   const [price, setPrice] = useState("");
   const [discount, setDiscount] = useState("");
@@ -145,6 +148,23 @@ function DiscountCalculator() {
                 Reset
               </button>
             </div>
+            <div className="mt-8 rounded-2xl border border-indigo-100 bg-indigo-50 p-6">
+  <h2 className="text-xl font-bold text-slate-900">
+    Learn More About Discounts
+  </h2>
+
+  <p className="mt-2 leading-7 text-slate-600">
+    Learn how discount percentages work, how to calculate your savings,
+    and how to find the final price after a discount.
+  </p>
+
+  <Link
+    to="/blog/how-to-calculate-a-discount"
+    className="mt-4 inline-flex rounded-xl bg-indigo-600 px-5 py-3 font-semibold text-white transition hover:bg-indigo-700"
+  >
+    How to Calculate a Discount →
+  </Link>
+</div>
 
             {result && (
               <div className="mt-8 rounded-3xl bg-gradient-to-br from-indigo-600 to-violet-600 p-7 text-white">
