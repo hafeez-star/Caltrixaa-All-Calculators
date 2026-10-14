@@ -1,65 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+  <!-- Home -->
   <url>
     <loc>https://caltrixaa.vercel.app/</loc>
   </url>
+
+  <!-- Date & Time Calculators -->
+  <!-- ==================== -->
 
   <url>
     <loc>https://caltrixaa.vercel.app/age-calculator</loc>
   </url>
 
   <url>
-    <loc>https://caltrixaa.vercel.app/bmi-calculator</loc>
-  </url>
-
-  <url>
     <loc>https://caltrixaa.vercel.app/date-calculator</loc>
-  </url>
-
-  <url>
-    <loc>https://caltrixaa.vercel.app/percentage-calculator</loc>
-  </url>
-
-  <url>
-    <loc>https://caltrixaa.vercel.app/discount-calculator</loc>
-  </url>
-
-  <url>
-    <loc>https://caltrixaa.vercel.app/tip-calculator</loc>
-  </url>
-
-  <url>
-    <loc>https://caltrixaa.vercel.app/average-calculator</loc>
-  </url>
-
-  <url>
-    <loc>https://caltrixaa.vercel.app/category/math</loc>
-  </url>
-
-  <url>
-    <loc>https://caltrixaa.vercel.app/category/money</loc>
-  </url>
-
-  <url>
-    <loc>https://caltrixaa.vercel.app/category/date</loc>
-  </url>
-
-  <url>
-    <loc>https://caltrixaa.vercel.app/category/health</loc>
-  </url>
-
-  <url>
-    <loc>https://caltrixaa.vercel.app/category/craft-diy</loc>
-  </url>
-
-  <url>
-    <loc>https://caltrixaa.vercel.app/craft-diy-calculators</loc>
-  </url>
-
-  <url>
-    <loc>https://caltrixaa.vercel.app/bath-bomb-ratio-calculator</loc>
   </url>
 
   <url>
@@ -78,6 +33,41 @@
     <loc>https://caltrixaa.vercel.app/minutes-to-hours</loc>
   </url>
 
+
+  <!-- ==================== -->
+  <!-- Math & Numbers -->
+  <!-- ==================== -->
+
+  <url>
+    <loc>https://caltrixaa.vercel.app/percentage-calculator</loc>
+  </url>
+
+  <url>
+    <loc>https://caltrixaa.vercel.app/average-calculator</loc>
+  </url>
+
+
+  <!-- ==================== -->
+  <!-- Money Calculators -->
+  <!-- ==================== -->
+
+  <url>
+    <loc>https://caltrixaa.vercel.app/discount-calculator</loc>
+  </url>
+
+  <url>
+    <loc>https://caltrixaa.vercel.app/tip-calculator</loc>
+  </url>
+
+
+  <!-- ==================== -->
+  <!-- Health Calculators -->
+  <!-- ==================== -->
+
+  <url>
+    <loc>https://caltrixaa.vercel.app/bmi-calculator</loc>
+  </url>
+
   <url>
     <loc>https://caltrixaa.vercel.app/weight-calculator</loc>
   </url>
@@ -93,6 +83,218 @@
   <url>
     <loc>https://caltrixaa.vercel.app/calorie-calculator</loc>
   </url>
+
+
+  <!-- ==================== -->
+  <!-- Craft & DIY Calculators -->
+  <!-- ==================== -->
+
+  <url>
+    <loc>https://caltrixaa.vercel.app/craft-diy-calculators</loc>
+  </url>
+
+  <url>
+    <loc>https://caltrixaa.vercel.app/category/craft-diy</loc>
+  </url>
+
+  <url>
+    <loc>https://caltrixaa.vercel.app/bath-bomb-ratio-calculator</loc>
+  </url>
+
+  <url>
+    <loc>https://caltrixaa.vercel.app/fragrance-load-calculator</loc>
+  </url>
+
+  <url>
+    <loc>https://caltrixaa.vercel.app/wick-size-calculator</loc>
+  </url>
+
+  <url>
+    <loc>https://caltrixaa.vercel.app/soy-wax-calculator</loc>
+  </url>
+
+  <url>
+    <loc>https://caltrixaa.vercel.app/candle-wax-calculator</loc>
+  </url>
+
+  <url>
+    <loc>https://caltrixaa.vercel.app/candle-wick-calculator</loc>
+  </url>
+
+  <url>
+    <loc>https://caltrixaa.vercel.app/wooden-wick-calculator</loc>
+  </url>
+
+  <url>
+    <loc>https://caltrixaa.vercel.app/candle-wax-weight-calculator</loc>
+  </url>
+
+  <url>
+    <loc>https://caltrixaa.vercel.app/candle-making-calculator</loc>
+  </url>
+
+  <url>
+    <loc>https://caltrixaa.vercel.app/soap-cost-profit-calculator</loc>
+  </url>
+
+
+  <!-- ==================== -->
+  <!-- Categories -->
+  <!-- ==================== -->
+
+  <url>
+    <loc>https://caltrixaa.vercel.app/category/health</loc>
+  </url>
+
+  <url>
+    <loc>https://caltrixaa.vercel.app/category/math-numbers</loc>
+  </url>
+
+
+  <!-- ==================== -->
+  <!-- Blog Main -->
+  <!-- ==================== -->
+
+  <url>
+    <loc>https://caltrixaa.vercel.app/blog</loc>
+  </url>
+
+
+  <!-- ==================== -->
+  <!-- Craft & DIY Blogs -->
+  <!-- ==================== -->
+
+  <url>
+    <loc>https://caltrixaa.vercel.app/blog/how-to-calculate-bath-bomb-ingredients</loc>
+  </url>
+
+  <url>
+    <loc>https://caltrixaa.vercel.app/blog/how-much-wax-for-candle-jar</loc>
+  </url>
+
+  <url>
+    <loc>https://caltrixaa.vercel.app/blog/candle-wax-fragrance-calculation</loc>
+  </url>
+
+  <url>
+    <loc>https://caltrixaa.vercel.app/blog/what-is-fragrance-load</loc>
+  </url>
+
+  <url>
+    <loc>https://caltrixaa.vercel.app/blog/how-to-calculate-soap-cost-and-profit</loc>
+  </url>
+
+  <url>
+    <loc>https://caltrixaa.vercel.app/blog/how-to-choose-candle-wick-size</loc>
+  </url>
+
+  <url>
+    <loc>https://caltrixaa.vercel.app/blog/how-to-calculate-soy-wax-for-candles</loc>
+  </url>
+
+  <url>
+    <loc>https://caltrixaa.vercel.app/blog/how-to-calculate-candle-wick-size</loc>
+  </url>
+
+  <url>
+    <loc>https://caltrixaa.vercel.app/blog/how-to-choose-wooden-wick-size</loc>
+  </url>
+
+  <url>
+    <loc>https://caltrixaa.vercel.app/blog/how-to-calculate-candle-wax-weight</loc>
+  </url>
+
+  <url>
+    <loc>https://caltrixaa.vercel.app/blog/candle-making-calculations-guide</loc>
+  </url>
+
+
+  <!-- ==================== -->
+  <!-- Date & Time Blogs -->
+  <!-- ==================== -->
+
+  <url>
+    <loc>https://caltrixaa.vercel.app/blog/how-to-calculate-exact-age</loc>
+  </url>
+
+  <url>
+    <loc>https://caltrixaa.vercel.app/blog/how-to-calculate-days-between-dates</loc>
+  </url>
+
+  <url>
+    <loc>https://caltrixaa.vercel.app/blog/how-to-calculate-date-difference</loc>
+  </url>
+
+  <url>
+    <loc>https://caltrixaa.vercel.app/blog/how-to-calculate-time-duration</loc>
+  </url>
+
+  <url>
+    <loc>https://caltrixaa.vercel.app/blog/hours-to-minutes-conversion</loc>
+  </url>
+
+
+  <!-- ==================== -->
+  <!-- Health Blogs -->
+  <!-- ==================== -->
+
+  <url>
+    <loc>https://caltrixaa.vercel.app/blog/how-to-calculate-bmi-from-height-and-weight</loc>
+  </url>
+
+  <url>
+    <loc>https://caltrixaa.vercel.app/blog/how-to-calculate-bmr-for-adults</loc>
+  </url>
+
+  <url>
+    <loc>https://caltrixaa.vercel.app/blog/how-to-calculate-daily-calorie-needs</loc>
+  </url>
+
+  <url>
+    <loc>https://caltrixaa.vercel.app/blog/how-to-calculate-ideal-weight-for-height</loc>
+  </url>
+
+  <url>
+    <loc>https://caltrixaa.vercel.app/blog/how-to-calculate-weight-from-bmi-and-height</loc>
+  </url>
+
+
+  <!-- ==================== -->
+  <!-- Math & Numbers Blogs -->
+  <!-- ==================== -->
+
+  <url>
+    <loc>https://caltrixaa.vercel.app/blog/how-to-calculate-a-percentage</loc>
+  </url>
+
+  <url>
+    <loc>https://caltrixaa.vercel.app/blog/how-to-calculate-percentage-increase-decrease</loc>
+  </url>
+
+  <url>
+    <loc>https://caltrixaa.vercel.app/blog/how-to-calculate-an-average</loc>
+  </url>
+
+  <url>
+    <loc>https://caltrixaa.vercel.app/blog/how-to-calculate-average-of-numbers</loc>
+  </url>
+
+<!-- ==================== -->
+  <!-- Money & Shopping Blogs -->
+  <!-- ==================== -->
+   
+<url>
+  <loc>https://caltrixaa.vercel.app/blog/how-to-calculate-a-discount</loc>
+</url>
+
+<url>
+  <loc>https://caltrixaa.vercel.app/blog/how-to-calculate-a-tip</loc>
+</url>
+
+
+  <!-- ==================== -->
+  <!-- Information Pages -->
+  <!-- ==================== -->
 
   <url>
     <loc>https://caltrixaa.vercel.app/about</loc>
