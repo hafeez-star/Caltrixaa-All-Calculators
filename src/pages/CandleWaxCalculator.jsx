@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -5,12 +6,10 @@ import SEO from "../components/SEO";
 import { Link } from "react-router-dom";
 import RelatedCraftTools from "../components/RelatedCraftTools";
 
-
-
-
 function CandleWaxCalculator() {
   const [containerVolume, setContainerVolume] = useState("");
   const [fragranceLoad, setFragranceLoad] = useState("10");
+  const [waxDensity, setWaxDensity] = useState("0.86");
   const [result, setResult] = useState(null);
   const [error, setError] = useState("");
 
@@ -18,26 +17,43 @@ function CandleWaxCalculator() {
     setError("");
     setResult(null);
 
-    if (!containerVolume || !fragranceLoad) {
-      setError("Please enter the container size and fragrance load.");
+    if (
+      containerVolume === "" ||
+      fragranceLoad === "" ||
+      waxDensity === ""
+    ) {
+      setError("Please enter all required values.");
       return;
     }
 
     const volume = Number(containerVolume);
     const load = Number(fragranceLoad);
+    const density = Number(waxDensity);
 
-    if (volume <= 0 || load < 0 || load > 30) {
+    if (
+      !Number.isFinite(volume) ||
+      !Number.isFinite(load) ||
+      !Number.isFinite(density) ||
+      volume <= 0 ||
+      load < 0 ||
+      load > 30 ||
+      density <= 0 ||
+      density > 2
+    ) {
       setError("Please enter valid values.");
       return;
     }
 
     /*
-      Approximate total candle fill weight.
-      Wax density varies by wax type, so 0.86 g/ml
-      is used as a practical starting estimate.
+      Estimate total candle fill weight.
+
+      Total fill weight = Container volume × Estimated density
+
+      Fragrance load is calculated as a percentage
+      of wax weight, not total candle weight.
     */
 
-    const totalBatch = volume * 0.86;
+    const totalBatch = volume * density;
 
     const wax = totalBatch / (1 + load / 100);
 
@@ -54,12 +70,16 @@ function CandleWaxCalculator() {
       waxOunces: waxOunces,
       fragranceOunces: fragranceOunces,
       totalOunces: totalOunces,
+      density: density,
+      load: load,
+      volume: volume,
     });
   }
 
   function resetCalculator() {
     setContainerVolume("");
     setFragranceLoad("10");
+    setWaxDensity("0.86");
     setResult(null);
     setError("");
   }
@@ -68,9 +88,9 @@ function CandleWaxCalculator() {
     <div className="min-h-screen bg-white text-slate-900">
 
       <SEO
-        title="Candle Wax Calculator (Jar / Container Size) | Caltrixaa"
-        description="Use this candle wax calculator to estimate wax and fragrance in grams for jar or container candles. Enter your container size and fragrance load."
-        keywords="candle wax calculator jar container size, candle wax calculator jar container size in grams, free candle wax calculator, candle wax and fragrance calculator, candle fragrance calculator in grams, soy wax calculator, candle calculator"
+        title="Candle Wax Calculator – Jar Size, Grams & Fragrance | Caltrixaa"
+        description="Calculate how much candle wax and fragrance oil you need for your jar or container. Estimate wax and fragrance amounts in grams and ounces using container volume and fragrance load."
+        keywords="candle wax calculator, candle wax calculator jar container size, candle wax calculator in grams, free candle wax calculator, candle wax and fragrance calculator, candle fragrance calculator, fragrance oil calculator, soy wax calculator"
         schema={{
           "@context": "https://schema.org",
           "@type": "WebApplication",
@@ -88,6 +108,8 @@ function CandleWaxCalculator() {
 
       <Navbar />
 
+      {/* Hero Section */}
+
       <section className="bg-gradient-to-b from-indigo-50/70 via-white to-white">
 
         <div className="mx-auto max-w-6xl px-4 py-14 text-center">
@@ -101,8 +123,9 @@ function CandleWaxCalculator() {
           </h1>
 
           <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
-            Estimate the amount of wax and fragrance oil needed for a candle
-            jar or container using its size in milliliters.
+            Calculate how much wax and fragrance oil you need for a candle
+            jar or container. Get estimated ingredient weights in grams
+            and ounces using your container size and fragrance load.
           </p>
 
         </div>
@@ -110,6 +133,8 @@ function CandleWaxCalculator() {
       </section>
 
       <main className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+
+        {/* Calculator */}
 
         <div className="mx-auto max-w-2xl">
 
@@ -120,9 +145,12 @@ function CandleWaxCalculator() {
             </h2>
 
             <p className="mt-2 text-sm leading-6 text-slate-500">
-              Enter your container size and fragrance load to estimate the
-              wax and fragrance oil needed for your candle.
+              Enter your container size, fragrance load and estimated
+              fill density to calculate the wax and fragrance oil
+              required for your candle.
             </p>
+
+            {/* Container Size */}
 
             <div className="mt-7">
 
@@ -133,6 +161,7 @@ function CandleWaxCalculator() {
               <input
                 type="number"
                 min="0"
+                step="any"
                 value={containerVolume}
                 onChange={function (event) {
                   setContainerVolume(event.target.value);
@@ -141,7 +170,13 @@ function CandleWaxCalculator() {
                 className="w-full rounded-2xl border border-slate-300 px-4 py-3.5 outline-none transition focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100"
               />
 
+              <p className="mt-2 text-xs text-slate-500">
+                Enter the usable volume of your candle container in milliliters.
+              </p>
+
             </div>
+
+            {/* Fragrance Load */}
 
             <div className="mt-5">
 
@@ -153,6 +188,7 @@ function CandleWaxCalculator() {
                 type="number"
                 min="0"
                 max="30"
+                step="any"
                 value={fragranceLoad}
                 onChange={function (event) {
                   setFragranceLoad(event.target.value);
@@ -162,20 +198,57 @@ function CandleWaxCalculator() {
               />
 
               <p className="mt-2 text-xs text-slate-500">
-                This calculator uses an approximate fill-weight conversion.
+                Fragrance load is calculated as a percentage of wax weight.
+                Maximum calculator input is 30%.
               </p>
 
             </div>
 
+            {/* Wax Density */}
+
+            <div className="mt-5">
+
+              <label className="mb-2 block text-sm font-semibold text-slate-700">
+                Estimated Candle Fill Density (g/ml)
+              </label>
+
+              <input
+                type="number"
+                min="0.01"
+                max="2"
+                step="0.01"
+                value={waxDensity}
+                onChange={function (event) {
+                  setWaxDensity(event.target.value);
+                }}
+                placeholder="Example: 0.86"
+                className="w-full rounded-2xl border border-slate-300 px-4 py-3.5 outline-none transition focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100"
+              />
+
+              <p className="mt-2 text-xs leading-5 text-slate-500">
+                Default estimate is 0.86 g/ml. Actual fill density varies
+                by wax and fragrance. Use a measured value when available.
+              </p>
+
+            </div>
+
+            {/* Error */}
+
             {error && (
-              <div className="mt-5 rounded-2xl border border-red-200 bg-red-50 p-4 text-sm text-red-600">
+              <div
+                role="alert"
+                className="mt-5 rounded-2xl border border-red-200 bg-red-50 p-4 text-sm text-red-600"
+              >
                 {error}
               </div>
             )}
 
+            {/* Buttons */}
+
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
 
               <button
+                type="button"
                 onClick={calculateWax}
                 className="flex-1 rounded-2xl bg-indigo-600 px-5 py-3.5 font-semibold text-white shadow-lg shadow-indigo-200 transition hover:bg-indigo-700"
               >
@@ -183,6 +256,7 @@ function CandleWaxCalculator() {
               </button>
 
               <button
+                type="button"
                 onClick={resetCalculator}
                 className="rounded-2xl border border-slate-300 bg-white px-5 py-3.5 font-semibold text-slate-700 transition hover:bg-slate-50"
               >
@@ -191,15 +265,26 @@ function CandleWaxCalculator() {
 
             </div>
 
+            {/* Results */}
+
             {result && (
 
-              <div className="mt-8 rounded-3xl bg-gradient-to-br from-indigo-600 to-violet-600 p-6 text-white shadow-xl">
+              <div
+                aria-live="polite"
+                className="mt-8 rounded-3xl bg-gradient-to-br from-indigo-600 to-violet-600 p-6 text-white shadow-xl"
+              >
 
                 <p className="text-sm text-indigo-100">
-                  Estimated candle ingredients
+                  Estimated Candle Ingredients
                 </p>
 
+                <h3 className="mt-1 text-xl font-bold">
+                  Your Candle Wax Calculation
+                </h3>
+
                 <div className="mt-5 grid gap-3 sm:grid-cols-3">
+
+                  {/* Wax */}
 
                   <div className="rounded-2xl bg-white/10 p-4 text-center">
 
@@ -217,6 +302,8 @@ function CandleWaxCalculator() {
 
                   </div>
 
+                  {/* Fragrance */}
+
                   <div className="rounded-2xl bg-white/10 p-4 text-center">
 
                     <p className="text-sm text-indigo-100">
@@ -233,10 +320,12 @@ function CandleWaxCalculator() {
 
                   </div>
 
+                  {/* Total */}
+
                   <div className="rounded-2xl bg-white/10 p-4 text-center">
 
                     <p className="text-sm text-indigo-100">
-                      Total
+                      Total Fill Weight
                     </p>
 
                     <p className="mt-2 text-2xl font-bold">
@@ -251,6 +340,38 @@ function CandleWaxCalculator() {
 
                 </div>
 
+                <div className="mt-5 rounded-2xl bg-white/10 p-4">
+
+                  <p className="text-sm font-semibold text-white">
+                    Calculation Details
+                  </p>
+
+                  <div className="mt-3 space-y-2 text-sm text-indigo-100">
+
+                    <div className="flex justify-between gap-3">
+                      <span>Container volume</span>
+                      <span>{result.volume} ml</span>
+                    </div>
+
+                    <div className="flex justify-between gap-3">
+                      <span>Fragrance load</span>
+                      <span>{result.load}%</span>
+                    </div>
+
+                    <div className="flex justify-between gap-3">
+                      <span>Estimated density</span>
+                      <span>{result.density} g/ml</span>
+                    </div>
+
+                  </div>
+
+                </div>
+
+                <p className="mt-4 text-xs leading-5 text-indigo-100">
+                  These are estimated ingredient amounts. Actual results
+                  depend on the wax, fragrance and usable container fill.
+                </p>
+
               </div>
 
             )}
@@ -259,6 +380,8 @@ function CandleWaxCalculator() {
 
         </div>
 
+        {/* SEO Article */}
+
         <article className="mx-auto mt-16 max-w-4xl">
 
           <h2 className="text-3xl font-bold tracking-tight text-slate-950">
@@ -266,9 +389,12 @@ function CandleWaxCalculator() {
           </h2>
 
           <p className="mt-5 leading-8 text-slate-600">
-            A candle wax calculator helps estimate how much wax is needed to
-            fill a jar or container. It can also estimate the amount of
-            fragrance oil required when a fragrance load percentage is used.
+            A candle wax calculator helps candle makers estimate how much
+            wax is needed to fill a jar or container. It can also calculate
+            the amount of fragrance oil required for a selected fragrance
+            load. Instead of guessing ingredient quantities, you can use
+            container volume and an estimated fill density to plan your
+            candle-making batches.
           </p>
 
           <h2 className="mt-10 text-3xl font-bold tracking-tight text-slate-950">
@@ -276,21 +402,22 @@ function CandleWaxCalculator() {
           </h2>
 
           <p className="mt-5 leading-8 text-slate-600">
-            Enter the approximate volume of your candle container in
-            milliliters. The calculator converts the container volume into an
-            estimated total candle fill weight and then separates the wax and
-            fragrance according to the selected fragrance load.
+            First, measure the usable volume of your candle container in
+            milliliters. Next, enter an estimated fill density for your
+            wax. The calculator estimates the total fill weight and
+            separates the wax and fragrance oil according to your
+            selected fragrance load.
           </p>
 
           <div className="mt-5 rounded-2xl bg-indigo-50 p-5 text-center font-semibold text-indigo-700">
-            Estimated Fill Weight = Container Volume × 0.86
+            Estimated Total Fill Weight = Container Volume × Fill Density
           </div>
 
           <p className="mt-5 leading-8 text-slate-600">
-            The 0.86 value is an estimate rather than a universal density.
-            Different waxes can have different densities, so weighing your
-            actual container fill during testing can give a more accurate
-            production measurement.
+            For example, a 300 ml container using an estimated fill density
+            of 0.86 g/ml has an estimated total fill weight of 258 grams.
+            This is a starting estimate, not a guaranteed measurement for
+            every wax type.
           </p>
 
           <h2 className="mt-10 text-3xl font-bold tracking-tight text-slate-950">
@@ -298,21 +425,114 @@ function CandleWaxCalculator() {
           </h2>
 
           <p className="mt-5 leading-8 text-slate-600">
-            When fragrance oil is included, the total batch weight contains
-            both wax and fragrance. For example, at a 10% fragrance load, the
-            calculator estimates the wax portion and then adds the fragrance
-            amount to reach the estimated total fill weight.
+            Fragrance load is commonly expressed as a percentage of wax
+            weight. For example, a 10% fragrance load means using 10 grams
+            of fragrance oil for every 100 grams of wax. The total candle
+            mixture contains both the wax and the fragrance oil.
           </p>
 
-          <h3 className="mt-8 text-2xl font-bold text-slate-950">
-            Soy Wax Calculator
-          </h3>
+          <div className="mt-5 rounded-2xl bg-indigo-50 p-5">
 
-          <p className="mt-4 leading-8 text-slate-600">
-            You can use this calculator as a starting point for soy wax and
-            other candle waxes, but actual wax density can vary between
-            products. Always test with your specific wax and container before
-            making a larger batch.
+            <h3 className="font-bold text-indigo-800">
+              Fragrance Load Formula
+            </h3>
+
+            <p className="mt-3 leading-7 text-indigo-700">
+              Fragrance Oil = Wax Weight × (Fragrance Load ÷ 100)
+            </p>
+
+            <p className="mt-3 text-sm leading-6 text-indigo-700">
+              Example: 200 grams of wax at a 10% fragrance load requires
+              20 grams of fragrance oil.
+            </p>
+
+          </div>
+
+          <h2 className="mt-10 text-3xl font-bold tracking-tight text-slate-950">
+            How Much Wax Do You Need for Different Jar Sizes?
+          </h2>
+
+          <p className="mt-5 leading-8 text-slate-600">
+            The amount of wax required depends on the usable volume of
+            your container and the density of the wax mixture. A larger
+            jar generally needs more candle mixture than a smaller one.
+            Use the calculator above to estimate the ingredients for
+            your own container.
+          </p>
+
+          <div className="mt-6 overflow-x-auto rounded-2xl border border-slate-200">
+
+            <table className="w-full min-w-[400px] text-left text-sm">
+
+              <thead className="bg-slate-50 text-slate-700">
+
+                <tr>
+                  <th className="p-4 font-semibold">Container Volume</th>
+                  <th className="p-4 font-semibold">Estimated Total Fill</th>
+                </tr>
+
+              </thead>
+
+              <tbody className="divide-y divide-slate-200 text-slate-600">
+
+                <tr>
+                  <td className="p-4">100 ml</td>
+                  <td className="p-4">86 g</td>
+                </tr>
+
+                <tr>
+                  <td className="p-4">200 ml</td>
+                  <td className="p-4">172 g</td>
+                </tr>
+
+                <tr>
+                  <td className="p-4">300 ml</td>
+                  <td className="p-4">258 g</td>
+                </tr>
+
+                <tr>
+                  <td className="p-4">400 ml</td>
+                  <td className="p-4">344 g</td>
+                </tr>
+
+                <tr>
+                  <td className="p-4">500 ml</td>
+                  <td className="p-4">430 g</td>
+                </tr>
+
+              </tbody>
+
+            </table>
+
+          </div>
+
+          <p className="mt-3 text-xs leading-6 text-slate-500">
+            These examples use an estimated density of 0.86 g/ml and
+            represent total fill weight, not wax-only weight.
+          </p>
+
+          <h2 className="mt-10 text-3xl font-bold tracking-tight text-slate-950">
+            Soy Wax Calculator
+          </h2>
+
+          <p className="mt-5 leading-8 text-slate-600">
+            You can use this calculator as a starting point for soy wax
+            and other candle waxes. However, different wax products can
+            have different densities and pouring characteristics. For
+            accurate production quantities, measure the actual fill
+            weight of your specific wax and container.
+          </p>
+
+          <h2 className="mt-10 text-3xl font-bold tracking-tight text-slate-950">
+            Why Is Wax Density Important?
+          </h2>
+
+          <p className="mt-5 leading-8 text-slate-600">
+            Container volume is measured in milliliters, while wax and
+            fragrance are normally measured by weight in grams or ounces.
+            Density helps convert a volume measurement into an estimated
+            weight. Since wax products differ, a measured value from
+            your own candle-making tests can improve the estimate.
           </p>
 
           <h2 className="mt-10 text-3xl font-bold tracking-tight text-slate-950">
@@ -322,62 +542,122 @@ function CandleWaxCalculator() {
           <div className="mt-6 space-y-4">
 
             <details className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+
               <summary className="cursor-pointer font-semibold text-slate-900">
                 How much wax do I need for a candle jar?
               </summary>
 
               <p className="mt-3 leading-7 text-slate-600">
-                The amount depends on the size of the container and the density
-                of the wax. Enter the container volume in the calculator to
-                get an estimated amount.
+                It depends on the usable volume of your container and
+                the density of your wax. Enter your container size and
+                estimated density in the calculator to get an estimated
+                total fill weight.
               </p>
+
             </details>
 
             <details className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+
               <summary className="cursor-pointer font-semibold text-slate-900">
                 Can I calculate candle wax in grams?
               </summary>
 
               <p className="mt-3 leading-7 text-slate-600">
-                Yes. The calculator gives estimated wax, fragrance and total
-                batch weights in grams and ounces.
+                Yes. This calculator displays estimated wax, fragrance
+                oil and total fill weight in grams and ounces.
               </p>
+
             </details>
 
             <details className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+
+              <summary className="cursor-pointer font-semibold text-slate-900">
+                How much fragrance oil should I add to candle wax?
+              </summary>
+
+              <p className="mt-3 leading-7 text-slate-600">
+                Fragrance oil is calculated using the fragrance load
+                percentage and wax weight. For example, a 10% load
+                requires 10 grams of fragrance oil for every 100 grams
+                of wax. Always follow the wax manufacturer's and
+                fragrance supplier's recommended limits.
+              </p>
+
+            </details>
+
+            <details className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+
               <summary className="cursor-pointer font-semibold text-slate-900">
                 Is the candle wax calculation exact?
               </summary>
 
               <p className="mt-3 leading-7 text-slate-600">
-                It is an estimate because wax density differs between products.
-                For production, test your actual wax and container and use
-                measured fill weights.
+                No. It is an estimate because wax density and usable
+                container fill can vary. Measure your own wax and
+                container to get more accurate production quantities.
               </p>
+
+            </details>
+
+            <details className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+
+              <summary className="cursor-pointer font-semibold text-slate-900">
+                Can I use this as a soy wax calculator?
+              </summary>
+
+              <p className="mt-3 leading-7 text-slate-600">
+                Yes. You can use it for soy wax as a starting estimate.
+                Adjust the density using a measured value for your
+                particular soy wax product whenever possible.
+              </p>
+
+            </details>
+
+            <details className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+
+              <summary className="cursor-pointer font-semibold text-slate-900">
+                What is a 10% fragrance load?
+              </summary>
+
+              <p className="mt-3 leading-7 text-slate-600">
+                A 10% fragrance load means adding 10 grams of fragrance
+                oil for every 100 grams of wax. It is calculated from
+                wax weight rather than total candle mixture weight.
+              </p>
+
             </details>
 
           </div>
 
+          {/* Related Blog */}
+
+          <div className="mt-10 rounded-2xl border border-indigo-100 bg-indigo-50 p-6">
+
+            <h2 className="text-xl font-bold text-slate-900">
+              How Do You Calculate Candle Wax and Fragrance?
+            </h2>
+
+            <p className="mt-2 leading-7 text-slate-600">
+              Learn how to calculate candle wax and fragrance amounts
+              for jars, containers and candle batches with practical
+              examples.
+            </p>
+
+            <Link
+              to="/blog/candle-wax-fragrance-calculation"
+              className="mt-4 inline-flex rounded-xl bg-indigo-600 px-5 py-3 font-semibold text-white transition hover:bg-indigo-700"
+            >
+              Read the Candle Wax Guide →
+            </Link>
+
+          </div>
+
         </article>
-<div className="mt-8 rounded-2xl border border-indigo-100 bg-indigo-50 p-6">
-  <h2 className="text-xl font-bold text-slate-900">
-    How Do You Calculate Candle Wax and Fragrance?
-  </h2>
 
-  <p className="mt-2 leading-7 text-slate-600">
-    Learn how to calculate candle wax and fragrance amounts for jars,
-    containers, and candle batches.
-  </p>
-
-  <Link
-    to="/blog/candle-wax-fragrance-calculation"
-    className="mt-4 inline-flex rounded-xl bg-indigo-600 px-5 py-3 font-semibold text-white transition hover:bg-indigo-700"
-  >
-    Read the Candle Wax Guide →
-  </Link>
-</div>
       </main>
-<RelatedCraftTools />
+
+      <RelatedCraftTools />
+
       <Footer />
 
     </div>
